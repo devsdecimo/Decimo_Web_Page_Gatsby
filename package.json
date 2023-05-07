@@ -1,0 +1,50 @@
+{
+  "name": "decimo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "decimo",
+  "author": "ThonnyCR",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "build-lambda": "netlify-lambda build lambda"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.11.0",
+    "axios": "^1.4.0",
+    "babel-plugin-styled-components": "^2.0.7",
+    "bootstrap": "^5.2.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "emailjs": "^4.0.1",
+    "emailjs-com": "^3.2.0",
+    "express": "^4.18.2",
+    "gatsby": "^5.7.0",
+    "gatsby-plugin-image": "^3.7.0",
+    "gatsby-plugin-mailchimp": "^5.2.2",
+    "gatsby-plugin-manifest": "^5.7.0",
+    "gatsby-plugin-sharp": "^5.7.0",
+    "gatsby-plugin-sitemap": "^6.7.0",
+    "gatsby-plugin-styled-components": "^6.7.0",
+    "gatsby-plugin-webfonts": "^2.3.2",
+    "gatsby-source-drupal": "^6.7.1",
+    "gatsby-source-filesystem": "^5.7.0",
+    "gatsby-transformer-remark": "^6.7.0",
+    "gatsby-transformer-sharp": "^5.7.0",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "path-browserify": "^1.0.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
+    "react-hook-form": "^7.43.9",
+    "react-icons": "^4.8.0",
+    "react-scroll": "^1.8.9",
+    "styled-components": "^5.3.8",
+    "sweetalert2": "^11.7.3"
+  }
+}
