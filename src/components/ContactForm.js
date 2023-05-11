@@ -5,7 +5,6 @@ import { Link } from 'gatsby';
 import Swal from 'sweetalert2';
 import '../assets/css/sweetalert2-custom.css';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
-import emailjs from 'emailjs-com';
 
 
 //Query del nodo sobre el formulario de contacto
@@ -37,11 +36,6 @@ function ContactForm () {
     const messageLabelInput = useStaticQuery(query).allNodeContactForm.nodes[0].field_message_label;
     const buttonText = useStaticQuery(query).allNodeContactForm.nodes[0].field_button_form;
 
-    //Variables que se declaran para poder manejar el formulario de contacto
-    const EMAILJS_PUBLIC_KEY = process.env.GATSBY_EMAILJS_PUBLIC_KEY;
-    const EMAILJS_SERVICE_ID = process.env.GATSBY_EMAILJS_SERVICE_ID;
-    const EMAILJS_TEMPLATE_ID = process.env.GATSBY_EMAILJS_TEMPLATE_ID;
-
     //Variables o atributos que se declaran para poder manejar el formulario de contacto
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
@@ -72,75 +66,49 @@ function ContactForm () {
   }, [name, email, message, checkbox]);
 
 
-  //Funcion para enviar el form usando mailchimp y emailJS
+  //Funcion para poder enviar el formulario de contacto con mailchimp 
   async function handleSubmit(event) {
     event.preventDefault();
-
-    if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
-      console.error("Error: EmailJS variables de entorno no configuradas correctamente.");
-    }
-    else{
-      console.log("bien")
-    }
-
+  
     if (!checkbox) {
       setError(true);
       return;
     }
-
-    const emailJSParams = {
-      from_name: name,
-      from_email: email,
-      message: message,
-      timestamp: timestamp,
-    };
   
-      console.log("simon");
-    emailjs
-      .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailJSParams, EMAILJS_PUBLIC_KEY)
-      .then(
-        async (response) => {
-          console.log('success!', response);
+    const result = await addToMailchimp(email, {
+      NAME: name,
+      MESSAGE: message,
+      TIMESTAMP: timestamp,
+    }, {
+      allow_duplicates: true,
+    });
   
-          const result = await addToMailchimp(email, {
-            FNAME: name,
-            MESSAGE: message,
-            TIMESTAMP: timestamp,
-          }, {
-            allow_duplicates: true,
-          });
-  
-          if (result.result === 'success') {
-            setSuccess(true);
-            setName('');
-            setEmail('');
-            setMessage('');
-            setCheckbox(false);
-            setError(false);
-            Swal.fire({
-              icon: 'success',
-              title: 'Success',
-              text: 'Your message has been sent successfully',
-            });
-          } else {
-            setError(true);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'There was an error sending your message',
-            });
-          }
-        },
-        (error) => {
-          console.log('error!', error);
-          setError(true);
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'There was an error sending your message',
-          });
-        }
-      );
+    if (result.result === 'success') {
+      setSuccess(true);
+      setName('');
+      setEmail('');
+      setMessage('');
+      setCheckbox(false);
+      setError(false);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Submitted form',
+        text: "Your form has been sent successfully, we'll get in touch soon!",
+        showConfirmButton: false,
+        timer:3000
+      });
+      window.setTimeout(function(){ 
+        window.location.reload();
+      } ,3000);
+    } else {
+      setError(true);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'There was an error sending the form. Please try again',
+      });
+    }
   }
 
   return (
@@ -163,7 +131,7 @@ function ContactForm () {
           <div className="checkbox-container">
             <input className="checkbox-style" id="checkbox" value={checkbox} type="checkbox"  onChange={handleCheckboxChange}  required></input>
             <label for="checkbox" className="checkbox-text-style">
-              I agree to <Link to='/privacy-policy' className="privacy-link-style">Privacy Policy</Link> and <Link className="terms-link-style">Terms of Use</Link>
+              I agree to <Link to='/privacy-policy' className="privacy-link-style">Privacy Policy</Link> and <Link to='/privacy-policy' className="terms-link-style">Terms of Use</Link>
             </label>
           </div>
           <button type="submit" value="Send" className="button-style">{buttonText}</button>
@@ -197,7 +165,6 @@ const Wrapper = styled.div`
   //Estilo de los titulos de los inputs
   .name-text-style{
     display:flex;
-    flex-direction:column;
     gap:4px;
     font-style:normal;
     font-size:16px;
@@ -210,12 +177,14 @@ const Wrapper = styled.div`
     display:flex;
     flex-direction:column;
     margin-top: 25px;
+    font-weight: 500;
   }
 
   .message-text-style{
     display:flex;
     flex-direction:column;
     margin-top: 25px;
+    font-weight: 500;
   }
 
   //Estilo de los inputs
@@ -226,7 +195,7 @@ const Wrapper = styled.div`
     height:48px;
     border: 1px solid #E7EAEE;
     transition: border .7s ;
-    padding-left: 10px;
+    padding-left:14px;
     &:focus {
         outline: none;
         border-color: #339999;
@@ -237,6 +206,10 @@ const Wrapper = styled.div`
       font-weight: 400;
       font-style:normal;
       letter-spacing: -0.09px;
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='18' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.00022 15.6389C3.78126 15.6389 0.361328 12.2189 0.361328 7.99997C0.361328 3.78101 3.78126 0.361084 8.00022 0.361084C12.2192 0.361084 15.6391 3.78101 15.6391 7.99997C15.6391 12.2189 12.2192 15.6389 8.00022 15.6389ZM8.00022 14.1111C9.62099 14.1111 11.1754 13.4672 12.3214 12.3212C13.4675 11.1751 14.1113 9.62074 14.1113 7.99997C14.1113 6.37921 13.4675 4.82482 12.3214 3.67876C11.1754 2.53271 9.62099 1.88886 8.00022 1.88886C6.37945 1.88886 4.82506 2.53271 3.67901 3.67876C2.53295 4.82482 1.88911 6.37921 1.88911 7.99997C1.88911 9.62074 2.53295 11.1751 3.67901 12.3212C4.82506 13.4672 6.37945 14.1111 8.00022 14.1111ZM4.18077 7.99997H5.70855C5.70855 8.60776 5.94999 9.19066 6.37976 9.62043C6.80953 10.0502 7.39243 10.2916 8.00022 10.2916C8.608 10.2916 9.1909 10.0502 9.62067 9.62043C10.0504 9.19066 10.2919 8.60776 10.2919 7.99997H11.8197C11.8197 9.01295 11.4173 9.98444 10.701 10.7007C9.98469 11.417 9.0132 11.8194 8.00022 11.8194C6.98724 11.8194 6.01575 11.417 5.29946 10.7007C4.58318 9.98444 4.18077 9.01295 4.18077 7.99997Z' fill='%23ACB4C3'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      transform: translate(0.5%,0%);
+      padding-left: 25px;
     }
   }
 
@@ -246,7 +219,7 @@ const Wrapper = styled.div`
     height:48px;
     border: 1px solid #E7EAEE;
     transition: border .7s ;
-    padding-left: 10px;
+    padding-left: 14px;
     &:focus {
         outline: none;
         border-color: #339999;
@@ -254,6 +227,10 @@ const Wrapper = styled.div`
     ::placeholder{
       color:#ACB4C3;
       font-size: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='20' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.12522 0.125H14.8752C15.0778 0.125 15.2721 0.205481 15.4154 0.348738C15.5586 0.491995 15.6391 0.686293 15.6391 0.888889V13.1111C15.6391 13.3137 15.5586 13.508 15.4154 13.6513C15.2721 13.7945 15.0778 13.875 14.8752 13.875H1.12522C0.922621 13.875 0.728323 13.7945 0.585066 13.6513C0.441809 13.508 0.361328 13.3137 0.361328 13.1111V0.888889C0.361328 0.686293 0.441809 0.491995 0.585066 0.348738C0.728323 0.205481 0.922621 0.125 1.12522 0.125ZM14.1113 3.36236L8.05522 8.78597L1.88911 3.34556V12.3472H14.1113V3.36236ZM2.27945 1.65278L8.04681 6.74181L13.7309 1.65278H2.27945Z' fill='%23ACB4C3'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      transform: translate(0.5%,0%);
+      padding-left: 25px;
     }
   }
 
@@ -264,7 +241,7 @@ const Wrapper = styled.div`
     height:105px;
     border: 1px solid #E7EAEE;
     transition: border .7s ;
-    padding: 13px 13px;
+    padding: 14px 14px;
     &:focus {
         outline: none;
         border-color: #339999;
@@ -272,6 +249,9 @@ const Wrapper = styled.div`
     ::placeholder{
       color:#ACB4C3;
       font-size: 16px;
+      padding-left: 0.2em;
+      padding-top: 2px;
+      transform: translate(0%, -6%);
     }
   }
 
@@ -285,6 +265,7 @@ const Wrapper = styled.div`
     color: #586174;
     font-style: normal;
     font-size: 16px;
+    font-weight: 400;
   }
 
   .checkbox-style{
@@ -309,12 +290,14 @@ const Wrapper = styled.div`
 
   .checkbox-container input:checked + label:before{
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='white' height='13' viewBox='0 60 885 960' width='13'%3e%3cpath d='M395 803 194 601l83-83 118 117 288-287 83 84-371 371Z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
     background-color: #339999;
     border-color: #339999;
   }
 
   .checkbox-container:hover input + ::before{
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='gray' height='13' viewBox='0 60 885 960' width='13'%3e%3cpath d='M395 803 194 601l83-83 118 117 288-287 83 84-371 371Z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
   }
 
   .checkbox-container:hover input:checked + label:before{
@@ -327,10 +310,13 @@ const Wrapper = styled.div`
   .privacy-link-style{
     color: #3C4353;
     font-style: bold;
+    font-weight: 600;
   }
 
   .terms-link-style{
-    color: black;
+    color: #3C4353;
+    font-style: bold;
+    font-weight: 600;
   }
 
   //Estilo del boton
@@ -490,6 +476,7 @@ const Wrapper = styled.div`
     .name-input-style, .email-input-style{
       height: 35px;
       width: 290px;
+      padding-left: 10px;
     }
 
     .message-input-style{
@@ -498,10 +485,15 @@ const Wrapper = styled.div`
 
     .name-input-style::placeholder{
       font-size: 13px;
+      background-image: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.00022 15.6389C3.78126 15.6389 0.361328 12.2189 0.361328 7.99997C0.361328 3.78101 3.78126 0.361084 8.00022 0.361084C12.2192 0.361084 15.6391 3.78101 15.6391 7.99997C15.6391 12.2189 12.2192 15.6389 8.00022 15.6389ZM8.00022 14.1111C9.62099 14.1111 11.1754 13.4672 12.3214 12.3212C13.4675 11.1751 14.1113 9.62074 14.1113 7.99997C14.1113 6.37921 13.4675 4.82482 12.3214 3.67876C11.1754 2.53271 9.62099 1.88886 8.00022 1.88886C6.37945 1.88886 4.82506 2.53271 3.67901 3.67876C2.53295 4.82482 1.88911 6.37921 1.88911 7.99997C1.88911 9.62074 2.53295 11.1751 3.67901 12.3212C4.82506 13.4672 6.37945 14.1111 8.00022 14.1111ZM4.18077 7.99997H5.70855C5.70855 8.60776 5.94999 9.19066 6.37976 9.62043C6.80953 10.0502 7.39243 10.2916 8.00022 10.2916C8.608 10.2916 9.1909 10.0502 9.62067 9.62043C10.0504 9.19066 10.2919 8.60776 10.2919 7.99997H11.8197C11.8197 9.01295 11.4173 9.98444 10.701 10.7007C9.98469 11.417 9.0132 11.8194 8.00022 11.8194C6.98724 11.8194 6.01575 11.417 5.29946 10.7007C4.58318 9.98444 4.18077 9.01295 4.18077 7.99997Z' fill='%23ACB4C3'/%3E%3C/svg%3E");
+      padding-left: 24px;
+      transform: translate(1%,-1%);
     }
 
     .email-input-style::placeholder{
       font-size: 13px;
+      background-image: url("data:image/svg+xml,%3Csvg width='14' height='17' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.12522 0.125H14.8752C15.0778 0.125 15.2721 0.205481 15.4154 0.348738C15.5586 0.491995 15.6391 0.686293 15.6391 0.888889V13.1111C15.6391 13.3137 15.5586 13.508 15.4154 13.6513C15.2721 13.7945 15.0778 13.875 14.8752 13.875H1.12522C0.922621 13.875 0.728323 13.7945 0.585066 13.6513C0.441809 13.508 0.361328 13.3137 0.361328 13.1111V0.888889C0.361328 0.686293 0.441809 0.491995 0.585066 0.348738C0.728323 0.205481 0.922621 0.125 1.12522 0.125ZM14.1113 3.36236L8.05522 8.78597L1.88911 3.34556V12.3472H14.1113V3.36236ZM2.27945 1.65278L8.04681 6.74181L13.7309 1.65278H2.27945Z' fill='%23ACB4C3'/%3E%3C/svg%3E");
+      transform: translate(1%,-1%);
     }
 
     .message-input-style::placeholder{

@@ -1,7 +1,9 @@
 import { graphql,useStaticQuery } from 'gatsby';
-import React, { useState} from 'react'
+import React, { useState, useEffect} from 'react'
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import addToMailchimp from 'gatsby-plugin-mailchimp';
+import Swal from 'sweetalert2';
 
 //Query del nodo sobre el formulario de contacto
 export const query = graphql`
@@ -40,6 +42,7 @@ function FormBlogPage(){
     const [checkbox,setCheckbox] = useState(false);
     const [success,setSuccess] = useState(false);
     const [error, setError] = useState(false);
+    const [timestamp, setTimestamp] = useState('');
 
     function handleNameChange(event){
         setName(event.target.value);
@@ -57,35 +60,54 @@ function FormBlogPage(){
         setCheckbox(event.target.value);
     }
 
-    function handleSubmit(event){
+    useEffect(() => {
+        setTimestamp(new Date().toISOString());
+    }, [name, email, message, checkbox]);
 
+
+    //Funcion para poder enviar el formulario de contacto con mailchimp 
+    async function handleSubmit(event) {
         event.preventDefault();
-
-        const formData = {
-            "webform_id": "contact",
-            "name": name,
-            "email": email,
-            "message": message,
-            "checkbox": checkbox
-        };
-        fetch('https://dev-decimo-pantheon.pantheonsite.io/webform_rest/submit', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            "Authorization": "Basic " + btoa(process.env.GATSBY_DRUPAL_USERNAME + ":" + process.env.GATSBY_DRUPAL_PASSWORD)
-        },
-        body: JSON.stringify(formData),
-        })
-        .then((response)=>{
-            if(response.ok) {
-                setSuccess(true);
-            } else {
-                setError(true);
-            }
-        })
-        .catch((error) => {
-            setError(true);
+    
+        if (!checkbox) {
+        setError(true);
+        return;
+        }
+    
+        const result = await addToMailchimp(email, {
+        NAME: name,
+        MESSAGE: message,
+        TIMESTAMP: timestamp,
+        }, {
+        allow_duplicates: true,
         });
+    
+        if (result.result === 'success') {
+        setSuccess(true);
+        setName('');
+        setEmail('');
+        setMessage('');
+        setCheckbox(false);
+        setError(false);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Submitted form',
+            text: "Your form has been sent successfully, we'll get in touch soon!",
+            showConfirmButton: false,
+            timer:3000
+        });
+        window.setTimeout(function(){ 
+            window.location.reload();
+        } ,3000);
+        } else {
+        setError(true);
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'There was an error sending the form. Please try again',
+        });
+        }
     }
 
     return (
@@ -97,25 +119,23 @@ function FormBlogPage(){
                     <form className="form-container" onSubmit={handleSubmit}>
                         <div>
                             <p className="name-text-style">{nameSubtitleForm}</p>
-                            <input className="name-input-style" type="text" value={name} onChange={handleNameChange} placeholder={nameLabelInput}/>
+                            <input className="name-input-style" type="text" value={name} onChange={handleNameChange} placeholder={nameLabelInput} required/>
                         </div>
                         <div>
                             <p className="email-text-style">{emailSubtitleForm}</p>
-                            <input className="email-input-style" type="email" value={email} onChange={handleEmailChange} placeholder={emailLabelInput}/>
+                            <input className="email-input-style" type="email" value={email} onChange={handleEmailChange} placeholder={emailLabelInput} required/>
                         </div>
                         <div>
                             <p className="message-text-style">{messageSubtitleForm}</p>
-                            <textarea className="message-input-style" type="text" value={message} onChange={handleMessageChange} placeholder={messageLabelInput}/>
+                            <textarea className="message-input-style" type="text" value={message} onChange={handleMessageChange} placeholder={messageLabelInput} required/>
                         </div>
                         <div className="checkbox-container">
-                            <input className="checkbox-style" type="checkbox" value={checkbox} onChange={handleCheckboxChange} id="checkbox" />
+                            <input className="checkbox-style" type="checkbox" value={checkbox} onChange={handleCheckboxChange} id="checkbox" required/>
                             <label for="checkbox" className="checkbox-text-style">
-                            I agree to <Link to='/privacy-policy' className="privacy-link-style">Privacy Policy</Link> and <Link className="terms-link-style">Terms of Use</Link>
+                            I agree to <Link to='/privacy-policy' className="privacy-link-style">Privacy Policy</Link> and <Link to='/privacy-policy' className="terms-link-style">Terms of Use</Link>
                             </label>
                         </div>
                         <button type="submit" className="button-style">{buttonText}</button>
-                        {success && <p>Form submitted susccessfully!</p>}
-                        {error && <p>Error</p>}
                     </form>
                 </div>
             </div>
@@ -214,16 +234,21 @@ export const StyleForm = styled.div`
         transition: border .7s ;
         color: white;
         background-color: rgba(255, 255, 255, 0.2);
+        padding-left: 14px;
         &:focus {
             outline: none;
             border-color: #FF9933;
         }
         ::placeholder{
-            color:#ACB4C3;
+            color: #FFFFFF;
             font-size: 16px;
             font-weight: 400;
             font-style:normal;
             letter-spacing: -0.09px;
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='18' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 15.9484C3.78105 15.9484 0.361115 12.5285 0.361115 8.30954C0.361115 4.09058 3.78105 0.670654 8 0.670654C12.219 0.670654 15.6389 4.09058 15.6389 8.30954C15.6389 12.5285 12.219 15.9484 8 15.9484ZM8 14.4207C9.62077 14.4207 11.1752 13.7768 12.3212 12.6308C13.4673 11.4847 14.1111 9.93031 14.1111 8.30954C14.1111 6.68878 13.4673 5.13439 12.3212 3.98834C11.1752 2.84228 9.62077 2.19843 8 2.19843C6.37924 2.19843 4.82485 2.84228 3.6788 3.98834C2.53274 5.13439 1.88889 6.68878 1.88889 8.30954C1.88889 9.93031 2.53274 11.4847 3.6788 12.6308C4.82485 13.7768 6.37924 14.4207 8 14.4207ZM4.18056 8.30954H5.70834C5.70834 8.91733 5.94978 9.50023 6.37955 9.93C6.80932 10.3598 7.39222 10.6012 8 10.6012C8.60779 10.6012 9.19069 10.3598 9.62046 9.93C10.0502 9.50023 10.2917 8.91733 10.2917 8.30954H11.8194C11.8194 9.32252 11.417 10.294 10.7008 11.0103C9.98447 11.7266 9.01298 12.129 8 12.129C6.98702 12.129 6.01553 11.7266 5.29925 11.0103C4.58296 10.294 4.18056 9.32252 4.18056 8.30954Z' fill='white'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            transform: translate(0.5%,0%);
+            padding-left: 25px;
         }
     }
 
@@ -237,13 +262,18 @@ export const StyleForm = styled.div`
         transition: border .7s ;
         color: white;
         background-color: rgba(255, 255, 255, 0.2);
+        padding-left: 14px;
         &:focus {
             outline: none;
             border-color: #FF9933;
         }
         ::placeholder{
-            color:#ACB4C3;
+            color:#FFFFFF;
             font-size: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='20' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.125 0.744141H14.875C15.0776 0.744141 15.2719 0.824622 15.4152 0.967878C15.5584 1.11114 15.6389 1.30543 15.6389 1.50803V13.7303C15.6389 13.9328 15.5584 14.1271 15.4152 14.2704C15.2719 14.4137 15.0776 14.4941 14.875 14.4941H1.125C0.922407 14.4941 0.728109 14.4137 0.584852 14.2704C0.441595 14.1271 0.361115 13.9328 0.361115 13.7303V1.50803C0.361115 1.30543 0.441595 1.11114 0.584852 0.967878C0.728109 0.824622 0.922407 0.744141 1.125 0.744141ZM14.1111 3.9815L8.055 9.40511L1.88889 3.9647V12.9664H14.1111V3.9815ZM2.27924 2.27192L8.0466 7.36095L13.7307 2.27192H2.27924Z' fill='white'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            transform: translate(0.5%,0%);
+            padding-left: 25px;
         }
     }
 
@@ -255,7 +285,7 @@ export const StyleForm = styled.div`
         height:105px;
         border: 1px solid #E7EAEE;
         transition: border .7s ;
-        padding: 13px 13px;
+        padding: 13px 14px;
         color: white;
         background-color: rgba(255, 255, 255, 0.2);
         &:focus {
@@ -263,8 +293,9 @@ export const StyleForm = styled.div`
             border-color: #FF9933;
         }
         ::placeholder{
-            color:#ACB4C3;
+            color:#FFFFFF;
             font-size: 16px;
+            padding-left: 0.2em;
         }
     }
 
@@ -282,7 +313,7 @@ export const StyleForm = styled.div`
     //Estilo del checkbox
 
     .checkbox-container{
-        margin-top: 24px;
+        margin-top: 10px;
     }
 
     .checkbox-text-style{
@@ -338,8 +369,8 @@ export const StyleForm = styled.div`
         border-radius:88px;
         height:50px;
         border:none;
-        margin-top: 24px;
-        margin-bottom: 100px;
+        margin-top: 50px;
+        margin-bottom: 130px;
         cursor:pointer;
 
         //font button style
