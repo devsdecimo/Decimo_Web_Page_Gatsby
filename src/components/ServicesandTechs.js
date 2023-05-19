@@ -65,7 +65,7 @@ const ServicesandTechs = (props) => {
 const Wrapper = styled.div`
 .services-header{
   width: 50%;
-  margin: 80px auto 0px auto;
+  margin: 100px auto 0px auto;
   text-align: center;
   color: #000B28;
 }
@@ -74,6 +74,9 @@ const Wrapper = styled.div`
 } 
 .services-header p{
   font-weight: 400px !important;
+  color: rgba(0, 11, 40, 0.6);
+  width: 420px;
+  margin: 10px auto 0px auto;
 }
 .services-body{
   width: 100%;
@@ -84,20 +87,20 @@ const Wrapper = styled.div`
 .cards-container{
   display:grid;
   grid-template-columns: repeat(3 ,1fr);
-  gap: 80px;
-  margin: 100px auto;
+  column-gap: 100px;
+  row-gap: 30px;
+  margin: 50px auto 100px auto;
 }
 .service-card{
   transition: 0.2s;
-  width: 320px;
+  width: 350px;
   height: 320px;
   display: inline-block;
 }
 .service-card:hover{
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 250px 15px rgba(0, 0, 0, 0.2);
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-    /* border-top:5px; */
     border-top-style: solid;
     border-image-source: linear-gradient(
       89.63deg,
@@ -110,6 +113,8 @@ const Wrapper = styled.div`
 .service-card-container{
   /* border: 1px solid #e7eaee; */
   height: 100%;
+  margin: 20px auto 0px auto;
+  width: 90%;
 }
 .service-card-container:hover{
   border-left: 0;
@@ -119,24 +124,26 @@ const Wrapper = styled.div`
 }
 .card-icon-container{
   width: 100px;
-  height: 100px;
+  height: 85px;
   border-radius: 100%;
   /* overflow: hidden; */
   /* position: absolute; */
-  margin: 20px auto 5px 0px;
+  /* margin: 20px auto 5px 0px; */
 }
 .card-icon{
   width: 100%;
   height: auto;
+  margin-left: 25px;
 }
 
 .card-title {
   font-size: 25px;
   color: #000B28;
-  margin: 0px auto 10px 20px;
+  margin: 0px auto 0px 50px;
 }
 .text-container{
-  margin: 20px auto auto 20px;
+  width: 80%;
+  margin: 15px 0px auto 50px;
 }
 .card-subtitle{
   font-size: 16px;
@@ -144,7 +151,7 @@ const Wrapper = styled.div`
   color: #000B28;
 }
 .card-body{
-  margin-top: 30px;
+  margin-top: 40px;
   font-size: 16px;
 }
 

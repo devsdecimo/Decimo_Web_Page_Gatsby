@@ -106,9 +106,9 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <ReactLink to= "solutions" className="menu-link" spy={true} smooth={true} duration={100} offset={-100}>
+                <a href= "https://decimoempleo.com/" className="menu-link" target='_blank'>
                   {items[4]}
-                </ReactLink>
+                </a>
               </li>
               <li className="nav-item">
               <Link
@@ -170,9 +170,9 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <ReactLink to= "solutions" className="menu-link" spy={true} smooth={true} duration={100} offset={-100}>
+              <a href= "https://decimoempleo.com/" className="menu-link" target='_blank'>
                   {items[4]}
-                </ReactLink>
+                </a>
               </li>
               <li className="nav-item">
               <Link
