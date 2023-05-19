@@ -26,7 +26,7 @@ const BlogPage = ({ data, pageContext }) => {
         <main>
           {/* header */}
           <section className="blog-header">
-            <h2>{title}</h2>
+            <h1>{title}</h1>
             <p className="blog-subtitle">{subtitle}</p>
           </section>
           {/* Blogs */}
@@ -135,6 +135,14 @@ export const query = graphql`
 `;
 
 const Wrapper = styled.div`
+  h1 {
+    font-weight: 700;
+    font-size: 47px;
+    line-height: 57px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    margin-bottom: 0px;
+  }
   .blog-body {
     width: 100%;
   }
@@ -147,15 +155,21 @@ const Wrapper = styled.div`
 
   .blog-subtitle {
     color: rgba(0, 11, 40, 0.6);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 320px));
     grid-auto-rows: minmax(320px, auto);
-    justify-items: center;
+    justify-content: center;
     max-width: 1270px;
-    gap: 40px;
+    row-gap: 57px;
+    column-gap: 90px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -266,6 +280,15 @@ const Wrapper = styled.div`
     font-size: 16px;
     line-height: 150%;
     text-align: center;
+  }
+  @media (max-width: 576px) {
+    h1 {
+      font-size: 25px;
+    }
+    .blog-subtitle {
+      font-size: 14px;
+      width: 193px;
+    }
   }
 `;
 
