@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
 const PaginationBlog = ({ currentPage, numPages }) => {
   const [visiblePages, setVisiblePages] = useState([]);
-  const next = '>';
-  const prev = '<';
+  const next = ">";
+  const prev = "<";
 
   useEffect(() => {
     const generateVisiblePages = () => {
@@ -13,13 +13,13 @@ const PaginationBlog = ({ currentPage, numPages }) => {
       const startPage = Math.max(1, currentPage - 2);
       const endPage = Math.min(numPages, currentPage + 2);
       if (startPage > 2 && currentPage !== 1) {
-        pages.push('...');
+        pages.push("...");
       }
       for (let i = startPage; i <= endPage; i++) {
         pages.push(i);
       }
       if (endPage + 1 < numPages && currentPage !== numPages) {
-        pages.push('...');
+        pages.push("...");
       }
 
       setVisiblePages(pages);
@@ -30,59 +30,63 @@ const PaginationBlog = ({ currentPage, numPages }) => {
 
   return (
     <Wrapper>
-        <nav className='blog-navigation-container'>
-        <ul className="pagination">
+      <nav className="blog-navigation-container">
+        {numPages !== 1 && (
+          <ul className="pagination">
             {currentPage > 1 && (
               <li>
-                <Link to={`/blog/${currentPage === 2 ? "" : currentPage - 1}`}>{prev}</Link>
-            </li>
+                <Link to={`/blog/${currentPage === 2 ? "" : currentPage - 1}`}>
+                  {prev}
+                </Link>
+              </li>
             )}
 
             {currentPage > 3 && (
-                <li>
-                    <Link to={`/blog/`}>{currentPage === 2 ? "" : 1}</Link>
-                </li>
+              <li>
+                <Link to={`/blog/`}>{currentPage === 2 ? "" : 1}</Link>
+              </li>
             )}
 
             {visiblePages.map((page, index) => (
-            <li key={index}>
-                {typeof page === 'number' ? (
-                <Link to={`/blog/${page === 1 ? "" : page}`} className={page === currentPage ? 'active' : ''}>
+              <li key={index}>
+                {typeof page === "number" ? (
+                  <Link
+                    to={`/blog/${page === 1 ? "" : page}`}
+                    className={page === currentPage ? "active" : ""}
+                  >
                     {page}
-                </Link>
+                  </Link>
                 ) : (
-                    <span>{page}</span>
+                  <span>{page}</span>
                 )}
-            </li>
+              </li>
             ))}
 
-            {currentPage < numPages  - 2 && (
-            <li>
+            {currentPage < numPages - 2 && (
+              <li>
                 <Link to={`/blog/${numPages}`}>{numPages}</Link>
-            </li>
+              </li>
             )}
 
             {currentPage < numPages && (
-                <li>
-                    <Link to={`/blog/${currentPage + 1}`}>
-                      {next}
-                    </Link>
-                </li>
+              <li>
+                <Link to={`/blog/${currentPage + 1}`}>{next}</Link>
+              </li>
             )}
-
-        </ul>
-        </nav>
+          </ul>
+        )}
+      </nav>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-.active{
+  .active {
     color: #ff9933 !important;
-}
+  }
 
-.blog-navigation-container a {
-    color:black;
+  .blog-navigation-container a {
+    color: black;
   }
 
   .blog-navigation-container a:hover {
@@ -105,7 +109,7 @@ const Wrapper = styled.div`
     padding: 10px;
     font-size: 16px;
   }
-  span{
+  span {
     /* float: left; */
     /* text-align: center; */
     display: block;
@@ -113,5 +117,5 @@ const Wrapper = styled.div`
     padding: 13px;
     font-size: 16px;
   }
-`
+`;
 export default PaginationBlog;
