@@ -102,6 +102,10 @@ const Wrapper = styled.div`
         line-height: 24px;
         padding-left: 20px;
         letter-spacing: -0.02em;
+
+        ::placeholder{
+            color: #cdcfd4;
+        }
     }
 
     .subsButton{
