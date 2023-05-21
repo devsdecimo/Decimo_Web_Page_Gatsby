@@ -237,15 +237,17 @@ const Wrapper = styled.div`
   .posts-link p {
     display: inline-block;
     color: black;
+    padding-top: 20px;
   }
   .newsletter{
     margin-top: -10px;
+    
   }
   .newsletter-text {
-    padding-top: 40px;
+    margin-top: -40.5px;
     font-family: 'Cabin';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 150%;
     text-align: center;

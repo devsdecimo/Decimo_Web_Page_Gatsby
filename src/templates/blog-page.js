@@ -137,7 +137,7 @@ export const query = graphql`
 const Wrapper = styled.div`
   h1 {
     font-weight: 700;
-    font-size: 47px;
+    font-size: 40px;
     line-height: 57px;
     text-align: center;
     letter-spacing: -0.02em;
@@ -274,9 +274,9 @@ const Wrapper = styled.div`
   }
   .newsletter-text {
     padding-top: 40px;
-    font-family: "Avenir LT Std";
+    font-family: 'Cabin';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 150%;
     text-align: center;
