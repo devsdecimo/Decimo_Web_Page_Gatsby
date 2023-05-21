@@ -102,13 +102,14 @@ const Wrapper = styled.div`
 
     //Estilos del titulo se trae por props
     .props-title-style{
-        margin-top:100px;
-        margin-bottom:45px;
-        font-size:40px;
+        margin-top:20px;
+        margin-bottom:60px;
+        font-size:47px;
         max-width:1400px;
         align-items:center;
         margin-left:auto;
         margin-right:auto;
+        font-weight: 700;
     }
 
     //Estilo de las palabras con colores gradient
