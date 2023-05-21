@@ -274,9 +274,9 @@ const Wrapper = styled.div`
   }
   .newsletter-text {
     padding-top: 40px;
-    font-family: "Avenir LT Std";
+    font-family: 'Cabin';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 150%;
     text-align: center;
