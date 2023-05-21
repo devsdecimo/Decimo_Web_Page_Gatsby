@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -27,45 +27,23 @@ export const query = graphql`
 const Navbar = (props) => {
   const [clicked, setClicked] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
-  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const handleClick = () => {
     setClicked(!clicked);
     setShowOverlay(!showOverlay);
   };
 
-  // useEffect(() => {
-    
-  //   const handleResize = () => {
-  //     setWindowWidth(window.innerWidth);
-  //   };
-  
-  //   window.addEventListener("resize", handleResize);
-  
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   if (windowWidth > 1350 && clicked) {
-  //     setClicked(false);
-  //     setShowOverlay(false);
-  //   }
-  // }, [windowWidth, clicked, props]);
-
   const data = useStaticQuery(query);
   const items = data.allNodeNavbar.nodes[0].field_navbaritems;
   const image = getImage(
     data.allNodeNavbar.nodes[0].relationships.field_navbarimage.localFile
   );
-  const isHomePage = () =>{
-    return typeof window !== 'undefined' && window.location.pathname === '/';
-  }
-  if(isHomePage()){
+  const isHomePage = () => {
+    return typeof window !== "undefined" && window.location.pathname === "/";
+  };
+  if (isHomePage()) {
     return (
       <Wrapper>
-        
         <header className="navbar">
           {/* img */}
           <div className="nav-logo">
@@ -73,15 +51,14 @@ const Navbar = (props) => {
               <GatsbyImage image={image} alt="Decimo logo" className="logo" />
             </Link>
           </div>
-  
+
           {/* items */}
           <nav className="nav-items">
-            
             <ul className={`nav-menu ${clicked ? "active" : ""}`}>
               <li className={`nav-item btn-fatimes`}>
                 <span className="btn-fatimes-cursor">
                   <IconContext.Provider value={{ size: 25, color: "white" }}>
-                      <FaTimes onClick={handleClick} />
+                    <FaTimes onClick={handleClick} />
                   </IconContext.Provider>
                 </span>
               </li>
@@ -91,12 +68,26 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <ReactLink to= "solutions" className="menu-link" spy={false} smooth={true} duration={100} offset={-100}>
+                <ReactLink
+                  to="solutions"
+                  className="menu-link"
+                  spy={false}
+                  smooth={true}
+                  duration={100}
+                  offset={-100}
+                >
                   {items[1]}
                 </ReactLink>
               </li>
               <li className="nav-item">
-                <ReactLink to= "aboutus" className="menu-link" spy={false} smooth={true} duration={100} offset={-100}>
+                <ReactLink
+                  to="aboutus"
+                  className="menu-link"
+                  spy={false}
+                  smooth={true}
+                  duration={100}
+                  offset={-100}
+                >
                   {items[2]}
                 </ReactLink>
               </li>
@@ -106,40 +97,63 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <ReactLink to= "solutions" className="menu-link" spy={true} smooth={true} duration={100} offset={-100}>
+                <ReactLink
+                  to="solutions"
+                  className="menu-link"
+                  spy={true}
+                  smooth={true}
+                  duration={100}
+                  offset={-100}
+                >
                   {items[4]}
                 </ReactLink>
               </li>
-              <li className="nav-item">
-              <Link
-                    to="/contact-page"
-                    onClick={handleClick}
-                  >
-                <button className="btn-contact"> 
-                    {items[5]}
-                </button>
+              <li className="nav-item btn-contact">
+                <Link
+                  to="/contact-page"
+                  onClick={handleClick}
+                  className="menu-link btn-content"
+                >
+                  {items[5]}
                 </Link>
               </li>
-              <li className="nav-space"></li>
+              <div className="nav-space"></div>
             </ul>
-            
           </nav>
-  
+
           <div className="hamburger" onClick={handleClick}>
-            <IconContext.Provider value={{ size: 25 }}>
-              <span>
-                <FaBars />
-              </span>
-            </IconContext.Provider>
+            <svg
+              width="20"
+              height="15"
+              viewBox="0 0 20 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect y="4" width="19.8" height="2.2" rx="1.1" fill="#000B28" />
+              <rect
+                y="8.3999"
+                width="19.8"
+                height="2.2"
+                rx="1.1"
+                fill="#000B28"
+              />
+              <rect width="19.8" height="2.2" rx="1.1" fill="#000B28" />
+              <rect
+                y="12.8"
+                width="19.8"
+                height="2.2"
+                rx="1.1"
+                fill="#000B28"
+              />
+            </svg>
           </div>
         </header>
-        <div className={`overlay ${!showOverlay ? '' : 'active'}`}></div>
+        <div className={`overlay ${!showOverlay ? "" : "active"}`}></div>
       </Wrapper>
     );
-  } else{
-     return (
+  } else {
+    return (
       <Wrapper>
-        
         <header className="navbar">
           {/* img */}
           <div className="nav-logo">
@@ -147,15 +161,14 @@ const Navbar = (props) => {
               <GatsbyImage image={image} alt="Decimo logo" className="logo" />
             </Link>
           </div>
-  
+
           {/* items */}
           <nav className="nav-items">
-            
             <ul className={`nav-menu ${clicked ? "active" : ""}`}>
               <li className={`nav-item btn-fatimes hidden`}>
                 <span className="btn-fatimes-cursor">
                   <IconContext.Provider value={{ size: 25, color: "white" }}>
-                      <FaTimes onClick={handleClick} />
+                    <FaTimes onClick={handleClick} />
                   </IconContext.Provider>
                 </span>
               </li>
@@ -170,41 +183,67 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <ReactLink to= "solutions" className="menu-link" spy={true} smooth={true} duration={100} offset={-100}>
+                <ReactLink
+                  to="solutions"
+                  className="menu-link"
+                  spy={true}
+                  smooth={true}
+                  duration={100}
+                  offset={-100}
+                >
                   {items[4]}
                 </ReactLink>
               </li>
-              <li className="nav-item">
-              <Link
-                    to="/contact-page"
-                    className="menu-link"
-                    onClick={handleClick}
-                  >
-                <button className="btn-contact">
-                    {items[5]}  
-                </button>
+              <li className="nav-item btn-contact">
+                <Link
+                  to="/contact-page"
+                  className="menu-link btn-content"
+                  onClick={handleClick}
+                >
+                  {items[5]}
                 </Link>
               </li>
-              <li className="nav-space"></li>
+              <div className="nav-space"></div>
             </ul>
-            
           </nav>
-  
+
           <div className="hamburger hidden" onClick={handleClick}>
-            <IconContext.Provider value={{ size: 25 }}>
-              <span>
-                <FaBars />
-              </span>
-            </IconContext.Provider>
+            <svg
+              width="20"
+              height="15"
+              viewBox="0 0 20 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect y="4" width="19.8" height="2.2" rx="1.1" fill="#000B28" />
+              <rect
+                y="8.3999"
+                width="19.8"
+                height="2.2"
+                rx="1.1"
+                fill="#000B28"
+              />
+              <rect width="19.8" height="2.2" rx="1.1" fill="#000B28" />
+              <rect
+                y="12.8"
+                width="19.8"
+                height="2.2"
+                rx="1.1"
+                fill="#000B28"
+              />
+            </svg>
           </div>
         </header>
-        <div className={`overlay ${!showOverlay ? '' : 'active'}`}></div>
+        <div className={`overlay ${!showOverlay ? "" : "active"}`}></div>
       </Wrapper>
     );
-  } 
+  }
 };
 
 const Wrapper = styled.section`
+  ul {
+    padding-left: 0rem;
+  }
   .hidden {
     display: none !important;
   }
@@ -216,20 +255,31 @@ const Wrapper = styled.section`
     min-height: 70px;
     display: flex;
     align-items: center;
-    padding: 45px 126px;
+    padding: 45px 0px;
+    max-width: 1190px;
+    margin: 0 auto;
   }
 
   .nav-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px;
   }
 
   .nav-items {
     display: flex;
     justify-content: end;
     gap: 49px;
+  }
+
+  .nav-item {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+  }
+  .nav-item:not(:nth-last-child(2)) {
+    margin-right: 40px;
   }
 
   .nav-logo {
@@ -241,11 +291,22 @@ const Wrapper = styled.section`
     color: black;
     text-decoration: none;
     transition: 0.4s ease;
+    height: 100%;
+    width: 100%;
+  }
+
+  .btn-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-item.btn-contact {
+    margin-left: 46px;
   }
 
   .menu-link:hover {
     color: #1b7e7e;
-    cursor:pointer;
   }
 
   .btn-contact {
@@ -255,25 +316,25 @@ const Wrapper = styled.section`
     background-color: #ff9933;
     border: none;
     transition: 0.4s ease;
-    color: white;
     font-size: 16px;
+    text-align: center;
+    cursor: pointer;
   }
 
-  .btn-contact .menu-link {
-    color: white !important;
+  .btn-contact a {
+    color: white;
     font-size: 16px;
     font-weight: bold;
   }
 
-  .btn-contact:hover .menu-link {
+  .btn-contact:hover a {
     color: #ff9933;
   }
-  
+
   .btn-contact:hover {
     background-color: white;
     transition: 0.3s;
     border: solid 1px #ff9933;
-    color: #ff9933;
   }
 
   .hamburger {
@@ -284,8 +345,8 @@ const Wrapper = styled.section`
     display: none;
   }
 
-  .btn-fatimes-cursor{
-    cursor:pointer;
+  .btn-fatimes-cursor {
+    cursor: pointer;
   }
 
   .hamburger-icon {
@@ -295,7 +356,7 @@ const Wrapper = styled.section`
   @media (max-width: 1350px) {
     .navbar {
       padding: 30px 50px;
-      border: 1px solid #E7EAEE;
+      max-width: 100%;
     }
 
     .hamburger {
@@ -316,8 +377,8 @@ const Wrapper = styled.section`
       background-color: #339999;
       width: 320px;
       text-align: right;
-      -webkit-transition: .5s ease;
-      transition: .5s ease;
+      -webkit-transition: 0.5s ease;
+      transition: 0.5s ease;
       height: 100%;
       z-index: 3;
     }
@@ -359,7 +420,7 @@ const Wrapper = styled.section`
     }
 
     .nav-menu .menu-link {
-      font-size: 24px;
+      font-size: 20px;
       color: white;
     }
 
@@ -379,8 +440,21 @@ const Wrapper = styled.section`
 
     .btn-contact .menu-link {
       color: white;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: normal;
+    }
+
+    .btn-content {
+      display: block;
+      padding-right: 35px;
+    }
+
+    .nav-item.btn-contact {
+      margin-left: 0px;
+    }
+
+    .nav-item:not(:nth-last-child(2)) {
+      margin-right: 0;
     }
 
     .btn-contact:hover {
