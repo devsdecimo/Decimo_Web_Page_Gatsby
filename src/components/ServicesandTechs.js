@@ -151,7 +151,7 @@ const Wrapper = styled.div`
   color: #000B28;
 }
 .card-body{
-  margin-top: 40px;
+  margin-top: 20px;
   font-size: 16px;
 }
 
@@ -168,6 +168,9 @@ const Wrapper = styled.div`
 @media only screen and (max-width: 500px){
   .services-header{
     width: 90%;
+  }
+  .services-header p{
+    width: 70%;
   }
 }
 `
