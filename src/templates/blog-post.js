@@ -265,7 +265,7 @@ const Wrapper = styled.div`
   }
 
   .blog-post-divisor-start {
-    border: 2px solid #000000;
+    border: 1px solid #000000;
   }
   .blog-post-divisor-end {
     background: linear-gradient(89.63deg, #339999 10.13%, #ff9933 90.06%);
