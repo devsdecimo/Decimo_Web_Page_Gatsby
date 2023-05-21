@@ -102,7 +102,7 @@ const Wrapper = styled.div`
 
     //Estilos del titulo se trae por props
     .props-title-style{
-        margin-top:20px;
+        margin-top:138px;
         margin-bottom:60px;
         font-size:47px;
         max-width:1400px;
