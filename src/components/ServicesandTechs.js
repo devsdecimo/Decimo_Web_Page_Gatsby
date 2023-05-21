@@ -169,6 +169,9 @@ const Wrapper = styled.div`
   .services-header{
     width: 90%;
   }
+  .services-header p{
+    width: 70%;
+  }
 }
 `
 
