@@ -40,7 +40,7 @@ const BlogPost = ({ data, pageContext }) => {
             />
           </div>
           <section className="blog-post-container">
-            <div className="blog-post-divisor-start"></div>
+            <hr className="blog-post-divisor-start" />
             <div className="blog-post-header">
               <div className="post-info">
                 <p className="post-info-autor">{display_name}</p>
@@ -265,7 +265,9 @@ const Wrapper = styled.div`
   }
 
   .blog-post-divisor-start {
-    border: 1px solid #000000;
+    height: 2px;
+    background: #000000 !important;
+    opacity: 200;
   }
   .blog-post-divisor-end {
     background: linear-gradient(89.63deg, #339999 10.13%, #ff9933 90.06%);
