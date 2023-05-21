@@ -65,9 +65,10 @@ const Wrapper = styled.div`
         width: 90%;
         background-color: white;
         height: auto;
-        margin: auto;
+        padding-bottom: 100px;
+        margin: 10px auto;
         border-radius: 30px;
-        transform: translate(0%, -15%);
+        transform: translate(0%, -10%);
         margin: 0px auto 60px auto;
     }
     .title-container{
@@ -76,22 +77,35 @@ const Wrapper = styled.div`
         text-align: center;
         padding-top: 80px;
     }
+    .title-container h2{
+      font-weight: 700;
+      font-size: 35px;
+    }
     .title-container p {
-        margin-top: 60px;
+        margin-top: 30px;
+        color: grey;
+        font-size: 20px;
       }
     .projects-container{
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 10px;
         width: 90%;
-        margin: auto;
+        margin:0px auto auto auto;
     }
+    /* .projects-container{
+      display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 90%;
+        margin:0px auto auto auto;
+    } */
     .img-cont{
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 80px auto;
-      min-width: 260px;
+      margin: 20px auto;
+      max-width: 150px;
     }
     @media only screen and (max-width: 1600px){
       .projects-container{
@@ -104,6 +118,9 @@ const Wrapper = styled.div`
       }
     }
     @media only screen and (max-width: 650px){
+      .projects {
+        padding-bottom: 20px;
+      }
       .title-container{
         width: 90%;
       }
@@ -113,11 +130,8 @@ const Wrapper = styled.div`
       .title-container p {
         font-weight: 600;
       }
-      .projects-container{
-        grid-template-columns: repeat(1, 1fr)
-      }
-      .img-container{
-        width: 100px !important;
+      .img-cont{
+        max-width: 100px !important;
       }
       .projects{
         transform: translate(0%, -2%);
