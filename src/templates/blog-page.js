@@ -137,7 +137,7 @@ export const query = graphql`
 const Wrapper = styled.div`
   h1 {
     font-weight: 700;
-    font-size: 47px;
+    font-size: 40px;
     line-height: 57px;
     text-align: center;
     letter-spacing: -0.02em;
