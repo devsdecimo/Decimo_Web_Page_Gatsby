@@ -115,8 +115,8 @@ function FormBlogPage(){
             <hr className="line-color"/>
             <div className="main-container">
                 <div className="second-container">
-                    <h2 className="main-title">{titleForm}</h2>
                     <form className="form-container" onSubmit={handleSubmit}>
+                        <h2 className="main-title">{titleForm}</h2>
                         <div>
                             <p className="name-text-style">{nameSubtitleForm}</p>
                             <input className="name-input-style" type="text" value={name} onChange={handleNameChange} placeholder={nameLabelInput} required/>
@@ -156,10 +156,16 @@ export const StyleForm = styled.div`
     }
 
     .main-container{
+        background-color: #000B28;
+    }
+
+    .second-container{
         margin-left: auto;
         margin-right: auto;
         display: flex;
         justify-content: center;
+        background: radial-gradient(25% 50% at 20% 110%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+        radial-gradient(35% 50% at 35% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
         background-color: #000B28;
     }
 
@@ -181,7 +187,7 @@ export const StyleForm = styled.div`
 
     .main-title{
         margin-top: 100px;
-        font-size: 43px;
+        font-size: 47px;
         font-style: normal;
         font-weight: 700;
         letter-spacing: -0.02em;
@@ -194,7 +200,7 @@ export const StyleForm = styled.div`
     .name-text-style{
         flex-direction:column;
         gap:4px;
-        font-style:normal;
+        font-style:bold;
         font-size:16px;
         font-weight: 500;
         color: #FFFFFF;
@@ -223,7 +229,7 @@ export const StyleForm = styled.div`
         font-weight: 500;
     }
 
-    //Estilos de los inputs //
+    /* Estilos de los inputs */
 
     //Estilos del input name
     .name-input-style{
@@ -250,6 +256,11 @@ export const StyleForm = styled.div`
             transform: translate(0.5%,0%);
             padding-left: 25px;
         }
+
+        //Ocultar el icono en Firefox
+        ::-moz-placeholder{
+            background: none;
+        }
     }
 
     //Estilos del input email
@@ -274,6 +285,11 @@ export const StyleForm = styled.div`
             background-repeat: no-repeat;
             transform: translate(0.5%,0%);
             padding-left: 25px;
+        }
+
+        //Ocultar el icono en Firefox
+        ::-moz-placeholder{
+            background: none;
         }
     }
 
@@ -391,6 +407,13 @@ export const StyleForm = styled.div`
 
     //Responsive del formulario de contacto
 
+    @media only screen and (max-width: 812px) {
+        .second-container{
+            background: radial-gradient(30% 50% at 10% 110%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+            radial-gradient(35% 50% at 35% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+        }
+    }
+
     @media only screen and (max-width: 685px){
 
         //Responsive de los titulos
@@ -444,6 +467,11 @@ export const StyleForm = styled.div`
         //Se ajusta el tamaño del boton
         .button-style{
             width: 295px;
+        }
+
+        .second-container{
+            background: radial-gradient(40% 50% at 10% 120%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+            radial-gradient(50% 50% at 40% 125%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
         }
     }
 
