@@ -36,7 +36,10 @@ const BlogPage = ({ data, pageContext }) => {
                 const {
                   title,
                   body: { value, summary },
-                  relationships: { field_header_image: image },
+                  relationships: {
+                    field_header_image: image,
+                    field_blog_post_tags: tags,
+                  },
                 } = post;
 
                 // const slug = slugify(title, { lower: true });
@@ -57,6 +60,17 @@ const BlogPage = ({ data, pageContext }) => {
                         <Link to={`/blog/${slug}`}>
                           <h5>{title}</h5>
                         </Link>
+                        <div className="tags-container">
+                          {tags &&
+                            tags.map((tag, tagIndex) => (
+                              <Link
+                                key={tagIndex}
+                                to={`/tag/${postSlug(tag.name)}`}
+                              >
+                                <span className="tag">{tag.name}</span>
+                              </Link>
+                            ))}
+                        </div>
                         <p>{summary}</p>
                       </div>
                     </div>
@@ -127,6 +141,9 @@ export const query = graphql`
                 )
               }
             }
+          }
+          field_blog_post_tags {
+            name
           }
         }
       }
@@ -214,6 +231,20 @@ const Wrapper = styled.div`
   .card-post-container {
     height: 100%;
     padding: 17px 16px;
+    .tags-container {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .tag {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+      padding-right: 5px;
+    }
   }
 
   .border-gradient {
@@ -234,23 +265,27 @@ const Wrapper = styled.div`
   .card-post-body h5 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     line-clamp: 2;
     overflow: hidden;
-    margin-top: 17px;
+    margin-top: 37px;
     font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
   }
 
   .card-post-body p {
+    margin-top: 17px;
     width: 100%;
     height: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    /* white-space: nowrap; */
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    font-weight: 500;
+    line-height: 150%;
   }
 
   .card-post-header {
@@ -274,7 +309,7 @@ const Wrapper = styled.div`
   }
   .newsletter-text {
     padding-top: 40px;
-    font-family: 'Cabin';
+    font-family: "Cabin";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
