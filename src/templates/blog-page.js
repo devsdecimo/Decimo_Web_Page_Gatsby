@@ -42,7 +42,6 @@ const BlogPage = ({ data, pageContext }) => {
                   },
                 } = post;
 
-                // const slug = slugify(title, { lower: true });
                 const slug = postSlug(title);
                 const cardImage = getImage(image.localFile.childImageSharp);
 
