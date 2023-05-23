@@ -159,6 +159,7 @@ const Wrapper = styled.div`
     letter-spacing: -0.02em;
     margin-bottom: 0px;
   }
+
   .blog-body {
     width: 100%;
   }

@@ -25,6 +25,9 @@ export const query = graphql`
               }
             }
           }
+          field_blog_post_tags {
+            name
+          }
         }
       }
     }
@@ -33,7 +36,7 @@ export const query = graphql`
 
 const HomeBlogPosts = (props) => {
   const data = useStaticQuery(query);
-  const posts = data.allNodeBlogPost.nodes
+  const posts = data.allNodeBlogPost.nodes;
   return (
     <Wrapper>
       <section className="blog-header">
@@ -47,11 +50,14 @@ const HomeBlogPosts = (props) => {
             const {
               title,
               body: { value, summary },
-              relationships: { field_header_image: image },
+              relationships: {
+                field_header_image: image,
+                field_blog_post_tags: tags,
+              },
             } = post;
 
             const main = { __html: value };
-            // const slug = slugify(title, { lower: true });
+
             const slug = postSlug(title);
             const cardImage = getImage(image.localFile.childImageSharp);
 
@@ -69,7 +75,17 @@ const HomeBlogPosts = (props) => {
                     <Link to={`/blog/${slug}`}>
                       <h5>{title}</h5>
                     </Link>
-                    {/* <p dangerouslySetInnerHTML={main} /> */}
+                    <div className="tags-container">
+                      {tags &&
+                        tags.map((tag, tagIndex) => (
+                          <Link
+                            key={tagIndex}
+                            to={`/tag/${postSlug(tag.name)}`}
+                          >
+                            <span className="tag">{tag.name}</span>
+                          </Link>
+                        ))}
+                    </div>
                     <p>{summary}</p>
                   </div>
                 </div>
@@ -77,14 +93,31 @@ const HomeBlogPosts = (props) => {
             );
           })}
         </div>
-        <div className='posts-link'>
-          <Link to='/blog'>
+        <div className="posts-link">
+          <Link to="/blog">
             <p>{props.link}</p>
             {/* icono en svg de la flecha  */}
-            <svg className='link-icon' width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24.9999 12.5C24.9999 5.59476 19.4051 0 12.4999 0C5.59464 0 -0.00012207 5.59476 -0.00012207 12.5C-0.00012207 19.4052 5.59464 25 12.4999 25C19.4051 25 24.9999 19.4052 24.9999 12.5ZM2.41923 12.5C2.41923 6.93044 6.93032 2.41935 12.4999 2.41935C18.0694 2.41935 22.5805 6.93044 22.5805 12.5C22.5805 18.0696 18.0694 22.5806 12.4999 22.5806C6.93032 22.5806 2.41923 18.0696 2.41923 12.5ZM6.04826 13.5081V11.4919C6.04826 11.1593 6.32044 10.8871 6.6531 10.8871H12.4999V7.51008C12.4999 6.97077 13.1501 6.70363 13.5331 7.08165L18.5231 12.0716C18.76 12.3085 18.76 12.6915 18.5231 12.9284L13.5331 17.9183C13.1501 18.3014 12.4999 18.0292 12.4999 17.4899V14.1129H6.6531C6.32044 14.1129 6.04826 13.8407 6.04826 13.5081Z" fill="url(#paint0_linear_156_515)" />
+            <svg
+              className="link-icon"
+              width="25"
+              height="25"
+              viewBox="0 0 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.9999 12.5C24.9999 5.59476 19.4051 0 12.4999 0C5.59464 0 -0.00012207 5.59476 -0.00012207 12.5C-0.00012207 19.4052 5.59464 25 12.4999 25C19.4051 25 24.9999 19.4052 24.9999 12.5ZM2.41923 12.5C2.41923 6.93044 6.93032 2.41935 12.4999 2.41935C18.0694 2.41935 22.5805 6.93044 22.5805 12.5C22.5805 18.0696 18.0694 22.5806 12.4999 22.5806C6.93032 22.5806 2.41923 18.0696 2.41923 12.5ZM6.04826 13.5081V11.4919C6.04826 11.1593 6.32044 10.8871 6.6531 10.8871H12.4999V7.51008C12.4999 6.97077 13.1501 6.70363 13.5331 7.08165L18.5231 12.0716C18.76 12.3085 18.76 12.6915 18.5231 12.9284L13.5331 17.9183C13.1501 18.3014 12.4999 18.0292 12.4999 17.4899V14.1129H6.6531C6.32044 14.1129 6.04826 13.8407 6.04826 13.5081Z"
+                fill="url(#paint0_linear_156_515)"
+              />
               <defs>
-                <linearGradient id="paint0_linear_156_515" x1="1.38521" y1="29.1129" x2="12.4888" y2="29.0415" gradientUnits="userSpaceOnUse">
+                <linearGradient
+                  id="paint0_linear_156_515"
+                  x1="1.38521"
+                  y1="29.1129"
+                  x2="12.4888"
+                  y2="29.0415"
+                  gradientUnits="userSpaceOnUse"
+                >
                   <stop stop-color="#339999" />
                   <stop offset="1" stop-color="#FF9933" />
                 </linearGradient>
@@ -93,7 +126,9 @@ const HomeBlogPosts = (props) => {
           </Link>
         </div>
         <Container>
-          <p className='newsletter-text'>Subscribe to our blog and get notified</p>
+          <p className="newsletter-text">
+            Subscribe to our blog and get notified
+          </p>
           <Row>
             <Col className="newsletter d-flex justify-content-center">
               <Newsletter />
@@ -102,10 +137,13 @@ const HomeBlogPosts = (props) => {
         </Container>
       </section>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
+  .card-post .card-post-body p {
+    font-size: 16px;
+  }
   .blog-body {
     width: 100%;
   }
@@ -113,7 +151,7 @@ const Wrapper = styled.div`
   .blog-header {
     text-align: center;
     margin-bottom: 75px;
-    margin-top:130px;
+    margin-top: 130px;
   }
 
   .blog-subtitle {
@@ -169,7 +207,6 @@ const Wrapper = styled.div`
   }
 
   .card-post-container {
-    /* border: 1px solid #E7EAEE; */
     height: 100%;
     padding: 17px 16px;
   }
@@ -199,29 +236,53 @@ const Wrapper = styled.div`
   .card-post-body h5 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 1;
+    line-clamp: 2;
     overflow: hidden;
-    margin-top: 17px;
+    margin-top: 37px;
     font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
   }
 
   .card-post-body p {
+    margin-top: 17px;
     width: 100%;
     height: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    /* white-space: nowrap; */
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    font-weight: 500;
+    line-height: 150%;
   }
 
   .card-post-header {
     height: 81px;
     border-radius: 25px;
   }
+
+  .card-post-container {
+    height: 100%;
+    padding: 17px 16px;
+    .tags-container {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .tag {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+      padding-right: 5px;
+    }
+  }
+
   .gatsby-image {
     width: 100%;
     height: 100%;
@@ -239,21 +300,20 @@ const Wrapper = styled.div`
     color: black;
     padding-top: 20px;
   }
-  .newsletter{
+  .newsletter {
     margin-top: -10px;
-    
   }
   .newsletter-text {
     margin-top: -40.5px;
-    font-family: 'Cabin';
+    font-family: "Cabin";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
     text-align: center;
   }
-  .link-icon{
+  .link-icon {
     margin: auto 10px;
   }
-`
-export default HomeBlogPosts
+`;
+export default HomeBlogPosts;

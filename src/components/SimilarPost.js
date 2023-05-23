@@ -43,6 +43,17 @@ const SimilarPost = ({ data }) => {
                     <Link to={`/blog/${slug}`}>
                       <h5>{title}</h5>
                     </Link>
+                    <div className="tags-container">
+                      {tags &&
+                        tags.map((tag, tagIndex) => (
+                          <Link
+                            key={tagIndex}
+                            to={`/tag/${postSlug(tag.name)}`}
+                          >
+                            <span className="tag">{tag.name}</span>
+                          </Link>
+                        ))}
+                    </div>
                     <p>{summary}</p>
                   </div>
                 </div>
@@ -56,6 +67,10 @@ const SimilarPost = ({ data }) => {
 };
 
 const Wrapper = styled.div`
+  .card-post .card-post-body p {
+    font-size: 16px;
+  }
+
   .similar-header {
     width: 100%;
     text-align: center;
@@ -82,10 +97,10 @@ const Wrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
+
   .card-post-header {
     height: 81px;
     border-radius: 25px;
-    text-align: center;
   }
 
   .gatsby-image {
@@ -93,9 +108,24 @@ const Wrapper = styled.div`
     height: 100%;
     border-radius: 12px;
   }
+
   .card-post-container {
     height: 100%;
     padding: 17px 16px;
+    .tags-container {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .tag {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+      padding-right: 5px;
+    }
   }
 
   .card-post {
@@ -147,23 +177,27 @@ const Wrapper = styled.div`
   .card-post-body h5 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     line-clamp: 2;
     overflow: hidden;
-    margin-top: 17px;
+    margin-top: 37px;
     font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
   }
 
   .card-post-body p {
+    margin-top: 17px;
     width: 100%;
     height: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    /* white-space: nowrap; */
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    font-weight: 500;
+    line-height: 150%;
   }
 `;
 
