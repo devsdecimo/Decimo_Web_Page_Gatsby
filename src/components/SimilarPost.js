@@ -65,6 +65,11 @@ const Wrapper = styled.div`
   }
   .similar-title {
     font-weight: 700;
+    margin-bottom: 95px;
+    font-size: 47px;
+    line-height: 57px;
+    text-align: center;
+    letter-spacing: -0.02em;
   }
 
   .cards-container {

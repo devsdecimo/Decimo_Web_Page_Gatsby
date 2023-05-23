@@ -7,6 +7,7 @@ import { SEO } from "../components/seo";
 import SimilarPost from "../components/SimilarPost";
 import { readingTime } from "../utils/readingTime";
 import { postSlug } from "../utils/slugExpression";
+import FormBlogPage from "../components/FormBlogPage";
 const slugify = require("slugify");
 
 const BlogPost = ({ data, pageContext }) => {
@@ -77,6 +78,7 @@ const BlogPost = ({ data, pageContext }) => {
           </section>
           <div className="blog-post-divisor-end"></div>
           <SimilarPost data={data.alias2.nodes} />
+          <FormBlogPage />
         </main>
       </Layout>
     </Wrapper>
@@ -157,8 +159,12 @@ export const query = graphql`
 `;
 
 const Wrapper = styled.div`
+  .line-color {
+    margin-top: 130px;
+  }
+
   .main {
-    padding-bottom: 500px;
+    margin-bottom: 130px;
   }
 
   h1 {
