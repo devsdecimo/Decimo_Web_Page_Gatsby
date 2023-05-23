@@ -202,7 +202,7 @@ export const StyleForm = styled.div`
 
     .main-title{
         margin-top: 100px;
-        font-size: 43px;
+        font-size: 47px;
         font-style: normal;
         font-weight: 700;
         letter-spacing: -0.02em;
