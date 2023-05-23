@@ -114,8 +114,8 @@ function FormHomePage (){
             <hr className="line-color"/>
             <div className="main-container">
                 <div className="second-container">
-                    <h2 className="main-title">{titleForm}</h2>
                     <form className="form-container" onSubmit={handleSubmit}>
+                        <h2 className="main-title">{titleForm}</h2>
                         <div>
                             <p className="name-text-style">{nameSubtitleForm}</p>
                             <input className="name-input-style" type="text" value={name} onChange={handleNameChange} placeholder={nameLabelInput} required/>

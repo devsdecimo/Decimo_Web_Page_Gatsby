@@ -31,7 +31,7 @@ const ContactPage = ({data = []}) => {
                                 {footerTitle}
                             </h3>
                         </div>
-                        {/* //Section #2 que contiene el formulario de contacto */}
+                        {/* Section #2 que contiene el formulario de contacto */}
                         <div className="section-2">
                             <ContactForm/>
                         </div>
@@ -50,12 +50,15 @@ const Wrapper = styled.div`
         display:flex;
         justify-content:center;
         margin-bottom: 100px;
+        background: radial-gradient(18% 27% at 23% 110%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+        radial-gradient(15% 33% at 40% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+        margin-top: 90px;
     }
 
     .contact-section{
         display:grid;
         grid-template-columns: auto 500px;
-        gap:40px;
+        gap: 120px;
     }
 
     .section-1{
@@ -63,7 +66,7 @@ const Wrapper = styled.div`
     }
 
     .section-2{
-        background: linear-gradient(180deg, #80CACB 0%, rgba(255, 204, 153, 0.47) 53.12%, rgba(246, 247, 249, 0) 100%, #F6F7F9 100%);
+        background: linear-gradient(180deg, #80CACB 0%, rgba(255, 204, 153, 0.47) 45.12%, rgba(246, 247, 249, 0) 100%, #F6F7F9 100%);
         border-radius: 250px 250px 0px 0px;
         position:relative;
         overflow:visible;
@@ -74,7 +77,7 @@ const Wrapper = styled.div`
         font-size: 17px;
         font-style: normal;
         color:#000B28;
-        line-height: 17px;
+        line-height: 16px;
         font-weight:700;
         margin-bottom: 20px;
         height: 16px;
@@ -94,8 +97,8 @@ const Wrapper = styled.div`
 
     .footer-title-style{
         font-style:normal;
-        font-size:13px;
-        max-width: 200px;
+        font-size:16px;
+        max-width: 235px;
         margin-top: 30px;
         height: 72px;
         font-weight: 600;
@@ -115,24 +118,16 @@ const Wrapper = styled.div`
 
     //Responsive del ContactPage
 
-    /* @media only screen and (max-width: 1400px){
-        .contact-section{
-            grid-template-columns: auto;
-            margin: auto;
-        }
-
-        .section-2{
-            margin-top:50px;
-            max-width: 700px;
-        }
-
-    } */
-
     @media only screen and (max-width: 1200px){
         .contact-section{
             grid-template-columns: 1fr;
             margin: auto;
             width: 500px;
+        }
+
+        .contact-container{
+            background-image: none;
+            margin-top: 0px;
         }
     }
 

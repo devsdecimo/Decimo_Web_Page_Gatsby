@@ -144,7 +144,7 @@ function ContactForm () {
 const Wrapper = styled.div`
 
   .main-container{
-    transform: translate(25%, 25%)
+    transform: translate(25%, 17%)
   }
   
 
@@ -154,7 +154,7 @@ const Wrapper = styled.div`
   }
 
   .main-title{
-    margin-top: 50px;
+    margin-top: 58px;
     font-size: 43px;
     font-style: normal;
     font-weight: 700;
@@ -187,8 +187,9 @@ const Wrapper = styled.div`
     font-weight: 500;
   }
 
-  //Estilo de los inputs
+  /* Estilo de los inputs */
 
+  //Estilo para el input name
   .name-input-style{
     width:100%;
     border-radius: 6px;
@@ -211,8 +212,14 @@ const Wrapper = styled.div`
       transform: translate(0.5%,0%);
       padding-left: 25px;
     }
+
+    //Ocultar el icono en Firefox
+    ::-moz-placeholder{
+      background: none;
+    }
   }
 
+  //Estilo para el input email
   .email-input-style{
     width:100%;
     border-radius: 6px;
@@ -232,8 +239,14 @@ const Wrapper = styled.div`
       transform: translate(0.5%,0%);
       padding-left: 25px;
     }
+
+    //Ocultar el icono en Firefox
+    ::-moz-placeholder{
+      background: none;
+    }
   }
 
+  //Estilo para el input message
   .message-input-style{
     resize:none;
     width:100%;
