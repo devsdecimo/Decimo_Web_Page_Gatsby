@@ -75,7 +75,7 @@ const Wrapper = styled.div`
 .services-header p{
   font-weight: 400px !important;
   color: rgba(0, 11, 40, 0.6);
-  width: 420px;
+  width: 60%;
   margin: 10px auto 0px auto;
 }
 .services-body{
@@ -93,7 +93,7 @@ const Wrapper = styled.div`
 }
 .service-card{
   transition: 0.2s;
-  width: 350px;
+  width: 300px;
   height: 320px;
   display: inline-block;
 }
