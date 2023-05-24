@@ -66,8 +66,9 @@ const TeamMembers = (props) => {
                 {/* <div className='card-description'>
                   {member.field_team_member_description}
                 </div> */}
-                {/* iconos de la card (descartados) */}
+                {/* icono de la card */}
                 <div className='icons-container'>
+                  {/* version gatsby image (icono proveniente de Drupal) */}
                   <a href={member.field_linkedin_link.uri} target='_blank'>
                     <GatsbyImage
                       image={getImage(member.relationships.field_team_member_icons.localFile)}
@@ -75,6 +76,13 @@ const TeamMembers = (props) => {
                       className='card-icon'
                     />
                   </a>
+                  {/* version con el icono inline usando un svg */}
+                  {/* <a href={member.field_linkedin_link.uri} target='_blank'>
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="40" rx="4" fill="#F6F7F9" />
+                      <path d="M16.205 14.75C16.2048 15.1478 16.0465 15.5293 15.7651 15.8104C15.4836 16.0916 15.102 16.2494 14.7042 16.2492C14.3064 16.249 13.9249 16.0908 13.6438 15.8094C13.3626 15.5279 13.2048 15.1463 13.205 14.7485C13.2052 14.3507 13.3634 13.9692 13.6448 13.688C13.9263 13.4069 14.3079 13.249 14.7057 13.2492C15.1035 13.2494 15.485 13.4077 15.7661 13.6891C16.0473 13.9706 16.2052 14.3522 16.205 14.75ZM16.25 17.36H13.25V26.75H16.25V17.36ZM20.99 17.36H18.005V26.75H20.96V21.8225C20.96 19.0775 24.5375 18.8225 24.5375 21.8225V26.75H27.5V20.8025C27.5 16.175 22.205 16.3475 20.96 18.62L20.99 17.36Z" fill="#000B28" />
+                    </svg>
+                  </a> */}
                 </div>
 
               </div>
