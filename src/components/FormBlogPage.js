@@ -227,7 +227,6 @@ export const StyleForm = styled.div`
     border: none;
     margin: 0px;
     opacity: 200;
-    margin-top: 149px;
     margin-bottom: 0px;
   }
 

@@ -128,15 +128,19 @@ const Wrapper = styled.div`
         max-width:1400px;
         margin:auto;
         border-radius:16px;
-        border: 1px solid #E7EAEE;
         padding:60px;
         background-color:white;
+        box-shadow: 0px 0px 40px 0px rgba(57, 59, 106, 0.15);
+    }
+
+    .job-area{
+        font-size: 24px;
     }
 
     //Difuminado de colores en el background
     .background-gradient-color{
         //Color de abajo a la izquierda
-        background: //radial-gradient(20% 40% at 5% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+        background: radial-gradient(20% 40% at 5% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
         //Color de arriba a la derecha
         radial-gradient(20% 40% at 78% 40%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
         //Color de arriba en el centro
@@ -165,7 +169,7 @@ const Wrapper = styled.div`
     //Efecto hover de las Cards
     .card-section:hover{
         transition: all 0.2s ease-out;
-        box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+        box-shadow: 0px 48px 140px rgba(57, 59, 106, 0.15);
         top: -4px;
         background-color: white;
         cursor: pointer;
@@ -182,7 +186,7 @@ const Wrapper = styled.div`
         max-width: 750px;
         display:grid;
         grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-        grid-auto-rows: minmax(360px, auto);
+        /* grid-auto-rows: minmax(360px, auto); */
     }
 
     //Estilos de la seccion 2 que contiene el titulo, la descripcion asi como el boton
@@ -210,7 +214,7 @@ const Wrapper = styled.div`
 
     //Estilo para el slogan
     .slogan {
-        font-size:15px;
+        font-size:14px;
     }
 
     //Separacion del slogan y del area de trabajo
@@ -244,36 +248,37 @@ const Wrapper = styled.div`
         font-size:47px;
         font-style:normal;
         font-weight:700 !important;
-        line-height:8px !important;
+        line-height:8px ;
         margin-top:55px !important;
         margin-bottom: 50px !important;
     }
 
     //Estilo de la descripcion de la seccion #2
     .description-section2{
-        font-family: 'Avenir LT Std', sans-serif;
         font-size:16px;
         font-style:normal;
-        font-weight:400;
-        line-height: 30px !important;
+        font-weight:500;
+        line-height: 25px !important;
+        color: #586174;
     }
 
     //Estilo del boton
     .button-style{
         background-color: #339999;
         border-radius:88px;
-        width:180px;
-        height:60px;
+        width:153px;
+        height:47px;
         border:none;
         margin-top: 35px;
         cursor:pointer;
 
         //font button style
         font-style:normal;
-        font-weight:bold;
-        font-size:15px;
+        font-size:16px;
         color:white;
         border:solid 1px #339999;
+        font-weight: 700;
+        letter-spacing: -0.02em;
     }
 
     //Efecto hover del boton
@@ -293,7 +298,7 @@ const Wrapper = styled.div`
         .openpositions-container{
             display:grid;
             grid-template-columns:1fr;
-            max-width:1400px;
+            max-width:1100px;
             margin:auto;
             border-radius:16px;
             border: 1px solid #E7EAEE;
@@ -306,11 +311,69 @@ const Wrapper = styled.div`
 
         .section-2{
             text-align:center;
+            order: -1;
         }
 
         .section-1{
             margin-left:auto;
             margin-right:auto;
+            margin-top: 40px;
+        }
+
+        .background-gradient-color{
+            //Color de abajo a la izquierda
+            background: radial-gradient(20% 25% at 5% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+            //Color de arriba a la derecha
+            radial-gradient(20% 40% at 78% 40%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
+            //Color de arriba en el centro
+            radial-gradient(15% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%);
+            padding-bottom:150px;
+        }
+    }
+
+    @media only screen and (max-width: 1150px) {
+
+        .openpositions-container{
+            max-width:1000px;
+            display:grid;
+            grid-template-columns:1fr;
+            margin:auto;
+            border-radius:16px;
+            border: 1px solid #E7EAEE;
+            padding:60px;
+        }
+
+
+        .background-gradient-color{
+            //Color de abajo a la izquierda
+            background: radial-gradient(20% 25% at 5% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+            //Color de arriba a la derecha
+            radial-gradient(20% 40% at 80% 40%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
+            //Color de arriba en el centro
+            radial-gradient(40% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%);
+            padding-bottom:150px;
+        }
+    }
+
+    @media  only screen and (max-width: 1000px){
+        .openpositions-container{
+            max-width:850px;
+            display:grid;
+            grid-template-columns:1fr;
+            margin:auto;
+            border-radius:16px;
+            border: 1px solid #E7EAEE;
+            padding:60px;
+        }
+
+        .background-gradient-color{
+            //Color de abajo a la izquierda
+            background: radial-gradient(20% 25% at 5% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+            //Color de arriba a la derecha
+            radial-gradient(20% 40% at 80% 40%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
+            //Color de arriba en el centro
+            radial-gradient(40% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%);
+            padding-bottom:150px;
         }
     }
 
@@ -319,8 +382,10 @@ const Wrapper = styled.div`
 
         //Display block para reacomodar las columnas de las cards
         .openpositions-container{
-            display:block;
+            display:grid;
+            grid-template-columns:1fr;
             margin:auto;
+            max-width: 750px;
         }
 
         .card-section{
@@ -328,19 +393,50 @@ const Wrapper = styled.div`
             max-width: 380px;
         }
 
+        .section-1{
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
         .card-img{
             margin:auto;
             max-width: 300px;
             display:flex;
         }
 
+        .background-gradient-color{
+            //Color de abajo a la izquierda
+            background: radial-gradient(50% 40% at 95% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%);
+            padding-bottom:150px;
+        }
+
+        .section-1{
+            margin-top: 109px;
+        }
+    }
+
+    @media only screen and (max-width: 750px) {
+        .openpositions-container{
+            max-width: 500px;
+            /* margin: 10px; */
+        }
+
+        .background-gradient-color{
+            //Color de abajo a la derecha
+            background: radial-gradient(50% 40% at 95% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+            //Color de abajo a la izquierda
+            radial-gradient(50% 20% at 31% 82%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+            padding-bottom:150px;
+        }
     }
 
     //Ajuste del tamano de la fuente del titulo de las Cards
     @media only screen and (max-width: 550px){
         .title-style p{
             margin: 0 0 0 0;
-            font-size:35px;
+            font-size: 47px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
     }
 
@@ -348,13 +444,10 @@ const Wrapper = styled.div`
     @media only screen and (max-width: 525px){
         .card-section{
             margin:auto;
-            max-width: 300px;
         }
 
         .card-img{
-            margin:auto;
-            max-width: 220px;
-            display:flex;
+            display: none;
         }
     }
 
@@ -366,13 +459,32 @@ const Wrapper = styled.div`
             align-items:center;
             justify-content:center;
         }
+
+        .section-1{
+            margin-top: 100px;
+        }
+
+        .openpositions-container{
+            margin: 10px;
+        }
     }
 
     //Ajuste del tamano de la fuente del titulo de las Cards
     @media only screen and (max-width: 440px){
         .title-style p{
-            font-size:25px;
+            font-size:35px;
             line-height:0px !important;
+        }
+
+        .section-1{
+            margin-top: 100px;
+            max-width: 280px;
+        }
+
+        .openpositions-container{
+            padding: 0;
+            padding-bottom: 40px;
+            margin: 10px;
         }
     }
 
