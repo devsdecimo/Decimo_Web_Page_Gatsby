@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { StaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -7,6 +7,28 @@ import slugify from "slugify";
 import { postSlug } from "../utils/slugExpression";
 
 const SimilarPost = ({ data }) => {
+  const [numPost, setnumPost] = useState(6);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setnumPost(3);
+    } else {
+      setnumPost(6);
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setnumPost(3);
+      } else {
+        setnumPost(6);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <Wrapper>
       <div className="similar-header">
@@ -14,7 +36,7 @@ const SimilarPost = ({ data }) => {
       </div>
       <div className="similar-posts">
         <div className="cards-container">
-          {data.map((post, index) => {
+          {data.slice(0, numPost).map((post, index) => {
             const {
               title,
               body: { summary },

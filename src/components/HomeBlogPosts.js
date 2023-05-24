@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Link } from "gatsby";
 import styled from "styled-components";
@@ -35,6 +35,28 @@ export const query = graphql`
 `;
 
 const HomeBlogPosts = (props) => {
+  const [numPost, setnumPost] = useState(6);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setnumPost(3);
+    } else {
+      setnumPost(6);
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setnumPost(3);
+      } else {
+        setnumPost(6);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const data = useStaticQuery(query);
   const posts = data.allNodeBlogPost.nodes;
   return (
@@ -46,7 +68,7 @@ const HomeBlogPosts = (props) => {
       {/* Pagination */}
       <section className="blog-body">
         <div className="cards-container">
-          {posts.map((post, index) => {
+          {posts.slice(0, numPost).map((post, index) => {
             const {
               title,
               body: { value, summary },
