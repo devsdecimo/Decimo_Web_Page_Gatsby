@@ -151,6 +151,10 @@ export const query = graphql`
 `;
 
 const Wrapper = styled.div`
+  .newsletter-text {
+    padding: 0px !important;
+  }
+
   h1 {
     font-weight: 700;
     font-size: 47px;
@@ -159,14 +163,15 @@ const Wrapper = styled.div`
     letter-spacing: -0.02em;
     margin-bottom: 0px;
   }
+
   .blog-body {
     width: 100%;
   }
 
   .blog-header {
     text-align: center;
-    margin-bottom: 75px;
-    margin-top: 75px;
+    margin-bottom: 90px;
+    margin-top: 90px;
   }
 
   .blog-subtitle {
@@ -301,8 +306,9 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 75px 0 75px 0;
+    margin: 100px 0 100px 0;
   }
+
   .newsletter {
     margin-top: -20px;
   }
@@ -315,13 +321,28 @@ const Wrapper = styled.div`
     line-height: 150%;
     text-align: center;
   }
-  @media (max-width: 576px) {
-    h1 {
-      font-size: 25px;
+  @media (max-width: 768px) {
+    .blog-navigation {
+      margin-bottom: 50px;
     }
+
+    .blog-header {
+      margin-bottom: 50px;
+      margin-top: 50px;
+    }
+
+    .cards-container {
+      row-gap: 50px;
+    }
+  }
+  @media (max-width: 576px) {
     .blog-subtitle {
       font-size: 14px;
       width: 193px;
+    }
+
+    h1 {
+      font-size: 25px;
     }
   }
 `;

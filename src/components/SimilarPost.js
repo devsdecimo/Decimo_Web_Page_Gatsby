@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { StaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -7,6 +7,28 @@ import slugify from "slugify";
 import { postSlug } from "../utils/slugExpression";
 
 const SimilarPost = ({ data }) => {
+  const [numPost, setnumPost] = useState(6);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setnumPost(3);
+    } else {
+      setnumPost(6);
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setnumPost(3);
+      } else {
+        setnumPost(6);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <Wrapper>
       <div className="similar-header">
@@ -14,7 +36,7 @@ const SimilarPost = ({ data }) => {
       </div>
       <div className="similar-posts">
         <div className="cards-container">
-          {data.map((post, index) => {
+          {data.slice(0, numPost).map((post, index) => {
             const {
               title,
               body: { summary },
@@ -43,6 +65,17 @@ const SimilarPost = ({ data }) => {
                     <Link to={`/blog/${slug}`}>
                       <h5>{title}</h5>
                     </Link>
+                    <div className="tags-container">
+                      {tags &&
+                        tags.map((tag, tagIndex) => (
+                          <Link
+                            key={tagIndex}
+                            to={`/tag/${postSlug(tag.name)}`}
+                          >
+                            <span className="tag">{tag.name}</span>
+                          </Link>
+                        ))}
+                    </div>
                     <p>{summary}</p>
                   </div>
                 </div>
@@ -56,6 +89,10 @@ const SimilarPost = ({ data }) => {
 };
 
 const Wrapper = styled.div`
+  .card-post .card-post-body p {
+    font-size: 16px;
+  }
+
   .similar-header {
     width: 100%;
     text-align: center;
@@ -65,22 +102,28 @@ const Wrapper = styled.div`
   }
   .similar-title {
     font-weight: 700;
+    margin-bottom: 95px;
+    font-size: 47px;
+    line-height: 57px;
+    text-align: center;
+    letter-spacing: -0.02em;
   }
 
   .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 320px));
     grid-auto-rows: minmax(320px, auto);
-    justify-items: center;
+    justify-content: center;
     max-width: 1270px;
-    gap: 40px;
+    row-gap: 57px;
+    column-gap: 90px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .card-post-header {
     height: 81px;
     border-radius: 25px;
-    text-align: center;
   }
 
   .gatsby-image {
@@ -88,9 +131,24 @@ const Wrapper = styled.div`
     height: 100%;
     border-radius: 12px;
   }
+
   .card-post-container {
     height: 100%;
     padding: 17px 16px;
+    .tags-container {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .tag {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+      padding-right: 5px;
+    }
   }
 
   .card-post {
@@ -142,23 +200,38 @@ const Wrapper = styled.div`
   .card-post-body h5 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     line-clamp: 2;
     overflow: hidden;
-    margin-top: 17px;
+    margin-top: 37px;
     font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
   }
 
   .card-post-body p {
+    margin-top: 17px;
     width: 100%;
     height: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    /* white-space: nowrap; */
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    font-weight: 500;
+    line-height: 150%;
+  }
+  @media (max-width: 768px) {
+    .cards-container {
+      row-gap: 50px;
+    }
+
+    .similar-title {
+      font-size: 25px;
+      line-height: 30px;
+      margin-bottom: 80px;
+    }
   }
 `;
 
