@@ -114,7 +114,7 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
 }
 .carousel-title{
   margin: 100px auto 30px auto;
-  width: 600px;
+  width: auto;
   height: 43px;
   font-style: normal;
   letter-spacing: 0em;
@@ -230,7 +230,7 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     letter-spacing: -0.02em;
   }
   .carousel-indicators{
-    bottom: 0px;
+    bottom: -30px;
   }
   .author-info{
     display: flex;
@@ -249,6 +249,29 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     color: #339999;
     width: 160px;
   }
+  .carousel-title{
+    margin-top: 80px;
+    margin-bottom: 60px;
+  }
+}
+@media only screen and (max-width: 640px){
+  .carousel-title{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  .comment-text{
+    font-size: 10px !important;
+    line-height: 22px;
+    margin: 40px auto 10px auto;
+  }
+  .author-info{
+    padding-top: 30px;
+    text-align: center;
+  }
+  .carousel-indicators{
+  bottom: -100px;
+  }
 }
 
 @media only screen and (max-width: 590px){
@@ -256,17 +279,32 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     height: 700px !important;
   }
   .carousel-title{
-    width: 400px;
+    margin-top: 100px;
+    width: 450px;
     font-size: 25px;
   }
-  .carousel-subtitle{
-    width: 400px;
-    font-size: 20px;
+  .comment-text{
+    font-size: 10px !important;
+    line-height: 22px;
+    margin: 80px auto 10px auto;
+    margin-top: -30px;
+  }
+  .author-info{
+    padding-top: 40px;
+    text-align: center;
+  }
+  .carousel-indicators{
+    bottom: 0px;
   }
 
 }
 
   @media only screen and (max-width: 428px){
+    .carousel-title{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+  }
     .comment-text{
     font-size: 10px !important;
     line-height: 22px;
@@ -339,11 +377,60 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     color: #339999;
     font-size: 14px;
   }
+  .carousel-title{
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+}
+@media only screen and (max-width: 390px){
+  .comment-text{
+    font-size: 10px !important;
+    line-height: 22px;
+    margin: 80px auto 10px auto;
+    margin-top: -20px;
+    margin-bottom: 5px;
+  }
+  .comment-text p{
+    font-size: 20px !important;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+  .carousel-style{
+    height: 500px !important;
+  }
+  .carousel-indicators{
+  bottom: -210px;
+  }
+  .author-info{
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .author-name{
+    font-size: 18px;
+    color: #339999;
+  }
+  .author-line{
+    color: #339999;
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+  .charge{
+    color: #339999;
+    font-size: 14px;
+  }
+  .carousel-title{
+    margin-top: 60px;
+    margin-bottom: 80px;
+    text-align: center;
+    margin-left: -3px;
+  }
 }
 @media only screen and (max-width: 375px){
   .carousel-title{
     margin-top: 70px;
-    margin-left: -20px;
+    margin-left: -12px;
 }
   .comment-text{
     font-size: 10px !important;
@@ -383,11 +470,54 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     font-size: 13px;
   }
 }
-
-@media only screen and (max-width: 320px){
+@media only screen and (max-width: 360px){
   .carousel-title{
     margin-top: 70px;
-    margin-left: -40px;
+    margin-left: 20px;
+    margin-bottom: 60px;
+    width: 90%;
+}
+  .comment-text{
+    font-size: 10px !important;
+    line-height: 22px;
+    margin: 80px auto 10px auto;
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  .comment-text p{
+    font-size: 18px !important;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+  .carousel-style{
+    height: 500px !important;
+  }
+  .carousel-indicators{
+  bottom: -210px;
+  }
+  .author-info{
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .author-name{
+    font-size: 16px;
+    color: #339999;
+  }
+  .author-line{
+    color: #339999;
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+  .charge{
+    color: #339999;
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 320px){
+  .carousel-title{
+    margin-top: 40px;
 }
   .comment-text{
     font-size: 10px !important;

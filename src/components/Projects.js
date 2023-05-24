@@ -31,7 +31,7 @@ const Projects = (props) => {
         {/* titulo y subtitulo */}
         <div className='title-container'>
           <h2>{props.title}</h2>
-          <p>{props.subtitle}</p>
+          {/* <p>{props.subtitle}</p> */}
         </div>
         {/* contenedor de las imagenes */}
         <div className='projects-container'>
@@ -70,6 +70,7 @@ const Wrapper = styled.div`
         border-radius: 30px;
         transform: translate(0%, -10%);
         margin: 0px auto 60px auto;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
     .title-container{
         width: 50%;
@@ -86,26 +87,28 @@ const Wrapper = styled.div`
         color: grey;
         font-size: 20px;
       }
-    .projects-container{
+    /* .projects-container{
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 10px;
         width: 90%;
         margin:0px auto auto auto;
-    }
-    /* .projects-container{
+    } */
+    .projects-container{
       display: flex;
         flex-wrap: wrap;
         gap: 10px;
         width: 90%;
-        margin:0px auto auto auto;
-    } */
+        margin:80px auto auto auto;
+    }
     .img-cont{
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 20px auto;
       max-width: 150px;
+      max-height: 150px;
+      object-fit: contain;
     }
     @media only screen and (max-width: 1600px){
       .projects-container{
@@ -129,6 +132,11 @@ const Wrapper = styled.div`
       }
       .title-container p {
         font-weight: 600;
+      }
+      .projects-container{
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr)
       }
       .img-cont{
         max-width: 100px !important;

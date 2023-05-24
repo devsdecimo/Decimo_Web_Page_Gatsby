@@ -9,7 +9,9 @@ export const query = graphql`
     nodes {
       title
       field_team_member_charge
-      field_team_member_description
+      field_linkedin_link {
+        uri
+      }
       relationships {
         field_team_member_icons {
           localFile {
@@ -54,16 +56,27 @@ const TeamMembers = (props) => {
               {/* header de la card (nombre y cargo) */}
               <div className='perso-card-header'>
                 {/* nombre del miembro del team */}
-                <p className='card-name'>{member.title} <span className='card-sep'></span><span className='charge-text'>{member.field_team_member_charge}</span></p>
+                <p className='card-name'>{member.title} <span className='card-sep'></span></p>
               </div>
               <div className='card-line'></div>
+              <p className='charge-text'>{member.field_team_member_charge}</p>
               {/* footer de la card */}
               <div className='perso-card-footer'>
-                {/* descripcion de la card */}
-                <div className='card-description'>
+                {/* descripcion de la card, queda elimiado por acuerdos */}
+                {/* <div className='card-description'>
                   {member.field_team_member_description}
-                </div>
+                </div> */}
                 {/* iconos de la card (descartados) */}
+                <div className='icons-container'>
+                  <a href={member.field_linkedin_link.uri} target='_blank'>
+                    <GatsbyImage
+                      image={getImage(member.relationships.field_team_member_icons.localFile)}
+                      alt='Icon'
+                      className='card-icon'
+                    />
+                  </a>
+                </div>
+
               </div>
             </div>
           );
@@ -74,16 +87,16 @@ const TeamMembers = (props) => {
 }
 const Wrapper = styled.div`
 .members-title{
-  margin: 80px auto 20px auto;
+  margin: 100px auto 10px auto;
   width: 50%;
   text-align:center;
-  font-size: 40px;
+  font-size: 47px;
   font-weight: 700px !important;
 }
 .card-container{
-    width: 80%;
+    width: 60%;
     display: grid;
-    grid-gap: 20px;
+    grid-column-gap: 35px;
     grid-template-columns: repeat(3, 1fr);
     margin: 60px auto;
 }
@@ -121,14 +134,15 @@ const Wrapper = styled.div`
   transform: rotate(90deg);
   width: 12px;
   height: 0px;
+  margin-left: 12px;
 }
 .charge-text{
   background: linear-gradient(89.63deg, #339999 5.4%, #FF9933 49.53%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 24px;
+  line-height: 30px;
 }
 .card-description{
   width: 80%;
@@ -144,6 +158,10 @@ const Wrapper = styled.div`
   gap: 12px;
   width: 90px;
   height: 40px;
+}
+.card-icon{
+  max-height: 40px;
+  max-width: 40px;
 }
 
 .card-line{
