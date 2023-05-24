@@ -178,14 +178,10 @@ const Wrapper = styled.div`
   width: 300px;
 }
 
-@media only screen and (max-width: 1300px){
-  .card-container{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-  @media only screen and (max-width: 860px){
+@media only screen and (max-width: 1600px){
   .card-container{
     grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 20px;
   }
 }
 @media only screen and (max-width: 420px){
