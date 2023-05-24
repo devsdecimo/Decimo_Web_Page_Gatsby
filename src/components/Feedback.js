@@ -230,7 +230,7 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     letter-spacing: -0.02em;
   }
   .carousel-indicators{
-    bottom: -30px;
+    bottom: -40px;
   }
   .author-info{
     display: flex;
@@ -251,7 +251,10 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
   }
   .carousel-title{
     margin-top: 80px;
-    margin-bottom: 60px;
+    margin-bottom: 90px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (max-width: 640px){
@@ -259,6 +262,9 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     margin-top: 60px;
     margin-bottom: 60px;
     text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .comment-text{
     font-size: 10px !important;
@@ -280,8 +286,10 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
   }
   .carousel-title{
     margin-top: 100px;
-    width: 450px;
     font-size: 25px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .comment-text{
     font-size: 10px !important;
@@ -380,6 +388,9 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
   .carousel-title{
     margin-top: 60px;
     margin-bottom: 80px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (max-width: 390px){
@@ -421,16 +432,20 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     font-size: 14px;
   }
   .carousel-title{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 60px;
     margin-bottom: 80px;
     text-align: center;
-    margin-left: -3px;
   }
 }
 @media only screen and (max-width: 375px){
   .carousel-title{
     margin-top: 70px;
-    margin-left: -12px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
   .comment-text{
     font-size: 10px !important;
@@ -473,9 +488,10 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
 @media only screen and (max-width: 360px){
   .carousel-title{
     margin-top: 70px;
-    margin-left: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 60px;
-    width: 90%;
 }
   .comment-text{
     font-size: 10px !important;
@@ -518,6 +534,9 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
 @media only screen and (max-width: 320px){
   .carousel-title{
     margin-top: 40px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
   .comment-text{
     font-size: 10px !important;
