@@ -57,14 +57,16 @@ const AboutUs = () => {
                 {/* container del texto */}
                 <div className='aboutus-text-container'>
                     {/* titulo */}
-                    <h1 className='aboutus-title'>{data.title}</h1>
+                    <div className='about-title'>
+                    <h2 className='aboutus-title'>{data.title}</h2>
+                    </div>
                     {/* texto largo */}
                     <div>
                         <p className='aboutus-maintext'>{data.field_about_us_main_text}</p>
                     </div>
                     {/* autor */}
                     <div className='aboutus-author'>
-                        <div>{data.field_about_us_author_and_charge[0]} <span className='clear-text'>| {data.field_about_us_author_and_charge[1]}</span></div>
+                        <p className='about-name'>{data.field_about_us_author_and_charge[0]}</p><p className='about-line'>|</p><span className='clear-text'>{data.field_about_us_author_and_charge[1]}</span>
                     </div>
                     {/* iconos de redes sociales */}
                     <div className='icons-container'>
@@ -115,13 +117,22 @@ const AboutUs = () => {
 }
 
 const Wrapper = styled.div`
+#aboutus{
+    position: relative;
+}
 .clear-text{
     color: #ACB4C3;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.09px;
 }
 .aboutus-cont{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 50px 0px 0px 80px
+    margin: 50px 0px 0px 232px;
 }
 .section-1{
     width: 70%;
@@ -148,23 +159,54 @@ const Wrapper = styled.div`
     width: 800px;
 }
 .aboutus-title{
+    margin-left: 130px;
+    margin-top: 50px;
+    margin-bottom: -29px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 800;
     font-size: 47px;
-    font-weight: 500;
+    line-height: 57px;
+    letter-spacing: -0.02em;
 }
 .aboutus-maintext{
-    margin: 90px 0px 0px 0px;
-    font-size: 18px;
+    margin: 90px 0px -10px 130px !important;
     font-weight: 400;
+    width: 580px;
     line-height: 150%;
     height: 200px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+}
+.about-name{
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.015em; 
+}
+.about-line{
+    color: #ACB4C3;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+.aboutus-author{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 130px;
 }
 .icons-container{
-    margin: 100px 0px 0px 50px;
+    margin: 70px 0px 20px 120px ;
 }
 .aboutus-icon{
     width: 40px;
     height: 40px;
     margin: 10px;
+    margin-right: 2px;
 }
 
 
@@ -172,7 +214,7 @@ const Wrapper = styled.div`
 @media only screen and (max-width: 1830px){
     .aboutus-text-container{
     margin: 0px 50px 0px 0px;
-}
+    }
 }
 @media only screen and (max-width: 1600px){
     .aboutus-cont{
@@ -186,7 +228,6 @@ const Wrapper = styled.div`
     .aboutus-maintext, .aboutus-author, .aboutus-title{  
         text-align: center;
     }
-
     .icons-container{
         margin: 20px auto;
         display: flex;
@@ -197,6 +238,38 @@ const Wrapper = styled.div`
     .logo-cont, .section-1, .aboutus-text-container, .aboutus-cont, .aboutus-maintext, .aboutus-author, .aboutus-icon{
         margin: auto;
     }
+    .section-1{
+        transform: translate(0, 100px);
+        margin-bottom: -125px;
+    }
+    .about-title{
+        transform: translate(0, -400px);
+    }
+    .aboutus-title{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 47px;
+        line-height: 30px;
+        text-align: center;
+        letter-spacing: -0.02em;
+    }
+    .aboutus-maintext{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 150%;
+        color: #07090D;
+        text-align: center;
+        margin-bottom: 100px !important;
+    }
+    .aboutus-author{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 }
 @media only screen and (max-width: 800px){
     .aboutus-text-container{
@@ -209,6 +282,41 @@ const Wrapper = styled.div`
     .aboutus-author{
         margin-top: 40px;
     }
+    .aboutus-maintext{
+        margin-left: 0px !important;
+    }
+    .section-1{
+        transform: translate(0, 100px);
+        margin-bottom: -125px;
+    }
+    .about-title{
+        transform: translate(0, -400px);
+    }
+    .aboutus-title{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 47px;
+        line-height: 30px;
+        text-align: center;
+        letter-spacing: -0.02em;
+    }
+    .aboutus-maintext{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 150%;
+        color: #07090D;
+        text-align: center;
+        margin-bottom: 100px !important;
+    }
+    .aboutus-author{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 }
 @media only screen and (max-width: 640px){
     .section-1, .logo-cont, .aboutus-author, .aboutus-text-container{
@@ -231,9 +339,48 @@ const Wrapper = styled.div`
     .aboutus-author{
         margin: 350px 0px 10px 0;
     }
-
+    .aboutus-maintext{
+        margin-left: 0px !important;
+    }
+    .section-1{
+        transform: translate(0, 100px);
+        margin-bottom: -200px;
+    }
+    .about-title{
+        transform: translate(0, -300px);
+    }
+    .logo-cont{
+        background: linear-gradient(180deg, #80CACB 0%, rgba(255, 204, 153, 0.47) 53.12%, rgba(246, 247, 249, 0) 74%);
+        border-radius: 250px 250px 0px 0px;
+    }
+    .aboutus-title{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 47px;
+        line-height: 30px;
+        text-align: center;
+        letter-spacing: -0.02em;
+    }
+    .aboutus-maintext{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 150%;
+        color: #07090D;
+        text-align: center;
+        margin-bottom: -190px !important;
+        width: 100%;
+    }
+    .aboutus-author{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
-@media only screen and (max-width: 420px){
+}
+@media only screen and (max-width: 428px){
     .section-1, .logo-cont, .aboutus-logo, .aboutus-text-container, .aboutus-author{
         width: 300px;
     }
@@ -241,6 +388,90 @@ const Wrapper = styled.div`
         max-width: 100%;
         height: auto;
     }
+    .aboutus-maintext{
+        margin-left: 0px !important;
+    }
+    .section-1{
+        transform: translate(0, 100px);
+        margin-bottom: -250px;
+    }
+    .about-title{
+        transform: translate(0, -250px);
+    }
+    .logo-cont{
+        background: linear-gradient(180deg, #80CACB 0%, rgba(255, 204, 153, 0.47) 53.12%, rgba(246, 247, 249, 0) 62%);
+        border-radius: 250px 250px 0px 0px;
+        width: 256px;
+    }
+    .aboutus-title{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 30px;
+        text-align: center;
+        letter-spacing: -0.02em;
+    }
+    .aboutus-maintext{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        color: #07090D;
+        text-align: center;
+        margin-bottom: -190px !important;
+    }
+    .aboutus-author{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+}
+
+@media only screen and (max-width: 390px){
+    .aboutus-maintext{
+        margin-left: 0px !important;
+    }
+    .section-1{
+        transform: translate(0, 100px);
+        margin-bottom: -250px;
+    }
+    .about-title{
+        transform: translate(0, -250px);
+    }
+    .aboutus-title{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 30px;
+        text-align: center;
+        letter-spacing: -0.02em;
+    }
+    .aboutus-maintext{
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        color: #07090D;
+        text-align: center;
+        width: 312px;
+        margin-bottom: -190px !important;
+    }
+    .logo-cont{
+        background: linear-gradient(180deg, #80CACB 0%, rgba(255, 204, 153, 0.47) 53.12%, rgba(246, 247, 249, 0) 62%);
+        border-radius: 250px 250px 0px 0px;
+        width: 256px;
+    }
+    .aboutus-author{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 }
 
 `
