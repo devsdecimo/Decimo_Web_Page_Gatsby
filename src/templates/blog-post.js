@@ -288,6 +288,14 @@ const Wrapper = styled.div`
     }
   }
   @media (max-width: 768px) {
+    .line-color {
+      margin-top: 150px;
+    }
+
+    .blog-post-divisor-end {
+      display: none;
+    }
+
     h1 {
       font-size: 25px;
     }
@@ -311,6 +319,7 @@ const Wrapper = styled.div`
     .blog-post-container {
       padding-left: 40px;
       padding-right: 40px;
+      margin-bottom: 150px;
     }
 
     .post-info {

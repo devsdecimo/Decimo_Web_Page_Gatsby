@@ -182,11 +182,12 @@ const Wrapper = styled.div`
 
   .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 320px));
     grid-auto-rows: minmax(320px, auto);
-    justify-items: center;
+    justify-content: center;
     max-width: 1270px;
-    gap: 40px;
+    row-gap: 57px;
+    column-gap: 90px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -336,6 +337,11 @@ const Wrapper = styled.div`
   }
   .link-icon {
     margin: auto 10px;
+  }
+  @media (max-width: 768px) {
+    .cards-container {
+      row-gap: 50px;
+    }
   }
 `;
 export default HomeBlogPosts;
