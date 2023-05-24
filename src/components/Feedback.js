@@ -254,18 +254,47 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     margin-bottom: 60px;
   }
 }
+@media only screen and (max-width: 640px){
+  .carousel-title{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  .comment-text{
+    font-size: 10px !important;
+    line-height: 22px;
+    margin: 40px auto 10px auto;
+  }
+  .author-info{
+    padding-top: 30px;
+    text-align: center;
+  }
+  .carousel-indicators{
+  bottom: -100px;
+  }
+}
 
 @media only screen and (max-width: 590px){
   .carousel-style{
     height: 700px !important;
   }
   .carousel-title{
-    width: 400px;
+    margin-top: 100px;
+    width: 450px;
     font-size: 25px;
   }
-  .carousel-subtitle{
-    width: 400px;
-    font-size: 20px;
+  .comment-text{
+    font-size: 10px !important;
+    line-height: 22px;
+    margin: 80px auto 10px auto;
+    margin-top: -30px;
+  }
+  .author-info{
+    padding-top: 40px;
+    text-align: center;
+  }
+  .carousel-indicators{
+    bottom: 0px;
   }
 
 }
