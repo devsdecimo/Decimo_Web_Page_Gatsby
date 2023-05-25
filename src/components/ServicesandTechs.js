@@ -92,24 +92,32 @@ const Wrapper = styled.div`
   margin: 50px auto 100px auto;
 }
 .service-card{
-  transition: 0.2s;
+  position: relative;
+  transition: 0.3s ease;
   width: 300px;
   height: auto;
   display: inline-block;
   padding-bottom: 30px;
 }
 .service-card:hover{
-  box-shadow: 0 15px 250px 15px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+    box-shadow: 0px 48px 140px rgba(57, 59, 106, 0.15);
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-    border-top-style: solid;
-    border-image-source: linear-gradient(
-      89.63deg,
-      #339999 5.4%,
-      #ff9933 49.53%
-    );
-    border-image-slice: 1;
-    border-width: 5px;
+}
+.service-card::before{
+  content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-image: linear-gradient(89.63deg, #339999 5.4%, #ff9933 49.53%);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+.service-card:hover::before{
+  opacity: 1;
 }
 .service-card-container{
   /* border: 1px solid #e7eaee; */
