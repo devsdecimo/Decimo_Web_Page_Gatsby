@@ -172,8 +172,15 @@ const Wrapper = styled.div`
 
   .blog-header {
     text-align: center;
-    margin-bottom: 75px;
-    margin-top: 130px;
+    margin-bottom: 90px;
+    margin-top: 160px;
+  }
+
+  .blog-header h2 {
+    font-weight: 700;
+    font-size: 47px;
+    line-height: 57px;
+    letter-spacing: -0.02em;
   }
 
   .blog-subtitle {
@@ -339,6 +346,11 @@ const Wrapper = styled.div`
     margin: auto 10px;
   }
   @media (max-width: 768px) {
+    .blog-header {
+      margin-bottom: 60px;
+      margin-top: 93px;
+    }
+
     .cards-container {
       row-gap: 50px;
     }
