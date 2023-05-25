@@ -133,18 +133,16 @@ const Wrapper = styled.div`
         box-shadow: 0px 0px 40px 0px rgba(57, 59, 106, 0.15);
     }
 
-    .job-area{
-        font-size: 24px;
-    }
-
     //Difuminado de colores en el background
     .background-gradient-color{
         //Color de abajo a la izquierda
-        background: radial-gradient(20% 40% at 5% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+        background: radial-gradient(20% 40% at 5% 105%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
         //Color de arriba a la derecha
         radial-gradient(20% 40% at 78% 40%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
         //Color de arriba en el centro
-        radial-gradient(15% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%);
+        radial-gradient(15% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+        //Color abajo a la izquierda pero naranja
+        radial-gradient(20% 40% at 20% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 80%);
         padding-bottom:150px;
     }
 
@@ -214,16 +212,21 @@ const Wrapper = styled.div`
 
     //Estilo para el slogan
     .slogan {
-        font-size:14px;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    //Estilo para el texto de area de trabajo
+    .job-area{
+        font-size: 24px;
     }
 
     //Separacion del slogan y del area de trabajo
     .text-separation{
         border: 1px solid #E7EAEE;
-        transform: rotate(90deg);
-        width: 12px;
-        height: 0px;
         margin:5px;
+        font-size: 15px;
     }
 
     //Estilos de la descripcion de las cards
@@ -326,7 +329,9 @@ const Wrapper = styled.div`
             //Color de arriba a la derecha
             radial-gradient(20% 40% at 78% 40%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
             //Color de arriba en el centro
-            radial-gradient(15% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%);
+            radial-gradient(15% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+            //Color abajo a la izquierda pero naranja
+            radial-gradient(20% 40% at 20% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 80%);
             padding-bottom:150px;
         }
     }
@@ -350,7 +355,9 @@ const Wrapper = styled.div`
             //Color de arriba a la derecha
             radial-gradient(20% 40% at 80% 40%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
             //Color de arriba en el centro
-            radial-gradient(40% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%);
+            radial-gradient(40% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%)
+            //Color abajo a la izquierda pero naranja
+            radial-gradient(20% 40% at 23% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 80%);
             padding-bottom:150px;
         }
     }
@@ -372,7 +379,9 @@ const Wrapper = styled.div`
             //Color de arriba a la derecha
             radial-gradient(20% 40% at 80% 40%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
             //Color de arriba en el centro
-            radial-gradient(40% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%);
+            radial-gradient(40% 30% at 48% 25%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+            //Color abajo a la izquierda pero naranja
+            radial-gradient(20% 40% at 25% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 80%);
             padding-bottom:150px;
         }
     }
@@ -406,7 +415,8 @@ const Wrapper = styled.div`
 
         .background-gradient-color{
             //Color de abajo a la izquierda
-            background: radial-gradient(50% 40% at 95% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%);
+            background: radial-gradient(50% 40% at 95% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
+            radial-gradient(50% 20% at 31% 82%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
             padding-bottom:150px;
         }
 
@@ -448,6 +458,10 @@ const Wrapper = styled.div`
 
         .card-img{
             display: none;
+        }
+
+        .openpositions-container{
+            margin: 10px;
         }
     }
 
