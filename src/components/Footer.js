@@ -44,7 +44,7 @@ const Footer = () => {
   const data = allData.allNodeFooter.nodes[0];
   if (isHomePage()) {
     return (
-      <Wrapper id='graper'>
+      <Wrapper>
         <div className='main'>
           <div className='footer'>
             <hr className='footer-upper-line'></hr>
@@ -55,10 +55,10 @@ const Footer = () => {
                 alt='Logo'
                 className='footer-logo'
               /></div></Link>
-              <ReactLink to='aboutus' spy={false} smooth={true} duration={100} offset={-100}><div className="column2">{data.field_footeritems[0]}</div></ReactLink>
-              <ReactLink to='solutions' spy={false} smooth={true} duration={100} offset={-100}><div className="column3">{data.field_footeritems[1]}</div></ReactLink>
-              <a href='https://decimoempleo.com/' target='_blank'> <div className="column4">{data.field_footeritems[2]}</div></a>
-              <Link to='/contact-page'><div className="column5">{data.field_footeritems[3]}</div></Link>
+              <ReactLink className='btn-footer' to='aboutus' spy={false} smooth={true} duration={100} offset={-100}><div className="column2">{data.field_footeritems[0]}</div></ReactLink>
+              <ReactLink className='btn-footer' to='solutions' spy={false} smooth={true} duration={100} offset={-100}><div className="column3">{data.field_footeritems[1]}</div></ReactLink>
+              <a className='btn-footer' href='https://decimoempleo.com/' target='_blank'> <div className="column4">{data.field_footeritems[2]}</div></a>
+              <Link className='btn-footer' to='/contact-page'><div className="column5">{data.field_footeritems[3]}</div></Link>
             </div>
             <hr className='footer-lower-line'></hr>
             {/* icons and copy right section */}
@@ -190,12 +190,32 @@ const Wrapper = styled.div`
 .footer-icon{
   margin-right: 24.55px  !important;
 }
-@media only screen and (max-width: 996px){
-  .footer{
-    height: 450px;
-  }
+.btn-footer{
+  margin-right: auto;
 }
 
+.column2, .column3, .column4, .column5{
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+.column-right{
+  transform: translate(-2px,0);
+  p{
+    font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: -0.09px;  
+  }
+}
 /*CSS of the lines*/
 .footer-upper-line{
     border: none; 
@@ -212,12 +232,14 @@ const Wrapper = styled.div`
 .first-section {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    padding: 20px 120px 40px 120px;
+    padding: 20px 0px 40px 120px;
+    margin-right: -35px;
+    align-items: center;
     a{
       color:black;
     }
+    
 }
-
 .column1 {
   grid-column: 1 / span 2; 
 }
@@ -248,12 +270,51 @@ const Wrapper = styled.div`
     height: 31px;
 }
 /* Responsive CSS for the first section */
+@media only screen and (max-width: 1150px){
+  .first-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 120px 40px 120px;
+    margin-right: -35px;
+    align-items: center;
+    a{
+      color:black;
+    }
+    
+}
+}
+@media only screen and (max-width: 996px){
+  .column-left{
+    display: flex;
+  }
+  .column-right{
+    margin: auto;
+    transform: translate(0,0);
+  }
+  .footer{
+    height: 450px;
+  }
+  .first-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 120px 40px 120px;
+    a{
+      color:black;
+    }
+    
+}
+}
+
 @media only screen and (max-width: 992px) {
   .first-section {
     display: grid;
     grid-template-columns: 1fr;
-    place-items: center;
+    place-items: center !important;
+
     padding: 0px;
+    .btn-footer{
+      margin: auto;
+    }
   }
   .column2{
     grid-column: 1;
@@ -329,6 +390,7 @@ const Wrapper = styled.div`
   }
   .footer{
     background-color: #FFFFFF !important;
+    margin-top: 150px;
     height: 100%;
   }
   .second-section{
