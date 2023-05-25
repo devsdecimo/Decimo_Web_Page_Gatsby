@@ -44,7 +44,7 @@ const Footer = () => {
   const data = allData.allNodeFooter.nodes[0];
   if (isHomePage()) {
     return (
-      <Wrapper>
+      <Wrapper id='graper'>
         <div className='main'>
           <div className='footer'>
             <hr className='footer-upper-line'></hr>
@@ -172,13 +172,12 @@ const Footer = () => {
 const Wrapper = styled.div`
 /*CSS if main containers*/
 .main{
-    height: 400px;
+    height: 100%;
     display: grid;
     place-items: center;
       background: radial-gradient(8% 50% at 10% 55%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
       radial-gradient(50% 50% at 80% 50%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
               radial-gradient(30% 50% at 30% 55%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
-    transform: translate(0%, -20%);
     margin-bottom: 0px;
 }
 .footer{
@@ -186,6 +185,10 @@ const Wrapper = styled.div`
     height: 300px;
     border-radius: 30px;
     background-color: #FFFFFF;
+    transform: translate(0%, -20%);
+}
+.footer-icon{
+  margin-right: 24.55px  !important;
 }
 @media only screen and (max-width: 996px){
   .footer{
@@ -320,7 +323,77 @@ const Wrapper = styled.div`
     margin-left: 0px;
   }
 }
-
+@media only screen and (max-width: 900px) {
+  .main{
+    background: #F5F5F5;
+  }
+  .footer{
+    background-color: #FFFFFF !important;
+    height: 100%;
+  }
+  .second-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+  }
+  .column-right{
+    margin: auto;
+    padding-bottom: 23px;
+    p{
+      font-family: 'Cabin';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.09px;
+    }
+  }
+  .column1{
+    margin-bottom: 30px;
+    margin-top: -20px;
+  }
+  .column2{
+    margin-bottom: 16px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .column3{
+    margin-bottom: 16px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .column4{
+    margin-bottom: 16px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .column5{
+    margin-bottom: 16px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+}
 `
 
 export default Footer
