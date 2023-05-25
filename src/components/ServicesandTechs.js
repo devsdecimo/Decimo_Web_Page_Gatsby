@@ -94,8 +94,9 @@ const Wrapper = styled.div`
 .service-card{
   transition: 0.2s;
   width: 300px;
-  height: 320px;
+  height: auto;
   display: inline-block;
+  padding-bottom: 30px;
 }
 .service-card:hover{
   box-shadow: 0 15px 250px 15px rgba(0, 0, 0, 0.2);
@@ -152,6 +153,7 @@ const Wrapper = styled.div`
 }
 .card-body{
   margin-top: 20px;
+  margin-bottom: 10px;
   font-size: 16px;
 }
 
