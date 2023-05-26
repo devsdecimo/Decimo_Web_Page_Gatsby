@@ -144,7 +144,7 @@ const Wrapper = styled.div`
 768
 1200
 576 */
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 1100px){
     .main-container{
         width: auto;
         display: flex;
