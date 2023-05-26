@@ -184,8 +184,8 @@ const Wrapper = styled.div`
     grid-row-gap: 20px;
   }
 }
-@media only screen and (max-width: 420px){
-    .card-container, .perso-card{
+@media only screen and (max-width: 520px){
+  .card-container, .perso-card{
       width: 300px;
     }
     .card-image{
@@ -209,5 +209,30 @@ const Wrapper = styled.div`
       margin-top: 20px;
     }
 }
+/* @media only screen and (max-width: 420px){
+    .card-container, .perso-card{
+      width: 300px;
+    }
+    .card-image{
+      max-width: 250px;
+      max-height: 200px;
+    }
+    .card-line{
+      width: 150px;
+      margin: auto;
+    }
+    .card-name{
+      width: 250px;
+      margin: auto;
+      height: 50px;
+    }
+    .card-description{
+      width: 250px;
+      margin: auto;
+    }
+    .icons-container{
+      margin-top: 20px;
+    }
+} */
 `
 export default TeamMembers;
