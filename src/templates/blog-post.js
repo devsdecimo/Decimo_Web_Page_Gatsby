@@ -49,17 +49,15 @@ const BlogPost = ({ data, pageContext }) => {
                   {created} · {time} min read
                 </p>
                 <div className="post-info-tags">
-                  <div>
-                    {tags.map((tag, index) => (
-                      <Link
-                        to={`/tag/${postSlug(tag.name)}`}
-                        className="post-info-tag"
-                        key={index}
-                      >
-                        {tag.name}
-                      </Link>
-                    ))}
-                  </div>
+                  {tags.map((tag, index) => (
+                    <Link
+                      to={`/tag/${postSlug(tag.name)}`}
+                      className="post-info-tag"
+                      key={index}
+                    >
+                      {tag.name}
+                    </Link>
+                  ))}
                 </div>
                 <p className="blog-post-summary">{summary}</p>
               </div>
@@ -254,6 +252,8 @@ const Wrapper = styled.div`
 
   .post-info-tags {
     margin-top: 29px;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .post-info-tag {
@@ -263,6 +263,8 @@ const Wrapper = styled.div`
     transition: 0.3s;
     cursor: pointer;
     margin-right: 10px;
+    margin-bottom: 10px;
+    white-space: nowrap;
   }
 
   .post-info-tag:hover {
