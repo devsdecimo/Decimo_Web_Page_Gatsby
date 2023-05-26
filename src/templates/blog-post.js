@@ -201,7 +201,7 @@ const Wrapper = styled.div`
     display: block;
     max-width: 996px;
     width: 100%;
-    margin: 75px auto 75px auto;
+    margin: 61px auto 102px auto;
   }
 
   .blog-post-header {
