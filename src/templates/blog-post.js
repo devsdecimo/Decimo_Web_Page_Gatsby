@@ -187,6 +187,8 @@ const Wrapper = styled.div`
   .blog-post-subtitle {
     text-align: center;
     color: #000000;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   .blog-post-summary {
@@ -332,10 +334,6 @@ const Wrapper = styled.div`
     .blog-post-title {
       padding-left: 71px;
       padding-right: 71px;
-    }
-    .blog-post-subtitle {
-      padding-left: 82px;
-      padding-right: 82px;
     }
   }
 `;
