@@ -257,7 +257,29 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
     margin-right: auto;
   }
 }
-@media only screen and (max-width: 640px){
+@media only screen and (max-width: 800px){
+  .carousel-title{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .comment-text{
+    font-size: 10px !important;
+    line-height: 22px;
+    margin: 40px auto 10px auto;
+  }
+  .author-info{
+    padding-top: 30px;
+    text-align: center;
+  }
+  .carousel-indicators{
+  bottom: -60px;
+  }
+}
+@media only screen and (max-width: 650px){
   .carousel-title{
     margin-top: 60px;
     margin-bottom: 60px;
@@ -307,7 +329,7 @@ background: linear-gradient(89.63deg, #339999 10.13%, #FF9933 90.06%);
 
 }
 
-  @media only screen and (max-width: 428px){
+  @media only screen and (max-width: 589px){
     .carousel-title{
     margin-top: 60px;
     margin-bottom: 60px;
