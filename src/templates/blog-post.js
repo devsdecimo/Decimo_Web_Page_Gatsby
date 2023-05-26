@@ -281,6 +281,8 @@ const Wrapper = styled.div`
     height: 2px;
     background: #000000 !important;
     opacity: 200;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .blog-post-divisor-end {
@@ -297,6 +299,10 @@ const Wrapper = styled.div`
     }
   }
   @media (max-width: 768px) {
+    .blog-post-header {
+      margin-top: 40px;
+    }
+
     .blog-post-header-image {
       margin-top: 40px;
       margin-bottom: 40px;
