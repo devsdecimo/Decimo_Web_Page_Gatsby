@@ -211,22 +211,20 @@ const Wrapper = styled.div`
         width: 80%;
     }
     .main-title p{
-        margin: auto;
+        margin: 10px auto auto auto;
         text-align: center;
         font-size: 35px;
+        letter-spacing: -0.04em;
+        line-height: 38px;
     }
     .small-title{
-    font-size: 17px;
+    font-size: 14px;
     line-height: 16px;
     word-spacing: 2px;
     letter-spacing: 1px;
     }
-}
-@media only screen and (max-width: 530px){
-    .main-container{
-    }
-    .main-title{
-        
+    .subtitle{
+        font-size: 14px;
     }
 }
 `
