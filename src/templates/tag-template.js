@@ -191,6 +191,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
   }
+
   .post-info-tag {
     background-color: rgba(128, 202, 203, 0.2);
     padding: 5px 18px;
@@ -217,6 +218,9 @@ const Wrapper = styled.div`
     }
     .tag-template-title {
       text-align: center;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 100%;
     }
   }
 `;
