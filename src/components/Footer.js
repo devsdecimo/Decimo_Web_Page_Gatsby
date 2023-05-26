@@ -232,8 +232,7 @@ const Wrapper = styled.div`
 .first-section {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    padding: 20px 0px 40px 120px;
-    margin-right: -35px;
+    padding: 20px 37px 40px 120px;
     align-items: center;
     a{
       color:black;
