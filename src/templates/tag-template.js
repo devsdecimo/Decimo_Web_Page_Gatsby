@@ -104,6 +104,9 @@ const Wrapper = styled.div`
     font-weight: 700;
     letter-spacing: 0.05em;
     line-height: 100%;
+    font-size: 47px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   a {
@@ -185,6 +188,8 @@ const Wrapper = styled.div`
 
   .post-tags {
     margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
   }
   .post-info-tag {
     background-color: rgba(128, 202, 203, 0.2);
@@ -193,6 +198,8 @@ const Wrapper = styled.div`
     transition: 0.3s;
     cursor: pointer;
     margin-right: 10px;
+    margin-bottom: 10px;
+    white-space: nowrap;
   }
   @media (max-width: 768px) {
     .post {
@@ -207,6 +214,9 @@ const Wrapper = styled.div`
     }
     .post-body h5 {
       margin-top: 20px;
+    }
+    .tag-template-title {
+      text-align: center;
     }
   }
 `;
