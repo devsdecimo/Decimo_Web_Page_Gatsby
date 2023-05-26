@@ -216,7 +216,7 @@ const Wrapper = styled.div`
 
 
 /* RESPONSIVE */
-@media only screen and (min-width: 1440px){
+@media only screen and (max-width: 1440px){
     .aboutus-cont{
         display: flex;
         align-items: center;
@@ -228,7 +228,8 @@ const Wrapper = styled.div`
     margin: 0px 50px 0px 0px;
     }
 } */
-@media only screen and (max-width: 1300px){
+
+@media only screen and (max-width: 1270px){
     .aboutus-cont{
         display: block;
     }
@@ -295,7 +296,8 @@ const Wrapper = styled.div`
         margin-top: 40px;
     }
     .aboutus-maintext{
-        margin-left: 0px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     .section-1{
         transform: translate(0, 100px);
