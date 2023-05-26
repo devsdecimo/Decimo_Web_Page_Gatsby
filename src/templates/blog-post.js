@@ -299,6 +299,11 @@ const Wrapper = styled.div`
     }
   }
   @media (max-width: 768px) {
+    .blog-post-container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
     .blog-post-header {
       margin-top: 40px;
     }
