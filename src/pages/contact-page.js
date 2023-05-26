@@ -52,7 +52,7 @@ const Wrapper = styled.div`
         margin-bottom: 100px;
         background: radial-gradient(18% 27% at 23% 110%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
         radial-gradient(15% 33% at 40% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
-        margin-top: 90px;
+        margin-top: 75px;
     }
 
     .contact-section{
@@ -98,13 +98,13 @@ const Wrapper = styled.div`
     .footer-title-style{
         font-style:normal;
         font-size:16px;
-        max-width: 235px;
+        max-width: 350px;
         margin-top: 30px;
         height: 72px;
-        font-weight: 600;
-        color: rgba(0, 11, 40, 0.6);
+        font-weight: 500;
         letter-spacing: -0.02em;
         line-height: 24px;
+        color: #586174;
     }
 
     span{

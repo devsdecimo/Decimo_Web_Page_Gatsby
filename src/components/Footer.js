@@ -55,10 +55,10 @@ const Footer = () => {
                 alt='Logo'
                 className='footer-logo'
               /></div></Link>
-              <ReactLink to='aboutus' spy={false} smooth={true} duration={100} offset={-100}><div className="column2">{data.field_footeritems[0]}</div></ReactLink>
-              <ReactLink to='solutions' spy={false} smooth={true} duration={100} offset={-100}><div className="column3">{data.field_footeritems[1]}</div></ReactLink>
-              <a href='https://decimoempleo.com/' target='_blank'> <div className="column4">{data.field_footeritems[2]}</div></a>
-              <Link to='/contact-page'><div className="column5">{data.field_footeritems[3]}</div></Link>
+              <ReactLink className='btn-footer' to='aboutus' spy={false} smooth={true} duration={100} offset={-100}><div className="column2">{data.field_footeritems[0]}</div></ReactLink>
+              <ReactLink className='btn-footer' to='solutions' spy={false} smooth={true} duration={100} offset={-100}><div className="column3">{data.field_footeritems[1]}</div></ReactLink>
+              <a className='btn-footer' href='https://decimoempleo.com/' target='_blank'> <div className="column4">{data.field_footeritems[2]}</div></a>
+              <Link className='btn-footer' to='/contact-page'><div className="column5">{data.field_footeritems[3]}</div></Link>
             </div>
             <hr className='footer-lower-line'></hr>
             {/* icons and copy right section */}
@@ -172,13 +172,12 @@ const Footer = () => {
 const Wrapper = styled.div`
 /*CSS if main containers*/
 .main{
-    height: 400px;
+    height: 100%;
     display: grid;
     place-items: center;
       background: radial-gradient(8% 50% at 10% 55%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
       radial-gradient(50% 50% at 80% 50%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
               radial-gradient(30% 50% at 30% 55%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
-    transform: translate(0%, -20%);
     margin-bottom: 0px;
 }
 .footer{
@@ -186,13 +185,37 @@ const Wrapper = styled.div`
     height: 300px;
     border-radius: 30px;
     background-color: #FFFFFF;
+    transform: translate(0%, -20%);
 }
-@media only screen and (max-width: 996px){
-  .footer{
-    height: 450px;
-  }
+.footer-icon{
+  margin-right: 24.55px  !important;
+}
+.btn-footer{
+  margin-right: auto;
 }
 
+.column2, .column3, .column4, .column5{
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+.column-right{
+  transform: translate(-2px,0);
+  p{
+    font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: -0.09px;  
+  }
+}
 /*CSS of the lines*/
 .footer-upper-line{
     border: none; 
@@ -209,12 +232,14 @@ const Wrapper = styled.div`
 .first-section {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    padding: 20px 120px 40px 120px;
+    padding: 20px 0px 40px 120px;
+    margin-right: -35px;
+    align-items: center;
     a{
       color:black;
     }
+    
 }
-
 .column1 {
   grid-column: 1 / span 2; 
 }
@@ -245,12 +270,51 @@ const Wrapper = styled.div`
     height: 31px;
 }
 /* Responsive CSS for the first section */
+@media only screen and (max-width: 1150px){
+  .first-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 120px 40px 120px;
+    margin-right: -35px;
+    align-items: center;
+    a{
+      color:black;
+    }
+    
+}
+}
+@media only screen and (max-width: 996px){
+  .column-left{
+    display: flex;
+  }
+  .column-right{
+    margin: auto;
+    transform: translate(0,0);
+  }
+  .footer{
+    height: 450px;
+  }
+  .first-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 120px 40px 120px;
+    a{
+      color:black;
+    }
+    
+}
+}
+
 @media only screen and (max-width: 992px) {
   .first-section {
     display: grid;
     grid-template-columns: 1fr;
-    place-items: center;
+    place-items: center !important;
+
     padding: 0px;
+    .btn-footer{
+      margin: auto;
+    }
   }
   .column2{
     grid-column: 1;
@@ -320,7 +384,78 @@ const Wrapper = styled.div`
     margin-left: 0px;
   }
 }
-
+@media only screen and (max-width: 900px) {
+  .main{
+    background: #F5F5F5;
+  }
+  .footer{
+    background-color: #FFFFFF !important;
+    margin-top: 150px;
+    height: 100%;
+  }
+  .second-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+  }
+  .column-right{
+    margin: auto;
+    padding-bottom: 23px;
+    p{
+      font-family: 'Cabin';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.09px;
+    }
+  }
+  .column1{
+    margin-bottom: 30px;
+    margin-top: -20px;
+  }
+  .column2{
+    margin-bottom: 16px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .column3{
+    margin-bottom: 16px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .column4{
+    margin-bottom: 16px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .column5{
+    margin-bottom: 16px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+}
 `
 
 export default Footer
