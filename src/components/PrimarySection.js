@@ -48,14 +48,15 @@ const Wrapper = styled.div`
 .main-container{
     display: grid; 
     grid-template-columns: 1fr 1fr;
-    margin: 100px auto 40px 150px;
+    margin: 100px auto 40px 120px;
 }
 .text-container{
     display: flex;
     flex-direction: column;
     flex: start;
-    margin: 20px auto 20px auto;
-    width: 100%;
+    margin: 20px auto 20px 0px;
+    width: 620px;
+    height: 220px;
 }
 .small-title{
     font-size: 17px;
@@ -111,8 +112,8 @@ const Wrapper = styled.div`
     padding-bottom: 100px;
     margin: 20px 0px 0px auto;
     border-radius: 259px 0px 0px 259px;
-    width: 800px;
-    height: 517px;
+    width: 614px;
+    height: 397px;
 }
 /* .image-section::after {
     content: "";
@@ -125,8 +126,8 @@ const Wrapper = styled.div`
 } */
 .home-image{
     position: absolute;
-    width: 800px;
-    height: 517px;
+    width: 614px;
+    height: 397px;
     border-radius: 259px 0px 0px 259px;
     top: 0;
     right: 0;
@@ -141,7 +142,7 @@ const Wrapper = styled.div`
 }
 
 @media only screen and (max-width: 1600px){
-    .main-container{
+    /* .main-container{
         grid-template-columns: 1fr;
     }
     .subtitle{
@@ -165,7 +166,12 @@ const Wrapper = styled.div`
         margin: 40px auto;
         border-radius: 25px;
         transform: translate(-5%, -15%);
-    }
+    } */
+}
+@media only screen and (max-width: 1920px){
+    /* .text-container{
+        margin-left: 120px;
+    } */
 }
 @media only screen and (max-width: 420px){
     .main-container{
