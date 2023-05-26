@@ -233,7 +233,7 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     padding: 20px 0px 40px 120px;
-    margin-right: -35px;
+    margin-right: -2%;
     align-items: center;
     a{
       color:black;
@@ -270,6 +270,55 @@ const Wrapper = styled.div`
     height: 31px;
 }
 /* Responsive CSS for the first section */
+@media only screen and (max-width: 2560px){
+  .first-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 0px 40px 120px;
+    margin-right: -6.5%;
+    align-items: center;
+    a{
+      color:black;
+    }
+    
+}
+}
+@media only screen and (max-width: 2000px){
+  .first-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 70px 40px 120px;
+    align-items: center;
+    a{
+      color:black;
+    }
+    
+}
+}
+@media only screen and (max-width: 1900px){
+  .first-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 80px 40px 120px;
+    align-items: center;
+    a{
+      color:black;
+    }
+    
+}
+}
+@media only screen and (max-width: 1800px){
+  .first-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 120px 40px 120px;
+    align-items: center;
+    a{
+      color:black;
+    }
+    
+}
+}
 @media only screen and (max-width: 1150px){
   .first-section {
     display: grid;
@@ -411,6 +460,12 @@ const Wrapper = styled.div`
       letter-spacing: -0.09px;
     }
   }
+  .column-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+  }
   .column1{
     margin-bottom: 30px;
     margin-top: -20px;
@@ -454,6 +509,9 @@ const Wrapper = styled.div`
     line-height: 24px;
     letter-spacing: 1.25px;
     text-transform: uppercase;
+  }
+  .first-section{
+    margin: auto;
   }
 }
 `
