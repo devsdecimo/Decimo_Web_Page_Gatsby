@@ -232,7 +232,8 @@ const Wrapper = styled.div`
 .first-section {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    padding: 20px 37px 40px 120px;
+    padding: 20px 0px 40px 120px;
+    margin-right: -37px;
     align-items: center;
     a{
       color:black;
@@ -269,6 +270,18 @@ const Wrapper = styled.div`
     height: 31px;
 }
 /* Responsive CSS for the first section */
+@media only screen and (max-width: 1440px){
+  .first-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 120px 40px 120px;
+    align-items: center;
+    a{
+      color:black;
+    }
+    
+}
+}
 @media only screen and (max-width: 1150px){
   .first-section {
     display: grid;
@@ -410,6 +423,12 @@ const Wrapper = styled.div`
       letter-spacing: -0.09px;
     }
   }
+  .column-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+  }
   .column1{
     margin-bottom: 30px;
     margin-top: -20px;
@@ -453,6 +472,9 @@ const Wrapper = styled.div`
     line-height: 24px;
     letter-spacing: 1.25px;
     text-transform: uppercase;
+  }
+  .first-section{
+    margin: auto;
   }
 }
 `
