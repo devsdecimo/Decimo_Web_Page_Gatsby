@@ -256,8 +256,8 @@ const Wrapper = styled.section`
     display: flex;
     align-items: center;
     padding: 45px 0px;
-    max-width: 1190px;
-    margin: 0 auto;
+    /* max-width: 1190px; */
+    margin: 0 120px;
   }
 
   .nav-menu {
@@ -355,8 +355,9 @@ const Wrapper = styled.section`
 
   @media (max-width: 1350px) {
     .navbar {
-      padding: 30px 50px;
+      padding: 30px 0;
       max-width: 100%;
+      margin: 0 40px;
     }
 
     .hamburger {
