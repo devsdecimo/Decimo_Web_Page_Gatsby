@@ -48,7 +48,7 @@ const Wrapper = styled.div`
 .main-container{
     display: grid; 
     grid-template-columns: 1fr 1fr;
-    margin: 100px auto 40px 120px;
+    margin: 80px auto 200px 120px;
 }
 .text-container{
     display: flex;
@@ -82,7 +82,7 @@ const Wrapper = styled.div`
     font-weight: 600;
     font-size: 16px;
     color: rgba(0, 11, 40, 0.6);
-    width: 40%;
+    width: 60%;
     line-height: 24px;
     margin-top: 25px;
 }
@@ -140,57 +140,93 @@ const Wrapper = styled.div`
     top: 230px;
     background: radial-gradient(50% 50% at right, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
 }
-
-@media only screen and (max-width: 1600px){
-    /* .main-container{
-        grid-template-columns: 1fr;
+/* 992
+768
+1200
+576 */
+@media only screen and (max-width: 992px){
+    .main-container{
+        width: auto;
+        display: flex;
+        justify-content: center;
+        margin: 80px auto 400px auto;
     }
     .subtitle{
     width: 100%;
     }
     .text-container{
         text-align: center;
+        margin: 0px;
     }
     .links-container{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 10px;
+        justify-content: center;
     }
     .image-section{
-        width: 95%;
+        /* width: 95%;
         margin: 60px auto;
-        border-radius: 25px;
+        border-radius: 25px; */
+        display: none;
     }
     .home-image{
-        width: 90%;
+        /* width: 90%;
         margin: 40px auto;
         border-radius: 25px;
-        transform: translate(-5%, -15%);
-    } */
+        transform: translate(-5%, -15%); */
+        display: none;
+    }
 }
 @media only screen and (max-width: 1920px){
     /* .text-container{
         margin-left: 120px;
     } */
 }
-@media only screen and (max-width: 420px){
+@media only screen and (max-width: 1350px){
+    .main-container{
+        margin: 80px auto 400px 40px;
+    }
+    .image-section{
+        width: 414px;
+        height: 397px;
+    }
+    .home-image{
+        width: 414px;
+        height: 397px;
+    }
+}
+
+@media only screen and (max-width: 760px){
     .main-container{
         width: 90%;
+        margin: 80px auto 400px 20px;
+    } 
+    .main-title{
+        width: 100%;
+        font-size: 35px;
+        margin: auto;
     }
-    .text-container .main-title{
+    .text-container{
         width: 80%;
     }
     .main-title p{
-        width: 50%;
-        margin: auto 10px;
-        text-align: left;
-        font-size: 50px;
+        margin: auto;
+        text-align: center;
+        font-size: 35px;
     }
     .small-title{
     font-size: 17px;
     line-height: 16px;
     word-spacing: 2px;
     letter-spacing: 1px;
+    }
+}
+@media only screen and (max-width: 530px){
+    .main-container{
+    }
+    .main-title{
+        
     }
 }
 `

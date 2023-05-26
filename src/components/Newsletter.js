@@ -166,14 +166,13 @@ const Wrapper = styled.div`
   }
   @media only screen and (max-width: 1600px) {
     .subscribe {
-      display: flex;
-      justify-content: center;
+      display: block;
     }
     .subscribe-form {
       margin: 0 auto;
     }
   }
-  @media only screen and (max-width: 428px) {
+  @media only screen and (max-width: 760px) {
     .subscribe {
       display: flex;
       justify-content: center;
