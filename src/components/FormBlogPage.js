@@ -125,8 +125,8 @@ function FormBlogPage() {
             <hr className="line-color"/>
             <div className="main-container">
                 <div className="second-container">
-                    <h2 className="main-title">{titleForm}</h2>
                     <form className="form-container" onSubmit={handleSubmit}>
+                        <h2 className="main-title">{titleForm}</h2>
                         <div>
                             <p className="name-text-style">{nameSubtitleForm}</p>
                             <input className="name-input-style" type="text" value={name} onChange={handleNameChange} placeholder={nameLabelInput} required/>
@@ -154,35 +154,19 @@ function FormBlogPage() {
 }
 
 export const StyleForm = styled.div`
-  .background-gradient-color {
-    //Color de abajo a la izquierda
-    background: radial-gradient(
-        20% 40% at 5% 100%,
-        rgba(51, 153, 153, 0.35) 0%,
-        rgba(128, 202, 203, 0) 80%
-      ),
-      //Color de arriba a la derecha
-      radial-gradient(
-          20% 40% at 78% 40%,
-          rgba(255, 153, 51, 0.35) 0%,
-          rgba(255, 204, 153, 0) 100%
-        ),
-      //Color de arriba en el centro
-      radial-gradient(
-          15% 30% at 48% 25%,
-          rgba(51, 153, 153, 0.35) 0%,
-          rgba(128, 202, 203, 0) 80%
-        );
-    padding-bottom: 150px;
-  }
 
-    .main-container{
+  .second-container{
         margin-left: auto;
         margin-right: auto;
         display: flex;
         justify-content: center;
-        background-color: #000B28;
-    }
+        background: radial-gradient(25% 50% at 20% 110%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+        radial-gradient(35% 50% at 35% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+  }
+
+  .main-container{
+      background-color: #000B28;
+  }
 
   .line-color {
     background: linear-gradient(89.63deg, #339999 10.13%, #ff9933 90.06%);
@@ -203,7 +187,7 @@ export const StyleForm = styled.div`
         margin-top: 100px;
         font-size: 47px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 500;
         letter-spacing: -0.02em;
         color: #FFFFFF;
     }
@@ -409,7 +393,19 @@ export const StyleForm = styled.div`
 
   //Responsive del formulario de contacto
 
-    @media only screen and (max-width: 685px){
+  @media only screen and (max-width: 900px){
+    .second-container{
+      background: radial-gradient(25% 40% at 15% 110%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      radial-gradient(35% 50% at 35% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+    }
+  }
+
+  @media only screen and (max-width: 685px){
+
+    .second-container{
+      background: radial-gradient(30% 35% at 15% 110%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      radial-gradient(50% 40% at 45% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+    }
 
         //Responsive de los titulos
 
@@ -491,6 +487,19 @@ export const StyleForm = styled.div`
     //Se ajusta el tamaño de la checkbox
     .checkbox-container {
       width: 300px;
+    }
+  }
+
+  @media only screen and (max-width: 360px){
+    .name-input-style,
+    .email-input-style,
+    .message-input-style {
+      width: 300px;
+      display: flex;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
     }
   }
 `;
