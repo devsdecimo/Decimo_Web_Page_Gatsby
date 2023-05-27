@@ -64,12 +64,18 @@ const Wrapper = styled.div`
     word-spacing: 4px;
     letter-spacing: 2px;
     font-weight: 700;
+    /* margin-bottom: 5000px;
+    color: red; */
+}
+.main-title{
+    margin-top: 20px;
 }
 .main-title p{
     font-size: 70px;
     font-weight: 700;
     letter-spacing: -0.04em;
     line-height: 70px;
+    /* margin-top: 20px; */
 }
 .main-title span{
     background: linear-gradient(89.63deg, #339999 5.4%, #FF9933 49.53%);;
@@ -115,15 +121,6 @@ const Wrapper = styled.div`
     width: 614px;
     height: 397px;
 }
-/* .image-section::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 50px;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
-} */
 .home-image{
     position: absolute;
     width: 614px;
@@ -182,7 +179,17 @@ const Wrapper = styled.div`
     /* .text-container{
         margin-left: 120px;
     } */
+    .image-section, .home-image {
+    width: 900px;
+    height: calc(720px / 1.546);
+  }    
+  /*.text-container {
+        width: 900px;
+        height: calc(720px / 2.82);
+        
+    } */
 }
+
 @media only screen and (max-width: 1350px){
     .main-container{
         margin: 80px auto 400px 40px;
