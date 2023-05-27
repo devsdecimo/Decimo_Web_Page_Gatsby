@@ -99,7 +99,7 @@ const Wrapper = styled.div`
   width: 50%;
   text-align:center;
   font-size: 47px;
-  font-weight: 700px !important;
+  font-weight: 700 !important;
 }
 .card-container{
     width: 100%;
