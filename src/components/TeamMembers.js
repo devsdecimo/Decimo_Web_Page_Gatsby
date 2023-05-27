@@ -95,17 +95,17 @@ const TeamMembers = (props) => {
 }
 const Wrapper = styled.div`
 .members-title{
-  margin: 100px auto 10px auto;
+  margin: 140px auto 10px auto;
   width: 50%;
   text-align:center;
   font-size: 47px;
   font-weight: 700 !important;
 }
 .card-container{
-    width: 100%;
+    width: 80%;
     display: grid;
-    grid-column-gap: 35px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     margin: 60px auto;
 }
 .perso-card{
