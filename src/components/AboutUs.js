@@ -136,6 +136,7 @@ const Wrapper = styled.div`
 }
 .section-1{
     width: 70%;
+    margin-top: 0.5%;
 }
 .logo-cont{
     background: linear-gradient(180deg, #80CACB 0%, rgba(255, 204, 153, 0.47) 53.12%, rgba(246, 247, 249, 0) 100%, #F6F7F9 100%);
@@ -164,13 +165,13 @@ const Wrapper = styled.div`
     margin-bottom: -29px;
     font-family: 'Cabin';
     font-style: normal;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 47px;
     line-height: 57px;
     letter-spacing: -0.02em;
 }
 .aboutus-maintext{
-    margin: 90px 0px -10px 130px !important;
+    margin: 90px 0px 0px 130px !important;
     font-weight: 400;
     width: 580px;
     line-height: 150%;
