@@ -307,7 +307,12 @@ const Wrapper = styled.div`
     
 }
 }
-@media only screen and (max-width: 1800px){
+@media only screen and (max-width: 1792px){
+  .first-section{
+    padding: 20px 82px 40px 120px;
+  }
+}
+@media only screen and (max-width: 1700px){
   .first-section {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
