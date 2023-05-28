@@ -177,6 +177,12 @@ const Wrapper = styled.div`
             width: 450px;
         } */
     }
+
+    @media only screen and (max-width: 325px){
+        .footer-title-style{
+            width: 280px;
+        }
+    }
 `
 
 export const query = graphql`
