@@ -503,10 +503,18 @@ const Wrapper = styled.div`
       transform: translate(1%,-1%);
     }
 
+    .name-input-style::-moz-placeholder{
+      background: none;
+    }
+
     .email-input-style::placeholder{
       font-size: 13px;
       background-image: url("data:image/svg+xml,%3Csvg width='14' height='17' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.12522 0.125H14.8752C15.0778 0.125 15.2721 0.205481 15.4154 0.348738C15.5586 0.491995 15.6391 0.686293 15.6391 0.888889V13.1111C15.6391 13.3137 15.5586 13.508 15.4154 13.6513C15.2721 13.7945 15.0778 13.875 14.8752 13.875H1.12522C0.922621 13.875 0.728323 13.7945 0.585066 13.6513C0.441809 13.508 0.361328 13.3137 0.361328 13.1111V0.888889C0.361328 0.686293 0.441809 0.491995 0.585066 0.348738C0.728323 0.205481 0.922621 0.125 1.12522 0.125ZM14.1113 3.36236L8.05522 8.78597L1.88911 3.34556V12.3472H14.1113V3.36236ZM2.27945 1.65278L8.04681 6.74181L13.7309 1.65278H2.27945Z' fill='%23ACB4C3'/%3E%3C/svg%3E");
       transform: translate(1%,-1%);
+    }
+
+    .email-input-style::-moz-placeholder{
+      background: none;
     }
 
     .message-input-style::placeholder{

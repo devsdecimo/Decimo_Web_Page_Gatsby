@@ -254,6 +254,9 @@ export const StyleForm = styled.div`
             transform: translate(0.5%,0%);
             padding-left: 25px;
         }
+        ::-moz-placeholder{
+          background: none;
+        }
     }
 
     //Estilos del input email
@@ -278,6 +281,9 @@ export const StyleForm = styled.div`
             background-repeat: no-repeat;
             transform: translate(0.5%,0%);
             padding-left: 25px;
+        }
+        ::-moz-placeholder{
+          background: none;
         }
     }
 
