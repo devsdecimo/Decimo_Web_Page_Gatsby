@@ -83,11 +83,13 @@ const PrivacyPolicyStyles = styled.main`
   .decLogo{
     width: 300px;
     height: 400px;
+    margin: auto;
+    display: flex;
   }
 
   //Estilo del container del texto de las politicas de privacidad
   .mainClass{
-    width:60%;
+    margin: auto;
   }
 
   //Estilo para el h1 que viene del ckeditor
