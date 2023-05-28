@@ -19,7 +19,7 @@ const PrivacyPolicy = ({data = []}) => {
           {/* Contenedor del logo de la empresa */}
           <div className="imageContainer">
             {/* <GatsbyImage image={getImage(img) } className="imagePolicy"/> */}
-            <div className="imagePolicy">
+            <div className="background-gradient">
               <svg className="decLogo" width="147" height="36" viewBox="0 0 147 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_103_483)">
               <path d="M147 0.266846H119.627V36.0001H147V0.266846Z" fill="#FF9933"/>
@@ -56,6 +56,7 @@ const PrivacyPolicyStyles = styled.main`
 
 .main-cont{
   margin-bottom: 100px;
+  
 }
   //Estilo del contenedor del logo
   .imageContainer{
@@ -75,14 +76,20 @@ const PrivacyPolicyStyles = styled.main`
   }
 
   //Estilo del logo
-  .imagePolicy{
+  .background-gradient{
     margin-left:auto;
     margin-right:auto;
+    background: radial-gradient(25% 50% at 20% 110%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+    radial-gradient(35% 50% at 35% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
+    radial-gradient(25% 50% at 90% -10%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+    radial-gradient(35% 50% at -10% -10%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+
+    width: 100%;
   }
 
   .decLogo{
     width: 300px;
-    height: 400px;
+    height: 450px;
     margin: auto;
     display: flex;
   }
@@ -120,9 +127,55 @@ const PrivacyPolicyStyles = styled.main`
 
   //Responsive
 
-  @media only screen and (max-width: 540px){
-    .imagePolicy{
-      max-width: 300px;
+  @media only screen and (max-width: 1000px){
+    .background-gradient{
+                  //Color turquesa abajo izquierda
+      background: radial-gradient(25% 50% at 20% 120%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      //Color narajan abajo izquierda
+      radial-gradient(35% 50% at 40% 130%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
+      //Color turquesa arriba derecha
+      radial-gradient(25% 50% at 90% -10%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      //Color naranja arriba izquierda
+      radial-gradient(35% 50% at -10% -20%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .background-gradient{
+                  //Color turquesa abajo izquierda
+      background: radial-gradient(30% 50% at 25% 120%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      //Color narajan abajo izquierda
+      radial-gradient(35% 50% at 50% 130%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
+      //Color turquesa arriba derecha
+      radial-gradient(30% 50% at 90% -20%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      //Color naranja arriba izquierda
+      radial-gradient(35% 50% at -10% -20%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+    }
+  }
+
+  @media only screen and (max-width: 587px) {
+    .background-gradient{
+                  //Color turquesa abajo izquierda
+      background: radial-gradient(35% 50% at 20% 120%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      //Color narajan abajo izquierda
+      radial-gradient(35% 45% at 60% 130%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
+      //Color turquesa arriba derecha
+      radial-gradient(30% 50% at 90% -20%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      //Color naranja arriba izquierda
+      radial-gradient(35% 50% at -10% -20%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+    }
+  }
+
+  @media only screen and (max-width: 415px) {
+    .background-gradient{
+                  //Color turquesa abajo izquierda
+      background: radial-gradient(50% 50% at 20% 125%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      //Color narajan abajo izquierda
+      radial-gradient(70% 45% at 60% 135%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%),
+      //Color turquesa arriba derecha
+      radial-gradient(50% 50% at 90% -30%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      //Color naranja arriba izquierda
+      radial-gradient(35% 50% at -10% -20%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
     }
   }
 `
