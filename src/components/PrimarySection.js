@@ -64,12 +64,18 @@ const Wrapper = styled.div`
     word-spacing: 4px;
     letter-spacing: 2px;
     font-weight: 700;
+    /* margin-bottom: 5000px;
+    color: red; */
+}
+.main-title{
+    margin-top: 20px;
 }
 .main-title p{
     font-size: 70px;
     font-weight: 700;
     letter-spacing: -0.04em;
     line-height: 70px;
+    /* margin-top: 20px; */
 }
 .main-title span{
     background: linear-gradient(89.63deg, #339999 5.4%, #FF9933 49.53%);;
@@ -115,15 +121,6 @@ const Wrapper = styled.div`
     width: 614px;
     height: 397px;
 }
-/* .image-section::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 50px;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
-} */
 .home-image{
     position: absolute;
     width: 614px;
@@ -144,7 +141,7 @@ const Wrapper = styled.div`
 768
 1200
 576 */
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 1100px){
     .main-container{
         width: auto;
         display: flex;
@@ -178,11 +175,21 @@ const Wrapper = styled.div`
         display: none;
     }
 }
-@media only screen and (max-width: 1920px){
+@media only screen and (min-width: 1920px){
     /* .text-container{
         margin-left: 120px;
     } */
+    .image-section, .home-image {
+    width: 900px;
+    height: calc(720px / 1.546);
+  }    
+  /*.text-container {
+        width: 900px;
+        height: calc(720px / 2.82);
+        
+    } */
 }
+
 @media only screen and (max-width: 1350px){
     .main-container{
         margin: 80px auto 400px 40px;
@@ -211,22 +218,20 @@ const Wrapper = styled.div`
         width: 80%;
     }
     .main-title p{
-        margin: auto;
+        margin: 10px auto auto auto;
         text-align: center;
         font-size: 35px;
+        letter-spacing: -0.04em;
+        line-height: 38px;
     }
     .small-title{
-    font-size: 17px;
+    font-size: 14px;
     line-height: 16px;
     word-spacing: 2px;
     letter-spacing: 1px;
     }
-}
-@media only screen and (max-width: 530px){
-    .main-container{
-    }
-    .main-title{
-        
+    .subtitle{
+        font-size: 14px;
     }
 }
 `

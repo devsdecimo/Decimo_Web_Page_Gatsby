@@ -171,6 +171,15 @@ const Wrapper = styled.div`
   }
 }
 @media only screen and (max-width: 700px){
+  .services-header h2{
+    font-size: 25px;
+  }
+  .services-header p{
+    font-size: 14px;
+  }
+  .card-body{
+    font-size: 16px;
+  }
   .cards-container{
     grid-template-columns: repeat(1 ,1fr);
   }

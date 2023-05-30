@@ -49,17 +49,15 @@ const BlogPost = ({ data, pageContext }) => {
                   {created} · {time} min read
                 </p>
                 <div className="post-info-tags">
-                  <div>
-                    {tags.map((tag, index) => (
-                      <Link
-                        to={`/tag/${postSlug(tag.name)}`}
-                        className="post-info-tag"
-                        key={index}
-                      >
-                        {tag.name}
-                      </Link>
-                    ))}
-                  </div>
+                  {tags.map((tag, index) => (
+                    <Link
+                      to={`/tag/${postSlug(tag.name)}`}
+                      className="post-info-tag"
+                      key={index}
+                    >
+                      {tag.name}
+                    </Link>
+                  ))}
                 </div>
                 <p className="blog-post-summary">{summary}</p>
               </div>
@@ -189,23 +187,27 @@ const Wrapper = styled.div`
   .blog-post-subtitle {
     text-align: center;
     color: #000000;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   .blog-post-summary {
     margin-top: 58px;
     line-height: 170%;
   }
+
   .blog-post-container {
     position: relative;
     display: block;
     max-width: 996px;
     width: 100%;
-    margin: 75px auto 75px auto;
+    margin: 61px auto 102px auto;
   }
 
   .blog-post-header {
     margin-top: 29px;
   }
+
   .blog-post-header h1 {
     padding: 30px 0 30px 0;
     text-align: center;
@@ -219,6 +221,7 @@ const Wrapper = styled.div`
     margin-top: 61px;
     margin-bottom: 61px;
   }
+
   .gatsby-image-header {
     width: 100%;
   }
@@ -254,6 +257,8 @@ const Wrapper = styled.div`
 
   .post-info-tags {
     margin-top: 29px;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .post-info-tag {
@@ -263,6 +268,8 @@ const Wrapper = styled.div`
     transition: 0.3s;
     cursor: pointer;
     margin-right: 10px;
+    margin-bottom: 10px;
+    white-space: nowrap;
   }
 
   .post-info-tag:hover {
@@ -274,13 +281,17 @@ const Wrapper = styled.div`
     height: 2px;
     background: #000000 !important;
     opacity: 200;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+
   .blog-post-divisor-end {
     background: linear-gradient(89.63deg, #339999 10.13%, #ff9933 90.06%);
     height: 7px;
     width: 100%;
     margin-bottom: 85px;
   }
+
   @media (max-width: 1200px) {
     .blog-post-container {
       padding-left: 70px;
@@ -288,6 +299,20 @@ const Wrapper = styled.div`
     }
   }
   @media (max-width: 768px) {
+    .blog-post-container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .blog-post-header {
+      margin-top: 40px;
+    }
+
+    .blog-post-header-image {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
     .line-color {
       margin-top: 150px;
     }
@@ -307,6 +332,7 @@ const Wrapper = styled.div`
 
     .blog-post-title {
       line-height: 100%;
+      margin: 45px auto 20px auto;
     }
 
     .blog-post-subtitle {
@@ -317,9 +343,8 @@ const Wrapper = styled.div`
     }
 
     .blog-post-container {
-      padding-left: 40px;
-      padding-right: 40px;
       margin-bottom: 150px;
+      margin-top: 0;
     }
 
     .post-info {
@@ -330,10 +355,6 @@ const Wrapper = styled.div`
     .blog-post-title {
       padding-left: 71px;
       padding-right: 71px;
-    }
-    .blog-post-subtitle {
-      padding-left: 82px;
-      padding-right: 82px;
     }
   }
 `;

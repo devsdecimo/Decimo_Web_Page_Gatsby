@@ -95,17 +95,17 @@ const TeamMembers = (props) => {
 }
 const Wrapper = styled.div`
 .members-title{
-  margin: 100px auto 10px auto;
+  margin: 140px auto 10px auto;
   width: 50%;
   text-align:center;
   font-size: 47px;
-  font-weight: 700px !important;
+  font-weight: 700 !important;
 }
 .card-container{
-    width: 60%;
+    width: 80%;
     display: grid;
-    grid-column-gap: 35px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     margin: 60px auto;
 }
 .perso-card{
@@ -180,12 +180,59 @@ const Wrapper = styled.div`
 
 @media only screen and (max-width: 1600px){
   .card-container{
-    grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: 20px;
+    width: 100%;
+    grid-column-gap: 15px;
+  }
+  
+}
+@media only screen and (max-width: 1350px){
+  /* .card-container{
+    width: 80%;
+    grid-column-gap: 5px;
+  }
+  .perso-card{
+    width: 70%;
+    margin: 0px;
+  }
+  .card-image{
+    width: 50%;
+  } */
+  .card-container, .perso-card{
+      width: auto;
+      /* margin: auto; */
+    }
+    .card-image{
+      max-width: 250px;
+      max-height: 200px;
+    }
+    .card-line{
+      width: 150px;
+      margin: auto;
+    }
+    .card-name{
+      width: 250px;
+      margin: auto;
+      height: 50px;
+    }
+    .card-description{
+      width: 250px;
+      margin: auto;
+    }
+    .icons-container{
+      margin-top: 20px;
+    }
+}
+@media only screen and (max-width: 1100px){
+  .card-container{
+    width: 100%;
+    grid-template-columns: repeat(2,1fr);
   }
 }
-@media only screen and (max-width: 420px){
-    .card-container, .perso-card{
+@media only screen and (max-width: 520px){
+  .card-container{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .card-container, .perso-card{
       width: 300px;
     }
     .card-image{
@@ -209,5 +256,30 @@ const Wrapper = styled.div`
       margin-top: 20px;
     }
 }
+/* @media only screen and (max-width: 420px){
+    .card-container, .perso-card{
+      width: 300px;
+    }
+    .card-image{
+      max-width: 250px;
+      max-height: 200px;
+    }
+    .card-line{
+      width: 150px;
+      margin: auto;
+    }
+    .card-name{
+      width: 250px;
+      margin: auto;
+      height: 50px;
+    }
+    .card-description{
+      width: 250px;
+      margin: auto;
+    }
+    .icons-container{
+      margin-top: 20px;
+    }
+} */
 `
 export default TeamMembers;

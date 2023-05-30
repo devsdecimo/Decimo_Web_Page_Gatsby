@@ -128,10 +128,11 @@ const Wrapper = styled.div`
         width: 90%;
       }
       .title-container h2 {
-        font-size: 30px;
+        font-size: 25px;
       }
       .title-container p {
         font-weight: 600;
+        font-size: 16px;
       }
       .projects-container{
         margin-top: 30px;
