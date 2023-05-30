@@ -98,7 +98,7 @@ const Wrapper = styled.div`
     .footer-title-style{
         font-style:normal;
         font-size:16px;
-        max-width: 350px;
+        max-width: 250px;
         margin-top: 30px;
         height: 72px;
         font-weight: 500;
