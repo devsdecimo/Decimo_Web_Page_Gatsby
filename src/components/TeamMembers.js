@@ -118,7 +118,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
+    gap: 16px;
     padding: 32px;
     //background-color: red;
 }
@@ -136,6 +136,7 @@ const Wrapper = styled.div`
   font-weight: 600;
   font-size: 24px;
   line-height: 32px;
+  margin-bottom: 15px;
 }
 .card-sep{
   border: 1px solid #E7EAEE;
