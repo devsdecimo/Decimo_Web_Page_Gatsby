@@ -180,7 +180,7 @@ const Wrapper = styled.div`
         margin-left: 120px;
     } */
     .image-section, .home-image {
-    width: 900px;
+    width: 100%;
     height: calc(720px / 1.546);
   }    
   /*.text-container {
@@ -188,6 +188,9 @@ const Wrapper = styled.div`
         height: calc(720px / 2.82);
         
     } */
+    .main-container{
+        gap: 40px;
+    }
 }
 
 @media only screen and (max-width: 1350px){
@@ -195,11 +198,11 @@ const Wrapper = styled.div`
         margin: 80px auto 400px 40px;
     }
     .image-section{
-        width: 414px;
+        width: 100%;
         height: 397px;
     }
     .home-image{
-        width: 414px;
+        width: 100%;
         height: 397px;
     }
 }
