@@ -229,7 +229,7 @@ const Wrapper = styled.div`
     grid-template-columns: repeat(2,1fr);
   }
 }
-@media only screen and (max-width: 520px){
+@media only screen and (max-width: 640px){
   .card-container{
     grid-template-columns: repeat(1, 1fr);
   }
