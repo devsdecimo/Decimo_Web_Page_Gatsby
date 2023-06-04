@@ -118,15 +118,15 @@ function ContactForm () {
         <form onSubmit={handleSubmit} className="form-container">
           <div className="name-container">
             <p className="name-text-style">{nameSubtitleForm}</p>
-            <input className="name-input-style" name="user_name" type="text" value={name} onChange={handleNameChange}   placeholder={nameLabelInput}/>
+            <input className="name-input-style" name="user_name" type="text" value={name} onChange={handleNameChange}   placeholder={nameLabelInput} required/>
           </div>
           <div className="email-container">
             <p className="email-text-style">{emailSubtitleForm}</p>
-            <input className="email-input-style" name="user_email" type="email" value={email} onChange={handleEmailChange} placeholder={emailLabelInput}/>
+            <input className="email-input-style" name="user_email" type="email" value={email} onChange={handleEmailChange} placeholder={emailLabelInput} required/>
           </div>
           <div className="message-container">
             <p className="message-text-style">{messageSubtitleForm}</p>
-            <textarea className="message-input-style" name="message" type="message" value={message} onChange={handleMessageChange} placeholder={messageLabelInput}/>
+            <textarea className="message-input-style" name="message" type="message" value={message} onChange={handleMessageChange} placeholder={messageLabelInput} required/>
           </div>
           <div className="checkbox-container">
             <input className="checkbox-style" id="checkbox" value={checkbox} type="checkbox"  onChange={handleCheckboxChange}  required></input>
