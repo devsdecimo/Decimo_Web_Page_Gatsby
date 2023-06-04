@@ -149,7 +149,7 @@ const Wrapper = styled.div`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 30px;
 }
 .card-description{
