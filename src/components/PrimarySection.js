@@ -175,7 +175,7 @@ const Wrapper = styled.div`
         display: none;
     }
 }
-@media only screen and (min-width: 1920px){
+@media only screen and (max-width: 1920px){
     /* .text-container{
         margin-left: 120px;
     } */
@@ -236,3 +236,4 @@ const Wrapper = styled.div`
 }
 `
 export default PrimarySection
+ 
