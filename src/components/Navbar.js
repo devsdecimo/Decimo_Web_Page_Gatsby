@@ -348,7 +348,7 @@ const Wrapper = styled.section`
     height: 2em;
   }
 
-  @media (max-width: 1350px) {
+  @media (max-width: 1200px) {
     .navbar {
       padding: 30px 0;
       max-width: 100%;
