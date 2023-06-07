@@ -97,7 +97,11 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a href= "https://decimoempleo.com/" className="menu-link" target='_blank'>
+                <a
+                  href="https://decimoempleo.com/"
+                  className="menu-link"
+                  target="_blank"
+                >
                   {items[4]}
                 </a>
               </li>
@@ -176,7 +180,11 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item">
-              <a href= "https://decimoempleo.com/" className="menu-link" target='_blank'>
+                <a
+                  href="https://decimoempleo.com/"
+                  className="menu-link"
+                  target="_blank"
+                >
                   {items[4]}
                 </a>
               </li>
@@ -279,6 +287,7 @@ const Wrapper = styled.section`
     transition: 0.4s ease;
     height: 100%;
     width: 100%;
+    cursor: pointer;
   }
 
   .btn-content {
