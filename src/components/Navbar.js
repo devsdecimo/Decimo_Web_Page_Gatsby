@@ -114,7 +114,6 @@ const Navbar = (props) => {
                   {items[5]}
                 </Link>
               </li>
-              <div className="nav-space"></div>
             </ul>
           </nav>
 
@@ -197,7 +196,6 @@ const Navbar = (props) => {
                   {items[5]}
                 </Link>
               </li>
-              <div className="nav-space"></div>
             </ul>
           </nav>
 
@@ -348,7 +346,7 @@ const Wrapper = styled.section`
     height: 2em;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     .navbar {
       padding: 30px 0;
       max-width: 100%;
@@ -372,21 +370,16 @@ const Wrapper = styled.section`
       flex-direction: column;
       background-color: #339999;
       width: 320px;
-      text-align: right;
+      text-align: center;
       -webkit-transition: 0.5s ease;
       transition: 0.5s ease;
       height: 100%;
       z-index: 3;
     }
 
-    .nav-space {
-      height: 100%;
-      background-color: #1b7e7e;
-    }
-
     .nav-item {
-      margin: 20px 0px;
-      padding-right: 35px;
+      margin: 40px 0px;
+      cursor: pointer;
     }
 
     .btn-fatimes {
@@ -416,6 +409,7 @@ const Wrapper = styled.section`
     }
 
     .nav-menu .menu-link {
+      display: block;
       font-size: 20px;
       color: white;
     }
@@ -431,7 +425,7 @@ const Wrapper = styled.section`
       background-color: #339999;
       padding-right: 0 !important;
       border: none;
-      text-align: right;
+      text-align: center;
     }
 
     .btn-contact .menu-link {
@@ -442,7 +436,6 @@ const Wrapper = styled.section`
 
     .btn-content {
       display: block;
-      padding-right: 35px;
     }
 
     .nav-item.btn-contact {
@@ -457,6 +450,11 @@ const Wrapper = styled.section`
       background-color: #339999;
       transition: 0.3s;
       border: none;
+    }
+  }
+  @media (max-width: 300px) {
+    .nav-item {
+      margin: 20px 0px;
     }
   }
 `;
