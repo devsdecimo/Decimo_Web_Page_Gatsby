@@ -38,6 +38,7 @@ const BlogPost = ({ data, pageContext }) => {
               image={image}
               alt={"Post image of " + title}
               className="gatsby-image-header"
+              objectFit="cover"
             />
           </div>
           <section className="blog-post-container">
@@ -217,7 +218,8 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 457px;
+    height: auto;
+    max-height: 457px;
     margin-top: 61px;
     margin-bottom: 61px;
   }
