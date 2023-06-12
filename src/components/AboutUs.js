@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Linkedin from '../images/Boton LinkedIn.png'
-import Linkedin2 from '../images/linkedin.png'
 
 export const query = graphql`
 {
