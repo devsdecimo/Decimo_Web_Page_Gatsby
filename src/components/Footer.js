@@ -93,7 +93,7 @@ const Footer = () => {
     return (
       <Wrapper>
         <div className='main'>
-          <div className='footer'>
+          <div className='footer-2'>
             <hr className='footer-upper-line'></hr>
             {/* logo and items section */}
             <div className='first-section-2'>
@@ -122,7 +122,7 @@ const Footer = () => {
               </div>
               {/* copyright */}
               <div className='column-right'>
-                <p>{data.field_footercopyright}</p>
+                <p className='copyright'>{data.field_footercopyright}</p>
               </div>
             </div>
           </div>
@@ -143,6 +143,13 @@ const Wrapper = styled.div`
     margin-bottom: 0px;
 }
 .footer{
+    width: 85%;
+    height: 300px;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    transform: translate(0%, -20%);
+}
+.footer-2{
     width: 85%;
     height: 300px;
     border-radius: 30px;
@@ -314,6 +321,12 @@ const Wrapper = styled.div`
   .first-section-2{
     margin-right: 5% !important;
   }
+  .column2-v2{
+  transform: translate(4rem, 0) !important;
+}
+.column4-v2{
+  transform: translate(2rem, 0) !important;
+}
 }
 
 @media only screen and (max-width: 1400px){
@@ -339,14 +352,26 @@ const Wrapper = styled.div`
   .first-section-2{
     margin-right: 10% !important;
   }
+  .column2-v2{
+  transform: translate(2rem, 0) !important;
+}
+.column4-v2{
+  transform: translate(1rem, 0) !important;
+}
 }
 
 @media only screen and (max-width: 1080px){
   .first-section{
     margin-right: -2%;
   }
+  .column2-v2{
+  transform: translate(-0.5rem, 0) !important;
 }
-@media only screen and (max-width: 996px){
+.column4-v2{
+  transform: translate(-0.5rem, 0) !important;
+}
+}
+@media only screen and (max-width: 1000px){
   .column-left{
     display: flex;
   }
@@ -363,9 +388,17 @@ const Wrapper = styled.div`
     padding: 20px 120px 40px 120px;
     a{
       color:black;
-    }
-    
+    } 
   }
+  .column2-v2{
+  transform: translate(-2rem, 0) !important;
+}
+.column4-v2{
+  transform: translate(-2rem, 0) !important;
+}
+.column5-v2{
+  transform: translate(-1.5rem, 0) !important;
+}
 }
 
 /* CSS of the second section */
@@ -402,15 +435,15 @@ const Wrapper = styled.div`
     margin-right: 9% !important;
   }
 }
-  @media only screen and (max-width: 992px) {
+  /* @media only screen and (max-width: 992px) {
   .footer-icon{
     margin: 2px;
   }
   .first-section-2{
     margin-right: 13% !important;
   }
-}
-@media only screen and (max-width: 940px) {
+} */
+/* @media only screen and (max-width: 940px) {
   .first-section {
     display: grid;
     padding: 20px 120px 40px 85px;
@@ -426,8 +459,8 @@ const Wrapper = styled.div`
     grid-column: 1;
     margin-left: 20px;
   }
-}
-@media only screen and (max-width: 796px) {
+} */
+@media only screen and (max-width: 884px) {
   .column-left{
     margin-left: 0px;
   }
@@ -438,14 +471,12 @@ const Wrapper = styled.div`
   }
   .first-section-2{
     display: flex !important;
-    flex-direction: column;
-    padding-right: 4% !important;
-    padding: 20px 0px 40px 15% !important; 
+    flex-direction: column !important;
+    transform: translate(0.25rem,0);
   }
   .column1-v2{
-    margin-bottom: 50px;
-    margin-top: -20%;
-    
+    margin-right: 3rem;
+    transform: translate(-0.65rem,-3rem);
   }
   .column2-v2, .column4-v2, .column5-v2{
     font-family: 'Cabin' !important;
@@ -462,8 +493,172 @@ const Wrapper = styled.div`
   .column4-v2{
     margin-bottom: 40px !important;
   }
+  .column5-v2{
+    margin-bottom: -40px !important;
+  }
+  .copyright{
+    font-family: 'Cabin' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 10px !important;
+    line-height: 24px !important;
+    text-align: center !important;
+    letter-spacing: -0.09px !important;
+    font-feature-settings: 'ss01' on, 'ss03' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on !important;
+    color: rgba(8, 8, 8, 0.3) !important;
+  }
   .main{
     background: #F5F5F5;
+    /* background: red; */
+  }
+  .footer-2{
+    background-color: #FFFFFF !important;
+    height: 100%;
+    margin-bottom: -4.5rem;
+    margin-top: 3rem;
+    padding-bottom: 10rem;
+  }
+  .footer{
+    background-color: #FFFFFF !important;
+    margin-top: 100px;
+    height: 100%;
+    margin-bottom: -5%;
+  }
+  .second-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -100px;
+  }
+  .column-right{
+    margin: auto;
+    padding-bottom: 23px;
+    p{
+      font-family: 'Cabin';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.09px;
+    }
+  }
+  .column-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -1%;
+  }
+  .linkedin-icon{
+    width: 28px;
+    height: 28px;
+  }
+  .column1{
+    margin-bottom: 50px;
+    margin-top: -20px;
+  }
+  .column2{
+    margin-bottom: 40px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .column3{
+    margin-bottom: 40px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .column4{
+    margin-bottom: 40px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .column5{
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+  .first-section{
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .column-left{
+    margin-left: 0px;
+  }
+  .first-section{
+    display: flex !important;
+    flex-direction: column;
+    padding: 20px 0px 40px 2% !important; 
+  }
+  .first-section-2{
+    display: flex !important;
+    flex-direction: column !important;
+    transform: translate(-0.75rem,0);
+  }
+  .column1-v2{
+    margin-right: 3rem;
+    transform: translate(-0.65rem,-3rem);
+  }
+  .column2-v2, .column4-v2, .column5-v2{
+    font-family: 'Cabin' !important;
+    font-style: normal !important;
+    font-weight: 500 !important; 
+    font-size: 18px !important;
+    line-height: 24px !important;
+    letter-spacing: 1.25px !important;
+    text-transform: uppercase !important;
+  }
+  .column2-v2{
+    margin-bottom: 40px !important;
+  }
+  .column4-v2{
+    margin-bottom: 40px !important;
+  }
+  .column5-v2{
+    margin-bottom: -40px !important;
+  }
+  .copyright{
+    font-family: 'Cabin' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 10px !important;
+    line-height: 24px !important;
+    text-align: center !important;
+    letter-spacing: -0.09px !important;
+    font-feature-settings: 'ss01' on, 'ss03' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on !important;
+    color: rgba(8, 8, 8, 0.3) !important;
+  }
+  .main{
+    background: #F5F5F5;
+    /* background: red; */
+  }
+  .footer-2{
+    background-color: #FFFFFF !important;
+    height: 100%;
+    margin-bottom: -4.5rem;
+    margin-top: 3rem;
+    padding-bottom: 10rem;
   }
   .footer{
     background-color: #FFFFFF !important;
@@ -664,6 +859,12 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin: auto;
+}
+.column2-v2{
+  transform: translate(8rem, 0);
+}
+.column4-v2{
+  transform: translate(4rem, 0);
 }
 `
 
