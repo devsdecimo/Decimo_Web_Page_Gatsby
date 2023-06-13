@@ -98,7 +98,7 @@ const Wrapper = styled.div`
     .footer-title-style{
         font-style:normal;
         font-size:16px;
-        max-width: 350px;
+        max-width: 250px;
         margin-top: 30px;
         height: 72px;
         font-weight: 500;
@@ -176,6 +176,12 @@ const Wrapper = styled.div`
         /* .section-2{
             width: 450px;
         } */
+    }
+
+    @media only screen and (max-width: 325px){
+        .footer-title-style{
+            width: 280px;
+        }
     }
 `
 
