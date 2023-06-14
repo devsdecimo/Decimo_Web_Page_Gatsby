@@ -480,6 +480,10 @@ const Wrapper = styled.div`
         .openpositions-container{
             margin: 10px;
         }
+
+        .job-slogan-section h3{
+            margin-top: 8px;
+        }
     }
 
     //Ajuste del tamano de la seccion #1
