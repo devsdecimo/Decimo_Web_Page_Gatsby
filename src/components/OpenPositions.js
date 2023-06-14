@@ -263,6 +263,12 @@ const Wrapper = styled.div`
         font-weight:500;
         line-height: 25px !important;
         color: #586174;
+        max-width: 320px;
+        margin-left: 220px;
+    }
+
+    .description-section2 p{
+        justify-content: end !important;
     }
 
     //Estilo del boton
@@ -321,6 +327,12 @@ const Wrapper = styled.div`
             margin-left:auto;
             margin-right:auto;
             margin-top: 40px;
+        }
+        
+        .description-section2{
+            text-align: center;
+            margin-left: 0px;
+            margin: auto;
         }
 
         .background-gradient-color{
@@ -499,6 +511,12 @@ const Wrapper = styled.div`
             padding: 0;
             padding-bottom: 40px;
             margin: 10px;
+        }
+
+        .description-section2{
+            max-width: 235px;
+            margin: auto;
+            display: flex;
         }
     }
 
