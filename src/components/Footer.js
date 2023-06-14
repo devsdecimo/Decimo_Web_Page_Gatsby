@@ -150,10 +150,10 @@ const Wrapper = styled.div`
 }
 .footer-2{
     width: 85%;
-    height: 300px;
+    height: 308px;
     border-radius: 30px;
     background-color: #FFFFFF;
-    transform: translate(0%, -35%);
+    transform: translate(0%, -12%);
 }
 .footer-icon{
   margin-right: 24.55px  !important;
