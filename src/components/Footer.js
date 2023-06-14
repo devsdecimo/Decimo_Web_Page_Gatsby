@@ -134,27 +134,26 @@ const Footer = () => {
 const Wrapper = styled.div`
 /*CSS if main containers*/
 .main{
-    height: 100%;
     display: grid;
     place-items: center;
       background: radial-gradient(8% 50% at 10% 55%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
       radial-gradient(50% 50% at 80% 50%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
               radial-gradient(30% 50% at 30% 55%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
-    margin-bottom: 0px;
+    margin-top: -4rem;
 }
 .footer{
     width: 85%;
-    height: 300px;
+    height: 308px;
     border-radius: 30px;
     background-color: #FFFFFF;
-    transform: translate(0%, -20%);
+    transform: translate(0%, -12%);
 }
 .footer-2{
     width: 85%;
     height: 300px;
     border-radius: 30px;
     background-color: #FFFFFF;
-    transform: translate(0%, -20%);
+    transform: translate(0%, -35%);
 }
 .footer-icon{
   margin-right: 24.55px  !important;
