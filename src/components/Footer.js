@@ -82,7 +82,7 @@ const Footer = () => {
               </div>
               {/* copyright */}
               <div className='column-right'>
-                <p>{data.field_footercopyright}</p>
+                <p className='copyright'>{data.field_footercopyright}</p>
               </div>
             </div>
           </div>
@@ -434,31 +434,7 @@ const Wrapper = styled.div`
     margin-right: 9% !important;
   }
 }
-  /* @media only screen and (max-width: 992px) {
-  .footer-icon{
-    margin: 2px;
-  }
-  .first-section-2{
-    margin-right: 13% !important;
-  }
-} */
-/* @media only screen and (max-width: 940px) {
-  .first-section {
-    display: grid;
-    padding: 20px 120px 40px 85px;
-    a{
-      color:black;
-    }
-    
-  }
-  .second-section{
-    align-items: center;
-  }
-  .column-left{
-    grid-column: 1;
-    margin-left: 20px;
-  }
-} */
+
 @media only screen and (max-width: 884px) {
   .column-left{
     margin-left: 0px;
@@ -650,7 +626,7 @@ const Wrapper = styled.div`
   }
   .main{
     background: #F5F5F5;
-    /* background: red; */
+
   }
   .footer-2{
     background-color: #FFFFFF !important;
@@ -658,12 +634,16 @@ const Wrapper = styled.div`
     margin-bottom: -4.5rem;
     margin-top: 3rem;
     padding-bottom: 10rem;
+    width: 93%;
+    transform: translate(0,-5.5rem);
   }
+
   .footer{
     background-color: #FFFFFF !important;
     margin-top: 150px;
     height: 100%;
-    margin-bottom: -5%;
+    width: 93%;
+    transform: translate(0,-7rem);
   }
   .second-section{
     display: flex;
@@ -742,94 +722,6 @@ const Wrapper = styled.div`
     margin: auto;
   }
 }
-/* @media only screen and (max-width: 900px) {
-  .main{
-    background: #F5F5F5;
-  }
-  .footer{
-    background-color: #FFFFFF !important;
-    margin-top: 150px;
-    height: 100%;
-    margin-bottom: -5%;
-  }
-  .second-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: -100px;
-  }
-  .column-right{
-    margin: auto;
-    padding-bottom: 23px;
-    p{
-      font-family: 'Cabin';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: -0.09px;
-    }
-  }
-  .column-left{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: -1%;
-  }
-  .linkedin-icon{
-    width: 28px;
-    height: 28px;
-  }
-  .column1{
-    margin-bottom: 30px;
-    margin-top: -20px;
-  }
-  .column2{
-    margin-bottom: 16px;
-    font-family: 'Cabin';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-  }
-  .column3{
-    margin-bottom: 16px;
-    font-family: 'Cabin';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-  }
-  .column4{
-    margin-bottom: 16px;
-    font-family: 'Cabin';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-  }
-  .column5{
-    margin-bottom: 16px;
-    font-family: 'Cabin';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-  }
-  .first-section{
-    margin: auto;
-  }
-} */
 
 //CSS SECOND FOOTER
 
