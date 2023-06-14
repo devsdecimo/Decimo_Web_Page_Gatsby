@@ -162,7 +162,7 @@ export const StyleForm = styled.div`
         justify-content: center;
         background: radial-gradient(25% 50% at 20% 110%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
         radial-gradient(35% 50% at 35% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
-        padding-bottom: 80px;
+        padding-bottom: 50px;
   }
 
   .main-container{
