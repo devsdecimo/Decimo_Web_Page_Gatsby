@@ -83,7 +83,7 @@ const BlogPage = ({ data, pageContext }) => {
             <PaginationBlog currentPage={currentPage} numPages={numPages} />
           </section>
         </main>
-        <Container>
+        <Container className="newsletter-content">
           <p className="newsletter-text">
             Subscribe to our blog and get notified
           </p>
@@ -151,6 +151,9 @@ export const query = graphql`
 `;
 
 const Wrapper = styled.div`
+  .newsletter-content{
+    padding-bottom: 149px;
+  }
   .newsletter-text {
     padding: 0px !important;
   }
