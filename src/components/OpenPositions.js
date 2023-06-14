@@ -335,6 +335,10 @@ const Wrapper = styled.div`
             margin: auto;
         }
 
+        .button-style{
+            margin-top: 53px;
+        }
+
         .background-gradient-color{
             //Color de abajo a la izquierda
             background: radial-gradient(20% 25% at 5% 100%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 80%),
@@ -346,6 +350,7 @@ const Wrapper = styled.div`
             radial-gradient(20% 40% at 20% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 80%);
             padding-bottom:150px;
         }
+
     }
 
     @media only screen and (max-width: 1150px) {
