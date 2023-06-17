@@ -78,10 +78,11 @@ const BlogPage = ({ data, pageContext }) => {
               })}
             </div>
           </section>
-          {/* Pagination */}
-          <section className="blog-navigation">
-            <PaginationBlog currentPage={currentPage} numPages={numPages} />
-          </section>
+          {numPages > 1 && (
+            <section className="blog-navigation">
+              <PaginationBlog currentPage={currentPage} numPages={numPages} />
+            </section>
+          )}
         </main>
         <Container className="newsletter-content">
           <p className="newsletter-text">
@@ -151,7 +152,7 @@ export const query = graphql`
 `;
 
 const Wrapper = styled.div`
-  .newsletter-content{
+  .newsletter-content {
     padding-bottom: 149px;
   }
   .newsletter-text {
@@ -196,6 +197,7 @@ const Wrapper = styled.div`
     column-gap: 90px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 100px;
   }
 
   .card-post {
@@ -309,12 +311,13 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 100px 0 100px 0;
+    margin-bottom: 100px;
   }
 
   .newsletter {
     margin-top: -20px;
   }
+
   .newsletter-text {
     padding-top: 40px;
     font-family: "Cabin";
@@ -334,6 +337,13 @@ const Wrapper = styled.div`
       margin-top: 50px;
     }
 
+    h2,
+    .blog-subtitle {
+      max-width: 193px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .cards-container {
       row-gap: 50px;
     }
@@ -341,7 +351,6 @@ const Wrapper = styled.div`
   @media (max-width: 576px) {
     .blog-subtitle {
       font-size: 14px;
-      width: 193px;
     }
 
     h1 {
