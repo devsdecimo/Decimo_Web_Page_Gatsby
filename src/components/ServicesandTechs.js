@@ -71,6 +71,7 @@ const Wrapper = styled.div`
 }
 .services-header h2{
   font-size: 47px;
+  font-weight: 700;
 } 
 .services-header p{
   font-weight: 400px !important;
@@ -169,10 +170,32 @@ const Wrapper = styled.div`
   .cards-container{
     grid-template-columns: repeat(2 ,1fr);
   }
+  .services-header{
+    margin: -50px auto 0px auto;
+  }
+  .service-card-container{
+    display: grid;
+    align-items: center;
+  }
+  .card-icon-container{
+    margin: 0px auto;
+  }
+  .card-icon{
+    margin: 0px;
+  }
+  .card-title{
+    margin:auto;
+    text-align: center;
+  }
+  .text-container{
+    margin: auto;
+    text-align: center;
+  }
 }
 @media only screen and (max-width: 700px){
   .services-header h2{
     font-size: 25px;
+    font-weight: 700;
   }
   .services-header p{
     font-size: 14px;
