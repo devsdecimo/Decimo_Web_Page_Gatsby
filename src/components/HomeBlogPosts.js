@@ -347,19 +347,29 @@ const Wrapper = styled.div`
   }
   @media (max-width: 768px) {
     .blog-header {
-      margin-bottom: 60px;
+      margin-bottom: 50px;
       margin-top: 93px;
     }
 
     h2,
     .blog-subtitle {
-      max-width: 144px;
+      max-width: 193px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .cards-container {
       row-gap: 50px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .blog-subtitle {
+      font-size: 14px;
+    }
+
+    h2 {
+      font-size: 25px !important;
     }
   }
 `;
