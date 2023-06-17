@@ -351,6 +351,13 @@ const Wrapper = styled.div`
       margin-top: 93px;
     }
 
+    h2,
+    .blog-subtitle {
+      max-width: 144px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .cards-container {
       row-gap: 50px;
     }
