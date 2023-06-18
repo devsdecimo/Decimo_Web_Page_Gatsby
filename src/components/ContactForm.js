@@ -448,7 +448,7 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 495px){
 
     .main-title{
-      font-size: 35px;
+      font-size: 25px;
     }
 
     .name-text-style, .email-text-style, .message-text-style{
@@ -491,7 +491,7 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 420px){
 
     .main-title{
-      font-size: 32px;
+      font-size: 25px;
     }
 
     .name-input-style, .email-input-style{
