@@ -465,10 +465,12 @@ export const StyleForm = styled.div`
     }
 
     //Se ajusta el tamaño de la checkbox
-    .checkbox-container {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+    .checkbox-text-style{
+      font-size: 14px;
+    }
+
+    .checkbox-container{
+      justify-content: start;
     }
 
         //Se ajusta el tamaño del boton
@@ -492,12 +494,18 @@ export const StyleForm = styled.div`
 
     //Se ajusta el tamaño del boton
     .button-style {
-      width: 240px;
+      width: 140px;
+      height: 45px;
     }
 
     //Se ajusta el tamaño de la checkbox
     .checkbox-container {
       width: 300px;
+    }
+
+    .second-container{
+      background: radial-gradient(50% 35% at 15% 113%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
+      radial-gradient(60% 50% at 50% 133%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
     }
   }
 
@@ -511,6 +519,12 @@ export const StyleForm = styled.div`
       margin-left: auto;
       margin-right: auto;
       margin-top: 10px;
+    }
+
+    .checkbox-container{
+      max-width: 98%;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 `;
