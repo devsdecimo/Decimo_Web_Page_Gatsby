@@ -455,6 +455,10 @@ const Wrapper = styled.div`
             radial-gradient(50% 20% at 31% 82%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
             padding-bottom:150px;
         }
+
+        .props-title-style{
+            font-size: 35px;
+        }
     }
 
     //Ajuste del tamano de la fuente del titulo de las Cards
