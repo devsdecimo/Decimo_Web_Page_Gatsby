@@ -426,6 +426,7 @@ export const StyleForm = styled.div`
       margin-right: auto;
       margin-top: 70px;
       text-align: center;
+      font-size: 25px;
     }
 
     //Se ajusta el tamaño de los titulos de los inputs
