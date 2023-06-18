@@ -74,48 +74,52 @@ function FormBlogPage() {
   //Funcion para poder enviar el formulario de contacto con mailchimp
   async function handleSubmit(event) {
     event.preventDefault();
-
+  
     if (!checkbox) {
       setError(true);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Please accept the Terms of Use and Privacy Policy',
+      });
       return;
+    }else{
+      setError(false);
+      setCheckbox(false);
     }
-
-    const result = await addToMailchimp(
-      email,
-      {
-        NAME: name,
-        MESSAGE: message,
-        TIMESTAMP: timestamp,
-      },
-      {
-        allow_duplicates: true,
-      }
-    );
-
-    if (result.result === "success") {
+  
+    const result = await addToMailchimp(email, {
+      NAME: name,
+      MESSAGE: message,
+      TIMESTAMP: timestamp,
+    }, {
+      allow_duplicates: true,
+    });
+  
+    if (result.result === 'success') {
       setSuccess(true);
-      setName("");
-      setEmail("");
-      setMessage("");
+      setName('');
+      setEmail('');
+      setMessage('');
       setCheckbox(false);
       setError(false);
       Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Submitted form",
+        position: 'center',
+        icon: 'success',
+        title: 'Submitted form',
         text: "Your form has been sent successfully, we'll get in touch soon!",
         showConfirmButton: false,
-        timer: 3000,
+        timer:3000
       });
-      window.setTimeout(function () {
+      window.setTimeout(function(){ 
         window.location.reload();
-      }, 3000);
+      } ,3000);
     } else {
       setError(true);
       Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "There was an error sending the form. Please try again",
+        icon: 'error',
+        title: 'Error',
+        text: 'There was an error sending the form. Please try again',
       });
     }
   }
@@ -140,7 +144,7 @@ function FormBlogPage() {
                             <textarea className="message-input-style" type="text" value={message} onChange={handleMessageChange} placeholder={messageLabelInput} required/>
                         </div>
                         <div className="checkbox-container">
-                            <input className="checkbox-style" type="checkbox" value={checkbox} onChange={handleCheckboxChange} id="checkbox" required/>
+                            <input className="checkbox-style" type="checkbox" value={checkbox} onChange={handleCheckboxChange} id="checkbox"/>
                             <label for="checkbox" className="checkbox-text-style">
                             I agree to <Link to='/privacy-policy' className="privacy-link-style">Privacy Policy</Link> and <Link to='/privacy-policy' className="terms-link-style">Terms of Use</Link>
                             </label>
