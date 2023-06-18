@@ -263,6 +263,12 @@ const Wrapper = styled.div`
         font-weight:500;
         line-height: 25px !important;
         color: #586174;
+        max-width: 320px;
+        margin-left: 220px;
+    }
+
+    .description-section2 p{
+        justify-content: end !important;
     }
 
     //Estilo del boton
@@ -322,6 +328,16 @@ const Wrapper = styled.div`
             margin-right:auto;
             margin-top: 40px;
         }
+        
+        .description-section2{
+            text-align: center;
+            margin-left: 0px;
+            margin: auto;
+        }
+
+        .button-style{
+            margin-top: 53px;
+        }
 
         .background-gradient-color{
             //Color de abajo a la izquierda
@@ -334,6 +350,7 @@ const Wrapper = styled.div`
             radial-gradient(20% 40% at 20% 120%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 80%);
             padding-bottom:150px;
         }
+
     }
 
     @media only screen and (max-width: 1150px) {
@@ -438,6 +455,10 @@ const Wrapper = styled.div`
             radial-gradient(50% 20% at 31% 82%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
             padding-bottom:150px;
         }
+
+        .props-title-style{
+            font-size: 35px;
+        }
     }
 
     //Ajuste del tamano de la fuente del titulo de las Cards
@@ -462,6 +483,10 @@ const Wrapper = styled.div`
 
         .openpositions-container{
             margin: 10px;
+        }
+
+        .job-slogan-section h3{
+            margin-top: 8px;
         }
     }
 
@@ -499,6 +524,12 @@ const Wrapper = styled.div`
             padding: 0;
             padding-bottom: 40px;
             margin: 10px;
+        }
+
+        .description-section2{
+            max-width: 235px;
+            margin: auto;
+            display: flex;
         }
     }
 
