@@ -151,6 +151,18 @@ const Wrapper = styled.div`
             /* width:230px; */
             margin: auto;
         }
+
+        .section-1{
+            margin-top: 70px;
+        }
+
+        .contact-section{
+            gap: 70px;
+        }
+
+        .section-2{
+            height: 600px
+        } 
     }
 
     @media only screen and (max-width: 412px){
@@ -169,13 +181,13 @@ const Wrapper = styled.div`
 
         .footer-title-style{
             text-align:center;
-            /* width:230px; */
             margin: auto;
         }
 
         /* .section-2{
-            width: 450px;
+            height: 580px;
         } */
+
     }
 
     @media only screen and (max-width: 325px){
