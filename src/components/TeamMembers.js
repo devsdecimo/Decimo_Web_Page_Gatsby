@@ -228,6 +228,13 @@ const Wrapper = styled.div`
     width: 100%;
     grid-template-columns: repeat(2,1fr);
   }
+  .members-title{
+    font-size: 25px;
+    font-weight: 700;
+  }
+  .card-name{
+    font-size: 20px;
+  }
 }
 @media only screen and (max-width: 640px){
   .card-container{
