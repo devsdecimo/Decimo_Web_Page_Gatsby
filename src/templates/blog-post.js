@@ -11,7 +11,6 @@ import FormBlogPage from "../components/FormBlogPage";
 import Prism from "prismjs";
 import "../utils/prismImports";
 import replaceHtml from "../utils/replaceHtml.js";
-import DOMPurify from "dompurify";
 
 const BlogPost = ({ data }) => {
   useEffect(() => {
@@ -31,9 +30,8 @@ const BlogPost = ({ data }) => {
   } = data.alias1.nodes[0];
 
   const updatedHTML = replaceHtml(value);
-  const cleanHTML = DOMPurify.sanitize(updatedHTML);
 
-  // const main = { __html: cleanHTML };
+  const main = { __html: updatedHTML };
   const image = getImage(localFile);
 
   const time = readingTime(value);
@@ -42,7 +40,7 @@ const BlogPost = ({ data }) => {
       <Layout>
         <main className="main">
           <h1 className="blog-post-title">{title}</h1>
-          {subtitle ? <p className="blog-post-subtitle">{subtitle}</p> : null}
+          {subtitle && <p className="blog-post-subtitle">{subtitle}</p>}
           <div className="blog-post-header-image">
             <GatsbyImage
               image={image}
@@ -76,7 +74,7 @@ const BlogPost = ({ data }) => {
             <div className="blog-post-body">
               <div
                 className="blog-post-body-content"
-                dangerouslySetInnerHTML={{ __html: cleanHTML }}
+                dangerouslySetInnerHTML={main}
               />
               <p>
                 <br />

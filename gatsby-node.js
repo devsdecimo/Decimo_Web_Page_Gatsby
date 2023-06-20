@@ -5,16 +5,6 @@ const { pathPrefix } = require("./gatsby-config");
 /* const express = require('express');
 const sendEmail = require('./src/api/sendEmail'); */
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-  const typeDefs = `
-    type node__blog_post implements Node {
-      field_blog_post_subtitle: String
-    }
-  `;
-  createTypes(typeDefs);
-};
-
 async function createTags({ graphql, actions }) {
   const { errors, data } = await graphql(`
     {
