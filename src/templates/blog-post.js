@@ -40,7 +40,7 @@ const BlogPost = ({ data }) => {
       <Layout>
         <main className="main">
           <h1 className="blog-post-title">{title}</h1>
-          <p className="blog-post-subtitle">{subtitle}</p>
+          {subtitle && <p className="blog-post-subtitle">{subtitle}</p>}
           <div className="blog-post-header-image">
             <GatsbyImage
               image={image}
