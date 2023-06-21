@@ -495,8 +495,7 @@ export const StyleForm = styled.div`
 
     //Se ajusta el tamaño del boton
     .button-style {
-      width: 140px;
-      height: 45px;
+      width: 200px;
     }
 
     //Se ajusta el tamaño de la checkbox
