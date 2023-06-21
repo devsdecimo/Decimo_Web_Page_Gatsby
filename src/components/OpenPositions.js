@@ -161,7 +161,8 @@ const Wrapper = styled.div`
         border: 1px solid #E7EAEE;
         padding:25px;
         margin:auto;
-        /* width:360px; */
+        height: 100%;
+        width: 100%;
     }
 
     //Efecto hover de las Cards
@@ -457,7 +458,7 @@ const Wrapper = styled.div`
         }
 
         .props-title-style{
-            font-size: 35px;
+            font-size: 25px;
         }
     }
 
@@ -465,9 +466,10 @@ const Wrapper = styled.div`
     @media only screen and (max-width: 550px){
         .title-style p{
             margin: 0 0 0 0;
-            font-size: 47px;
+            font-size: 35px;
             font-weight: 700;
             letter-spacing: -0.02em;
+            line-height: 0px;
         }
     }
 
@@ -475,6 +477,7 @@ const Wrapper = styled.div`
     @media only screen and (max-width: 525px){
         .card-section{
             margin:auto;
+            width: 100%;
         }
 
         .card-img{
