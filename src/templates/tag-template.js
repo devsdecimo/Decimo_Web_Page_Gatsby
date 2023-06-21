@@ -116,6 +116,8 @@ const Wrapper = styled.div`
 
   .page {
     width: 100%;
+    margin-bottom: 15rem;
+    
   }
 
   .container {
