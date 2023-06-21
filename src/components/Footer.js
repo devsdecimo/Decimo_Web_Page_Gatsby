@@ -82,7 +82,7 @@ const Footer = () => {
               </div>
               {/* copyright */}
               <div className='column-right'>
-                <p>{data.field_footercopyright}</p>
+                <p className='copyright'>{data.field_footercopyright}</p>
               </div>
             </div>
           </div>
@@ -626,7 +626,7 @@ const Wrapper = styled.div`
   }
   .main{
     background: #F5F5F5;
-    /* background: red; */
+
   }
   .footer-2{
     background-color: #FFFFFF !important;
@@ -637,6 +637,7 @@ const Wrapper = styled.div`
     width: 94%;
     transform: translate(0,-5rem);
   }
+
   .footer{
     background-color: #FFFFFF !important;
     margin-top: 150px;
