@@ -67,45 +67,53 @@ function FormBlogDetail(){
     //Funcion para poder enviar el formulario de contacto con mailchimp 
     async function handleSubmit(event) {
         event.preventDefault();
-    
+      
         if (!checkbox) {
-        setError(true);
-        return;
+            setError(true);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please accept the terms of Use and Privacy Policy',
+            });
+            return;
+        }else{
+            setError(false);
+            setCheckbox(false);
         }
-    
+      
         const result = await addToMailchimp(email, {
-        NAME: name,
-        MESSAGE: message,
-        TIMESTAMP: timestamp,
+            NAME: name,
+            MESSAGE: message,
+            TIMESTAMP: timestamp,
         }, {
-        allow_duplicates: true,
+            allow_duplicates: true,
         });
-    
+      
         if (result.result === 'success') {
-        setSuccess(true);
-        setName('');
-        setEmail('');
-        setMessage('');
-        setCheckbox(false);
-        setError(false);
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Submitted form',
-            text: "Your form has been sent successfully, we'll get in touch soon!",
-            showConfirmButton: false,
-            timer:3000
-        });
-        window.setTimeout(function(){ 
-            window.location.reload();
-        } ,3000);
+            setSuccess(true);
+            setName('');
+            setEmail('');
+            setMessage('');
+            setCheckbox(false);
+            setError(false);
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Submitted form',
+                text: "Your form has been sent successfully, we'll get in touch soon!",
+                showConfirmButton: false,
+                timer:3000
+            });
+            window.setTimeout(function(){ 
+                indow.location.reload();
+            } ,3000);
         } else {
-        setError(true);
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'There was an error sending the form. Please try again',
-        });
+            setError(true);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'There was an error sending the form. Please try again',
+            });
         }
     }
 

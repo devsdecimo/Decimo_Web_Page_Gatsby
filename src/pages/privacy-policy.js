@@ -99,11 +99,11 @@ const PrivacyPolicyStyles = styled.main`
     margin: auto;
   }
 
-  //Estilo para el h1 que viene del ckeditor
-  h1{
+  //Estilo para el h2 que viene del ckeditor
+  h2{
     font-style:normal;
-    font-weight:normal;
-    font-size:30px;
+    font-weight:600;
+    font-size:47px;
     margin:0 0 15px;
     color: #323436;
   }
@@ -112,20 +112,36 @@ const PrivacyPolicyStyles = styled.main`
   p{
     color: #323436;
     font-style:normal;
-    font-size:14px;
+    font-size:16px;
   }
 
-  //Estilo para los h2 que vienen del ckeditor
-  h2{
+  //Estilo para los h3 que vienen del ckeditor
+  h3{
     font-style:normal;
-    font-weight:normal;
-    font-size:23px;
+    font-weight:500;
+    font-size:25px;
     margin:0 0 15px;
     margin-top: 25px;
     color: #323436;
   }
 
   //Responsive
+
+  @media only screen and (max-width: 1100px){
+    .imageContainer{
+      height: 300px;
+    }
+    .background-gradient{
+      height: 300px;
+    }
+
+    .decLogo{
+      max-height: 300px;
+      align-items: center;
+      margin: auto;
+      max-width: 220px;
+    }
+  }
 
   @media only screen and (max-width: 1000px){
     .background-gradient{
@@ -153,6 +169,20 @@ const PrivacyPolicyStyles = styled.main`
     }
   }
 
+  @media only screen and (max-width: 768px) {
+    h2{
+      font-size: 25px;
+    }
+
+    h3{
+      font-size: 18px;
+    }
+
+    p{
+      font-size: 14px;
+    }
+  }
+
   @media only screen and (max-width: 587px) {
     .background-gradient{
                   //Color turquesa abajo izquierda
@@ -176,6 +206,22 @@ const PrivacyPolicyStyles = styled.main`
       radial-gradient(50% 50% at 90% -30%, rgba(51, 153, 153, 0.35) 0%, rgba(128, 202, 203, 0) 100%),
       //Color naranja arriba izquierda
       radial-gradient(35% 50% at -10% -20%, rgba(255, 153, 51, 0.35) 0%, rgba(255, 204, 153, 0) 100%);
+    }
+  }
+
+  @media only screen and (max-width: 380px) {
+    .decLogo{
+      max-height: 250px;
+      align-items: center;
+      margin: auto;
+      max-width: 180px;
+    }
+
+    .imageContainer{
+      height: 250px;
+    }
+    .background-gradient{
+      height: 250px;
     }
   }
 `

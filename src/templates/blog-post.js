@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import styled from "styled-components";
@@ -8,9 +8,15 @@ import SimilarPost from "../components/SimilarPost";
 import { readingTime } from "../utils/readingTime";
 import { postSlug } from "../utils/slugExpression";
 import FormBlogPage from "../components/FormBlogPage";
-const slugify = require("slugify");
+import Prism from "prismjs";
+import "../utils/prismImports";
+import replaceHtml from "../utils/replaceHtml.js";
 
-const BlogPost = ({ data, pageContext }) => {
+const BlogPost = ({ data }) => {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   const {
     title,
     field_blog_post_subtitle: subtitle,
@@ -23,8 +29,10 @@ const BlogPost = ({ data, pageContext }) => {
     },
   } = data.alias1.nodes[0];
 
-  const main = { __html: value }; //Body
-  const image = getImage(localFile); //Post Image
+  const updatedHTML = replaceHtml(value);
+
+  const main = { __html: updatedHTML };
+  const image = getImage(localFile);
 
   const time = readingTime(value);
   return (
@@ -32,7 +40,7 @@ const BlogPost = ({ data, pageContext }) => {
       <Layout>
         <main className="main">
           <h1 className="blog-post-title">{title}</h1>
-          <p className="blog-post-subtitle">{subtitle}</p>
+          {subtitle && <p className="blog-post-subtitle">{subtitle}</p>}
           <div className="blog-post-header-image">
             <GatsbyImage
               image={image}
@@ -84,7 +92,7 @@ const BlogPost = ({ data, pageContext }) => {
   );
 };
 
-export const Head = ({ data, pageContext }) => (
+export const Head = ({ data }) => (
   <SEO
     title={`${data.alias1.nodes[0].title} - Decimo Technology Solutions`}
     description={`Blog post ${data.alias1.nodes[0].title} of Decimo Technology Solutions`}
@@ -235,6 +243,29 @@ const Wrapper = styled.div`
 
   .blog-post-body-content {
     line-height: 170%;
+  }
+
+  .blog-post-body-content img {
+    margin-top: 72px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+
+  .blog-post-body-content .text-align-center {
+    text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: #000000;
+    margin-bottom: 72px !important;
+  }
+
+  .drupal-img {
+    max-width: 100%;
+    height: auto;
   }
 
   .post-info {

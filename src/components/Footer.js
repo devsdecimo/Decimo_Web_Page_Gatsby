@@ -634,15 +634,16 @@ const Wrapper = styled.div`
     margin-bottom: -4.5rem;
     margin-top: 3rem;
     padding-bottom: 10rem;
-    width: 93%;
-    transform: translate(0,-5.5rem);
+    width: 94%;
+    transform: translate(0,-5rem);
   }
 
   .footer{
     background-color: #FFFFFF !important;
     margin-top: 150px;
     height: 100%;
-    width: 93%;
+    margin-bottom: -5%;
+    width: 94%;
     transform: translate(0,-7rem);
   }
   .second-section{

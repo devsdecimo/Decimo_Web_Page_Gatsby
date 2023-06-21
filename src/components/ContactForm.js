@@ -72,7 +72,15 @@ function ContactForm () {
   
     if (!checkbox) {
       setError(true);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Please accept the Terms of Use and Privacy Policy',
+      });
       return;
+    }else{
+      setError(false);
+      setCheckbox(false);
     }
   
     const result = await addToMailchimp(email, {
@@ -129,7 +137,7 @@ function ContactForm () {
             <textarea className="message-input-style" name="message" type="message" value={message} onChange={handleMessageChange} placeholder={messageLabelInput} required/>
           </div>
           <div className="checkbox-container">
-            <input className="checkbox-style" id="checkbox" value={checkbox} type="checkbox"  onChange={handleCheckboxChange}  required></input>
+            <input className="checkbox-style" id="checkbox" value={checkbox} type="checkbox"  onChange={handleCheckboxChange}></input>
             <label for="checkbox" className="checkbox-text-style">
               I agree to <Link to='/privacy-policy' className="privacy-link-style">Privacy Policy</Link> and <Link to='/privacy-policy' className="terms-link-style">Terms of Use</Link>
             </label>
@@ -440,7 +448,7 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 495px){
 
     .main-title{
-      font-size: 35px;
+      font-size: 25px;
     }
 
     .name-text-style, .email-text-style, .message-text-style{
@@ -483,7 +491,7 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 420px){
 
     .main-title{
-      font-size: 32px;
+      font-size: 25px;
     }
 
     .name-input-style, .email-input-style{

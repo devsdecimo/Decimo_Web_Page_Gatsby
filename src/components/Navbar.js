@@ -336,6 +336,8 @@ const Wrapper = styled.section`
   }
   .btn-fatimes {
     display: none;
+    text-align: right;
+    padding-right: 45px;
   }
 
   .btn-fatimes-cursor {
