@@ -409,7 +409,7 @@ const Wrapper = styled.div`
         font-family: 'Cabin';
         font-style: normal;
         font-weight: 700;
-        font-size: 40px;
+        font-size: 25px;
         line-height: 30px;
         text-align: center;
         letter-spacing: -0.02em;
@@ -429,7 +429,11 @@ const Wrapper = styled.div`
     text-align: center;
     align-items: center;
     justify-content: center;
-}
+    }
+    .aboutus-cont{
+        transform: translate(0, -6rem);
+        margin-bottom: -8rem;
+    }
 }
 
 @media only screen and (max-width: 390px){
@@ -447,7 +451,7 @@ const Wrapper = styled.div`
         font-family: 'Cabin';
         font-style: normal;
         font-weight: 700;
-        font-size: 40px;
+        font-size: 25px;
         line-height: 30px;
         text-align: center;
         letter-spacing: -0.02em;
@@ -460,7 +464,7 @@ const Wrapper = styled.div`
         line-height: 150%;
         color: #07090D;
         text-align: center;
-        width: 312px;
+        width: 300px;
         margin-bottom: -190px !important;
     }
     .logo-cont{
