@@ -185,7 +185,7 @@ const Wrapper = styled.div`
     margin-left: 130px;
 }
 .icons-container{
-    margin: 70px 0px 20px 120px ;
+    margin: 30px 0px 20px 120px ;
 }
 .aboutus-icon{
     width: 40px;
