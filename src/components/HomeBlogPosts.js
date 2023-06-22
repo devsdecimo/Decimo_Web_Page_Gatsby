@@ -361,6 +361,20 @@ const Wrapper = styled.div`
     .cards-container {
       row-gap: 50px;
     }
+    
+    .posts-link {
+        text-align: center;
+    }
+
+    .posts-link p {
+        display: block;
+        font-weight: 700;
+    }
+
+    .link-icon {
+        display: block;
+        margin: 10px auto;
+    }
   }
 
   @media (max-width: 576px) {
