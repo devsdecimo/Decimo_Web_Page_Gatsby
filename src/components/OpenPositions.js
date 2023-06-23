@@ -86,7 +86,7 @@ const OpenPositions = (props) => {
                             <p dangerouslySetInnerHTML={descripcion_section} />
                         </div>
                         {/* Boton que redirecciona a la pagina de Open Positions Page */}
-                        <a href='https://decimoempleo.com/'>
+                        <a href='https://decimoempleo.com/' target="_blank">
                             <button className="button-style">
                                 {sectionData.field_button_section}
                             </button>
