@@ -359,7 +359,7 @@ const Wrapper = styled.div`
         font-family: 'Cabin';
         font-style: normal;
         font-weight: 700;
-        font-size: 47px;
+        font-size: 25px;
         line-height: 30px;
         text-align: center;
         letter-spacing: -0.02em;

@@ -347,6 +347,9 @@ const Wrapper = styled.div`
       margin-left: auto;
       margin-right: auto;
     }
+    .blog-subtitle h2{
+      font-size: 25px;
+    }
 
     .cards-container {
       row-gap: 50px;
