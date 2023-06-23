@@ -9,7 +9,8 @@ const replaceHtml = (html) => {
     .replace(
       /src="\/sites/g,
       'src="https://dev-decimo-drupal-site.pantheonsite.io/sites'
-    );
+    )
+    .replace(/<a([^>]+href=")(?!https?:\/\/)([^"]+)"/g, '<a$1https://$2"');
 
   return updatedHTML;
 };
