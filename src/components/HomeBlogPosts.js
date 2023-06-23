@@ -336,6 +336,10 @@ const Wrapper = styled.div`
     margin: auto 10px;
   }
   @media (max-width: 768px) {
+    .blog-header h2 {
+      font-size: 25px;
+    }
+
     .blog-header {
       margin-bottom: 50px;
       margin-top: 93px;
