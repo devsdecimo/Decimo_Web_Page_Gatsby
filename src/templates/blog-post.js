@@ -182,7 +182,7 @@ const Wrapper = styled.div`
 
   h4 {
     color: #000;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 160%;
   }
@@ -372,7 +372,7 @@ const Wrapper = styled.div`
     }
 
     h2 {
-      font-size: 25px;
+      font-size: 24px;
     }
 
     h3 {
