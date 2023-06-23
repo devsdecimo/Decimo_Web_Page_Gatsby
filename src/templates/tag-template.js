@@ -4,7 +4,6 @@ import Layout from "../components/Layout";
 import styled from "styled-components";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { postSlug } from "../utils/slugExpression";
-const slugify = require("slugify");
 
 const TagTemplate = ({ data, pageContext }) => {
   const posts = data.allNodeBlogPost.nodes;
