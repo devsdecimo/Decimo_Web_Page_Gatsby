@@ -170,9 +170,9 @@ const Wrapper = styled.div`
     margin-top: 130px;
   }
 
-  .main {
+  /* .main {
     margin-bottom: 130px;
-  }
+  } */
 
   h1 {
     font-size: 54px;
