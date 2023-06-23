@@ -75,6 +75,7 @@ const Navbar = (props) => {
                   smooth={true}
                   duration={100}
                   offset={-100}
+                  onClick={handleClick}
                 >
                   {items[1]}
                 </ReactLink>
@@ -87,6 +88,7 @@ const Navbar = (props) => {
                   smooth={true}
                   duration={100}
                   offset={-100}
+                  onClick={handleClick}
                 >
                   {items[2]}
                 </ReactLink>

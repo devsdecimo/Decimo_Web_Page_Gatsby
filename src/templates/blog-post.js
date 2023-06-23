@@ -166,12 +166,35 @@ export const query = graphql`
 `;
 
 const Wrapper = styled.div`
-  .line-color {
-    margin-top: 130px;
+  h2 {
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 160%;
   }
 
-  .main {
-    margin-bottom: 130px;
+  h3 {
+    color: #000;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 160%;
+  }
+
+  h4 {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 160%;
+  }
+
+  li {
+    font-weight: 400;
+    line-height: 170%;
+    font-size: 20px;
+  }
+
+  .line-color {
+    margin-top: 130px;
   }
 
   h1 {
@@ -251,16 +274,6 @@ const Wrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-  }
-
-  .blog-post-body-content .text-align-center {
-    text-align: left;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 140%;
-    color: #000000;
-    margin-bottom: 72px !important;
   }
 
   .drupal-img {
@@ -358,9 +371,24 @@ const Wrapper = styled.div`
       font-size: 25px;
     }
 
+    h2 {
+      font-size: 24px;
+    }
+
+    h3 {
+      font-size: 23px;
+    }
+
+    h4 {
+      font-size: 21px;
+    }
+
     p {
       font-weight: 400;
       line-height: 170%;
+    }
+
+    li {
     }
 
     .blog-post-title {
