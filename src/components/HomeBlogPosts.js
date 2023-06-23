@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import slugify from "slugify";
 import Newsletter from "./Newsletter";
 import { Container, Row, Col } from "react-bootstrap";
 import { postSlug } from "../utils/slugExpression";
@@ -71,14 +70,12 @@ const HomeBlogPosts = (props) => {
           {posts.slice(0, numPost).map((post, index) => {
             const {
               title,
-              body: { value, summary },
+              body: { summary },
               relationships: {
                 field_header_image: image,
                 field_blog_post_tags: tags,
               },
             } = post;
-
-            const main = { __html: value };
 
             const slug = postSlug(title);
             const cardImage = getImage(image.localFile.childImageSharp);
@@ -239,13 +236,6 @@ const Wrapper = styled.div`
   .card-post-container {
     height: 100%;
     padding: 17px 16px;
-  }
-
-  .card-post-container:hover {
-    /* border-left: 0;
-    border-right: 0;
-    border-bottom: 0;
-    border-top: 0; */
   }
 
   .border-gradient {

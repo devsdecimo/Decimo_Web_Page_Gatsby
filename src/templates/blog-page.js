@@ -2,7 +2,6 @@ import { graphql, Link } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout";
 import styled from "styled-components";
-import slugify from "slugify";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { SEO } from "../components/seo";
 import Newsletter from "../components/Newsletter";

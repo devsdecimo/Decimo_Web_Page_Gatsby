@@ -95,7 +95,7 @@ const BlogPost = ({ data }) => {
 export const Head = ({ data }) => (
   <SEO
     title={`${data.alias1.nodes[0].title} - Decimo Technology Solutions`}
-    description={`Blog post ${data.alias1.nodes[0].title} of Decimo Technology Solutions`}
+    description={`${data.alias1.nodes[0].title}`}
   />
 );
 

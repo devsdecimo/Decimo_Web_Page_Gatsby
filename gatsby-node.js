@@ -1,9 +1,5 @@
 const { postSlug } = require("./src/utils/slugExpression");
 const path = require("path");
-const slugify = require("slugify");
-const { pathPrefix } = require("./gatsby-config");
-/* const express = require('express');
-const sendEmail = require('./src/api/sendEmail'); */
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -32,7 +28,6 @@ async function createTags({ graphql, actions }) {
 
   data.allNodeBlogPost.nodes.forEach((post) => {
     post.relationships.field_blog_post_tags.forEach((tag) => {
-      // const tagSlug = slugify(tag.name, { lower: true });
       const tagSlug = postSlug(tag.name);
       actions.createPage({
         path: `/tag/${tagSlug}`,
@@ -63,7 +58,6 @@ async function createBlogPosts({ graphql, actions }) {
     }
   `);
   data.allNodeBlogPost.nodes.forEach((post) => {
-    // const slugTag = slugify(post.title, { lower: true });
     const slugTag = postSlug(post.title);
     const tagNames = post.relationships.field_blog_post_tags.map(
       (tag) => tag.name
@@ -81,9 +75,6 @@ async function createBlogPosts({ graphql, actions }) {
     });
   });
   return;
-  // if (errors) {
-  //     throw new Error("there was an error");
-  //   }
 }
 
 // This funtion create pages of blog page
@@ -115,10 +106,6 @@ async function createBlogPages({ graphql, actions }) {
   });
 
   return;
-
-  // if (errors) {
-  //     throw new Error("there was an error");
-  //   }
 }
 
 exports.createPages = async ({ graphql, actions }) => {
