@@ -57,7 +57,7 @@ function FormBlogDetail(){
     }
 
     function handleCheckboxChange(event){
-        setCheckbox(event.target.value);
+        setCheckbox(event.target.checked);
     }
 
     useEffect(() => {
@@ -76,9 +76,6 @@ function FormBlogDetail(){
                 text: 'Please accept the terms of Use and Privacy Policy',
             });
             return;
-        }else{
-            setError(false);
-            setCheckbox(false);
         }
       
         const result = await addToMailchimp(email, {
@@ -137,7 +134,7 @@ function FormBlogDetail(){
                             <textarea className="message-input-style" type="text" value={message} onChange={handleMessageChange} placeholder={messageLabelInput} required/>
                         </div>
                         <div className="checkbox-container">
-                            <input className="checkbox-style" type="checkbox" value={checkbox} onChange={handleCheckboxChange} id="checkbox" required/>
+                            <input className="checkbox-style" type="checkbox" value={checkbox} onChange={handleCheckboxChange} id="checkbox"/>
                             <label for="checkbox" className="checkbox-text-style">
                                 I agree to <Link to='/privacy-policy' className="privacy-link-style">Privacy Policy</Link> and <Link to='/privacy-policy' className="terms-link-style">Terms of Use</Link>
                             </label>

@@ -58,7 +58,7 @@ function ContactForm () {
   }
 
   function handleCheckboxChange(event){
-    setCheckbox(event.target.value);
+    setCheckbox(event.target.checked);
   }
 
   useEffect(() => {
@@ -78,9 +78,6 @@ function ContactForm () {
         text: 'Please accept the Terms of Use and Privacy Policy',
       });
       return;
-    }else{
-      setError(false);
-      setCheckbox(false);
     }
   
     const result = await addToMailchimp(email, {
@@ -90,13 +87,13 @@ function ContactForm () {
     }, {
       allow_duplicates: true,
     });
+
   
     if (result.result === 'success') {
       setSuccess(true);
       setName('');
       setEmail('');
       setMessage('');
-      setCheckbox(false);
       setError(false);
       Swal.fire({
         position: 'center',
@@ -116,6 +113,7 @@ function ContactForm () {
         title: 'Error',
         text: 'There was an error sending the form. Please try again',
       });
+      return;
     }
   }
 

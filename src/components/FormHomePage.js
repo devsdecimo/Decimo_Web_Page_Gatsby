@@ -57,7 +57,7 @@ function FormHomePage (){
     }
 
     function handleCheckboxChange(event){
-        setCheckbox(event.target.value);
+        setCheckbox(event.target.checked);
     }
 
     useEffect(() => {
@@ -76,9 +76,6 @@ function FormHomePage (){
                 text: 'Please accept the Terms of Use and Privacy Policy',
             });
             return;
-        }else{
-            setError(false);
-            setCheckbox(false);
         }
       
         const result = await addToMailchimp(email, {
@@ -94,7 +91,6 @@ function FormHomePage (){
             setName('');
             setEmail('');
             setMessage('');
-            setCheckbox(false);
             setError(false);
             Swal.fire({
                 position: 'center',
