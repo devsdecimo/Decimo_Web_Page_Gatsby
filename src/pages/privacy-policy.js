@@ -238,6 +238,7 @@ export const query = graphql`
   query {
     allNodePrivacyPolicy {
       nodes {
+        title
         field_body {
           value
         }
