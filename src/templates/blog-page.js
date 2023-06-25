@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 import Newsletter from "../components/Newsletter";
 import { Container, Row, Col } from "react-bootstrap";
 import PaginationBlog from "../components/PaginationBlog";
@@ -99,19 +99,18 @@ const BlogPage = ({ data, pageContext }) => {
   );
 };
 
-export const Head = ({ pageContext }) => (
-  <SEO
+export const Head = ({ data, pageContext }) => (
+  <Seo
     title={`Blog ${
       pageContext.currentPage === 0 ? "1" : pageContext.currentPage
     } - Decimo Technology Solutions`}
     pathname={`blog/${
       pageContext.currentPage === 0 ? "1" : pageContext.currentPage
     }`}
-    description={`Blog page ${
-      pageContext.currentPage === 0 ? "1" : pageContext.currentPage
-    } of Decimo Technology Solutions`}
+    description={`${data.allNodeBlogPage.nodes[0].field_blog_page_subtitle}`}
   />
 );
+
 export const query = graphql`
   query ($skip: Int!, $limit: Int!) {
     allNodeBlogPage {

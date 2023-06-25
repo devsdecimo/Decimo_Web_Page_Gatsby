@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 import SimilarPost from "../components/SimilarPost";
 import { readingTime } from "../utils/readingTime";
 import { postSlug } from "../utils/slugExpression";
@@ -93,9 +93,10 @@ const BlogPost = ({ data }) => {
 };
 
 export const Head = ({ data }) => (
-  <SEO
+  <Seo
     title={`${data.alias1.nodes[0].title} - Decimo Technology Solutions`}
-    description={`${data.alias1.nodes[0].title}`}
+    pathname={`blog/${postSlug(data.alias1.nodes[0].title)}/`}
+    description={`${data.alias1.nodes[0].body.summary}`}
   />
 );
 

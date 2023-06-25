@@ -83,6 +83,9 @@ async function createBlogPages({ graphql, actions }) {
     query getTotalNodePosts {
       allNodeBlogPost {
         totalCount
+        nodes {
+          field_blog_post_subtitle
+        }
       }
     }
   `);

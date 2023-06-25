@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import styled from "styled-components";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { postSlug } from "../utils/slugExpression";
+import { Seo } from "../components/seo";
 
 const TagTemplate = ({ data, pageContext }) => {
   const posts = data.allNodeBlogPost.nodes;
@@ -60,6 +61,13 @@ const TagTemplate = ({ data, pageContext }) => {
     </Layout>
   );
 };
+
+export const Head = ({ data, pageContext }) => (
+  <Seo
+    title={`${pageContext.tag} - Decimo Technology Solutions`}
+    pathname={`tag/${postSlug(data.allNodeBlogPost.nodes[0].title)}/`}
+  />
+);
 
 export const query = graphql`
   query ($tag: String) {

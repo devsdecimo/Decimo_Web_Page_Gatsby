@@ -7,7 +7,7 @@ import ServicesandTechs from "../components/ServicesandTechs";
 import { graphql } from "gatsby";
 import PrimarySection from "../components/PrimarySection";
 import Projects from "../components/Projects";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 import OpenPositions from "../components/OpenPositions";
 import HomeBlogPosts from "../components/HomeBlogPosts";
 import FormBlogPage from "../components/FormBlogPage";
@@ -54,6 +54,14 @@ const IndexPage = ({ data = [] }) => {
   );
 };
 
+export const Head = ({ data }) => (
+  <Seo
+    title=""
+    pathname=""
+    description={`${data.allNodeHome.nodes[0].field_home_subtitle}`}
+  />
+);
+
 export default IndexPage;
 
 export const query = graphql`
@@ -92,10 +100,3 @@ export const query = graphql`
     }
   }
 `;
-export const Head = () => (
-  <SEO
-    title="Decimo Technology Solutions"
-    pathname=""
-    description="Home page of Decimo Technology Solutions"
-  />
-);

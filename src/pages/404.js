@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 import styled from "styled-components";
 import { graphql } from "gatsby";
 import { Link } from "gatsby";
-
+import {Seo} from "../components/seo"
 
 const NotFoundPage = ({data = []}) => {
 
@@ -38,6 +38,14 @@ const NotFoundPage = ({data = []}) => {
     </Wrapper>
   )
 }
+
+export const Head = ({ data }) => (
+  <Seo
+    title={`${data.allNodeError.nodes[0].field_error_title} - Decimo Technology Solutions`}
+    pathname={`404/`}
+    description={`${data.allNodeError.nodes[0].field_error_subtitle}`}
+  />
+);
 
 const Wrapper = styled.main`
 
@@ -107,6 +115,3 @@ export const query = graphql`
 `
 
 export default NotFoundPage
-
-
-export const Head = () => <title>Not found</title>

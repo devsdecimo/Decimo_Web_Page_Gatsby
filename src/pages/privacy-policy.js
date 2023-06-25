@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout';
 import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-
+import { Seo } from "../components/seo";
 const PrivacyPolicy = ({data = []}) => {
 
   //Destructuracion y declaracion de los nodos que se traen con graphql
@@ -51,6 +51,14 @@ const PrivacyPolicy = ({data = []}) => {
     </PrivacyPolicyStyles>
   );
 }
+
+export const Head = ({ data }) => (
+  <Seo
+    title={`${data.allNodePrivacyPolicy.nodes[0].title} - Decimo Technology Solutions`}
+    pathname={`privacy-policy/`}
+    description={`${data.allNodePrivacyPolicy.nodes[0].field_body.value}`}
+  />
+);
 
 const PrivacyPolicyStyles = styled.main`
 

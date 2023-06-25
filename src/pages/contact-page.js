@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import ContactForm from '../components/ContactForm'
-
+import {Seo} from '../components/seo'
 const ContactPage = ({data = []}) => {
 
     //Destructuracion y declaracion de los nodos que se traen con graphql
@@ -41,6 +41,14 @@ const ContactPage = ({data = []}) => {
         </Wrapper>
     )
 }
+
+export const Head = ({ data }) => (
+  <Seo
+    title={`${data.allNodeContact.nodes[0].field_contact_header_title} - Decimo Technology Solutions`}
+    pathname={`contact-page/`}
+    description={`${data.allNodeContact.nodes[0].field_contact_footer_title}`}
+  />
+);
 
 const Wrapper = styled.div`
 
