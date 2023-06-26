@@ -58,7 +58,7 @@ function FormBlogPage() {
   }
 
   function handleCheckboxChange(event) {
-    setCheckbox(event.target.value);
+    setCheckbox(event.target.checked);
   }
 
   useEffect(() => {
@@ -77,9 +77,6 @@ function FormBlogPage() {
         text: "Please accept the Terms of Use and Privacy Policy",
       });
       return;
-    } else {
-      setError(false);
-      setCheckbox(false);
     }
 
     const result = await addToMailchimp(
@@ -96,10 +93,9 @@ function FormBlogPage() {
 
     if (result.result === "success") {
       setSuccess(true);
-      setName("");
-      setEmail("");
-      setMessage("");
-      setCheckbox(false);
+      setName('');
+      setEmail('');
+      setMessage('');
       setError(false);
       Swal.fire({
         position: "center",
