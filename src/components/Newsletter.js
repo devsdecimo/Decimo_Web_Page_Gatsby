@@ -24,9 +24,9 @@ async function enviarDatos(datos) {
       }
     );
     const responseJson = await response.json();
-    console.log("Respuesta del server", responseJson);
+    // console.log("Respuesta del server", responseJson);
   } catch (error) {
-    console.error("Error al enviar los datos", error);
+    // console.error("Error al enviar los datos", error);
   }
 }
 const Newsletter = () => {
