@@ -115,7 +115,11 @@ export const query = graphql`
           field_header_image {
             localFile {
               childImageSharp {
-                gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+                gatsbyImageData(
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                  quality: 100
+                )
               }
             }
           }
@@ -150,7 +154,11 @@ export const query = graphql`
           field_header_image {
             localFile {
               childImageSharp {
-                gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+                gatsbyImageData(
+                  placeholder: TRACED_SVG
+                  layout: CONSTRAINED
+                  quality: 100
+                )
               }
             }
           }
@@ -258,6 +266,7 @@ const Wrapper = styled.div`
 
   .gatsby-image-header {
     width: 100%;
+    image-rendering: auto;
   }
 
   .blog-post-body {
