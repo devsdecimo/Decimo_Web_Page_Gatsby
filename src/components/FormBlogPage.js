@@ -74,7 +74,7 @@ function FormBlogPage() {
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Please accept the Terms of Use and Privacy Policy",
+        text: "Please accept the Privacy Policy and the Terms of Use",
       });
       return;
     }

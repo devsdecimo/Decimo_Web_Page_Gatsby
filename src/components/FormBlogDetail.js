@@ -64,20 +64,20 @@ function FormBlogDetail(){
         setTimestamp(new Date().toISOString());
     }, [name, email, message, checkbox]);
 
-    //Funcion para poder enviar el formulario de contacto con mailchimp 
+    //Funcion para poder enviar el formulario de contacto con mailchimp
     async function handleSubmit(event) {
         event.preventDefault();
-      
+
         if (!checkbox) {
             setError(true);
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please accept the terms of Use and Privacy Policy',
+                text: 'Please accept the Privacy Policy and the Terms of Use',
             });
             return;
         }
-      
+
         const result = await addToMailchimp(email, {
             NAME: name,
             MESSAGE: message,
@@ -85,7 +85,7 @@ function FormBlogDetail(){
         }, {
             allow_duplicates: true,
         });
-      
+
         if (result.result === 'success') {
             setSuccess(true);
             setName('');
@@ -101,7 +101,7 @@ function FormBlogDetail(){
                 showConfirmButton: false,
                 timer:3000
             });
-            window.setTimeout(function(){ 
+            window.setTimeout(function(){
                 indow.location.reload();
             } ,3000);
         } else {
