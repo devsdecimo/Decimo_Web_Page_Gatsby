@@ -16,7 +16,7 @@ module.exports = {
     title: `Decimo Technology Solutions`,
     siteUrl: `https://decimotechnology.com/`,
     description: `We believe in building strong partnerships with our clients. We work closely with you to understand your vision, goals, and requirements, ensuring that we deliver a solution that aligns perfectly with your business objectives. We thrive on innovation and stay up-to-date with the latest technologies and trends in the industry. Our client’s satisfaction is at the core of everything we do. We value open and transparent communication, and we strive to exceed your expectations in terms of project delivery, support, and customer service. Your success is our success.`,
-    icon: "./src/images/decimologo.png",
+    icon: "src/images/icon.png",
   },
   plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
@@ -30,7 +30,7 @@ module.exports = {
       "path": "./src/images/"
     },
     __key: "images"
-  }, 
+  },
   {
     resolve: 'gatsby-source-filesystem',
     options: {
