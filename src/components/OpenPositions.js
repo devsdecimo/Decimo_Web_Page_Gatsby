@@ -54,7 +54,6 @@ const OpenPositions = (props) => {
       useStaticQuery(query).allNodeOpenPositionsSection.nodes[0]
         .field_description_section.value,
   };
-  console.log(cardData[0].field_job_area);
   return (
     <Wrapper>
       <div className="background-gradient-color">
